@@ -1,0 +1,29 @@
+.add_section button{
+    outline: none;
+    align-self: center;
+}
+
+.preview_category{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+
+
+
+.preview_item{
+    width: inherit;
+    padding: 0;
+    margin-top: var(--spacer-sm);
+ background-color: var(--colors-accent-light);
+ border-radius: var(--button-border-radius);
+}
+
+@media all and (min-width: 600px){
+    td{
+        padding-left: var(--spacer--med);
+    }
+}
+
