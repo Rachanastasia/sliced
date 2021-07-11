@@ -1,6 +1,8 @@
 import Head from 'next/head'
 import Footer from '../components/Footer'
 import Header from '../components/Header'
+import AboutSliced from '../components/AboutSliced'
+import Slicer from '../components/Slicer/index'
 
 
 export default function Home() {
@@ -13,7 +15,8 @@ export default function Home() {
       </Head>
       <main>
         <Header />
-        
+        <AboutSliced />
+        <Slicer />
       </main>
 
       <Footer />
