@@ -1,0 +1,6 @@
+.button{
+    height: var(--height-1);
+    width: 100%;
+    background-color:var(--colors-accent-bold);
+    margin-bottom: var(--spacer-2);
+}

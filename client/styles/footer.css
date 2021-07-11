@@ -23,14 +23,15 @@ footer a{
     justify-content: center;
     align-items: center;
     outline: 0;
+    color: var(--colors-white);
 }
 
 footer a:hover .icon,
 footer a:focus .icon{
-    color: var(--colors-accent);
+    color: var(--colors-accent-bold);
 }
 
 footer p{
     padding: 0;
-    font-size: var(--font-size-sm);
+    font-size: var(--text-size-1);
 }

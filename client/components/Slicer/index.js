@@ -1,11 +1,10 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useReducer } from 'react';
 import { parseTextInput } from '../../utils/parseRecipeInput'
 
 import ScaledIngredients from './ScaledIngredients'
 import IngredientInput from './IngredientInput';
-import ErrorText from './ErrorText';
-
-import '../../styles/Slicer.module.css'
+import Button from '../Button'
+import styles from '../../styles/Slicer.module.css'
 
 function AddRecipe({ingredients=[]}) {
     // const [title, setTitle] = useState('');
@@ -45,7 +44,8 @@ function AddRecipe({ingredients=[]}) {
     //TODO: Have sample recipe that can copy to clipboard
 
     return (
-        <section className='add_section' >
+        <section className={styles.slicer_wrapper} >
+           <Button text='sample recipe' onClick={()=>{}} />
            <IngredientInput />
            {/* <ErrorText error='hi' /> */}
                 {!ingredients.length

@@ -38,6 +38,7 @@ main{
     flex-direction: column;
     width: 100%;
     flex: 1;
+    align-items: center;
 }
 
 h2, h3{

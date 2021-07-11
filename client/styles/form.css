@@ -51,7 +51,9 @@ input[type=password]:focus, textarea:focus{
 
 textarea:focus,
 textarea:active{
-    border:var(--border-width) solid var(--colors-accent-bright);
+    outline :var(--border-width) solid var(--colors-accent-bold);
+    border :var(--border-width) solid var(--colors-accent-bold);
+
 }
 
 .form_button {

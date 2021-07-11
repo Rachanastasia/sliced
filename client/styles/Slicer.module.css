@@ -2,9 +2,15 @@
     display: none;
 }
 
+.slicer_wrapper{
+    width: inherit;
+    height: 100%;
+    padding: 0 var(--spacer-2);
+    max-width: 750px;
+}
+
 .slicer_input{
-    padding: 0;
+    padding: var(--spacer-1);
     margin: 0;
-    max-width: 500px;
     width: 100%;
 }
