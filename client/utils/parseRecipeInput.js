@@ -1,19 +1,55 @@
 import types from './unitNameConversions.json';
 
-export function parseTextInput(text) {
-  /*This function parses the text from the textarea ingredient input onChange
+//TODO: Split into multiple functions that are outside method. 
+
+//make a factory function that returns object 
+//add object to array
+//have array for 
+
+export function parseRecipeInput(input) {
+  /*This function parses the input from the inputarea ingredient input onChange
   By splitting the numbers and valid types from the rest of the words
   with O(n) time complexity */
 
-  let word = '';
-  let amount = null;
-  let unit = null;
-  let ingredient_name = null;
-  let arr = [];
+  let parsedIngredients = []
+  let currentIngredient = ''
+  
+  let currentAmount = null
+  let currentUnit = null
+  let currentTitle = null
 
-  const createObject = (amount = null, unit = null, ingredient_name) => ({ amount, unit, ingredient_name });
+  const createIngredient = (amount = null, unit = null, ingredient_name) => ({ amount, unit, ingredient_name });
 
-  const sortWord = (word) => {
+
+
+  for (let i = 0; i < input.length; i++) {
+    //loops through string once
+    if (input[i] === ' ' || input[i] === '\n') {
+      sortWord(word);
+      word = '';
+
+      //if there is a next char
+      //and it is a number or new line
+      //and there is already an ingredeint name
+      //add object to array
+      if (input[i + 1]) {
+        if (input[i + 1].match(/\d/) || input[i] === '\n') {
+          if (ingredient_name) {
+            const obj = createObject(amount, unit, ingredient_name);
+            arr.push(obj);
+            amount = null;
+            unit = null;
+            ingredient_name = null;
+          }
+        }
+      }
+    }
+    else {
+      word += input[i];
+    }
+  }
+
+  function sortWord (word){
     //sorts words (after space or line break)
     //into amount, unit, or ingredient_name
     word = word.toLowerCase()
@@ -39,37 +75,13 @@ export function parseTextInput(text) {
     }
   }
 
-  for (let i = 0; i < text.length; i++) {
-    //loops through string once
-    if (text[i] === ' ' || text[i] === '\n') {
-      sortWord(word);
-      word = '';
-
-      //if there is a next char
-      //and it is a number or new line
-      //and there is already an ingredeint name
-      //add object to array
-      if (text[i + 1]) {
-        if (text[i + 1].match(/\d/) || text[i] === '\n') {
-          if (ingredient_name) {
-            const obj = createObject(amount, unit, ingredient_name);
-            arr.push(obj);
-            amount = null;
-            unit = null;
-            ingredient_name = null;
-          }
-        }
-      }
-    }
-    else {
-      word += text[i];
-    }
-  }
-
   if (ingredient_name) {
     const obj = createObject(amount, unit, ingredient_name);
     arr.push(obj);
+
   }
 
   return arr;
 }
+
+

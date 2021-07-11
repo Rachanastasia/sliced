@@ -1,56 +1,40 @@
 import React, { useReducer } from 'react';
-import { parseTextInput } from '../../utils/parseRecipeInput'
+import { parseRecipeInput } from '../../utils/parseRecipeInput'
 
 import ScaledIngredients from './ScaledIngredients'
 import IngredientInput from './IngredientInput';
 import Button from '../Button'
 import styles from '../../styles/Slicer.module.css'
+import {SET_TITLE, SET_INGREDIENTS} from '../../constants.js'
 
-function AddRecipe({ingredients=[]}) {
-    // const [title, setTitle] = useState('');
-    // const [ingredients, setIngredients] = useState('');
-    // const [preview, setPreview] = useState(false);
-
-    // useEffect(() => { }, [preview])
-
-    // const handleFormSubmit = async (e, recipe) => {
-    //     e.preventDefault();
-    //     try {
-    //         if (!title.length) {
-    //             setError('Please enter a title')
-    //             return true;
-    //         }
-    //         if (!ingredients.length) {
-    //             setError('Please enter ingredients')
-    //             return true;
-    //         }
-    //         //await UserRecipesApiService.createRecipe(recipe)
-    //         //setUpdate(!update)
-    //         //props.history.push('/recipe')
-    //     }
-    //     catch (error) {
-    //         console.log(error)
-    //     }
-
-    // }
+function reducer(state, action){
+    if (action.type === SET_TITLE){
+        return {...state, title: action.title}
+    } else if (action.type === SET_INGREDIENTS) {
+        const parsedIngredients = parseRecipeInput(input)
+        return {title: state.title, ingredients: action.input, parsedIngredients}
+    } else {
+        return state
+    }
+}
 
 
-
-    // const recipe = {
-    //     title: title,
-    //     ingredients: ingredients,
-    // }
+function AddRecipe({ingredients='', isPreview=true, onSubmit=()=>{}}) {
+   const [state, dispatch] = useReducer(reducer, {title: null, ingredients: '', parsedIngredients: []})
 
     //TODO: Have sample recipe that can copy to clipboard
+    //TODO: Make title input for if not preview
+
+    const setIngredients = (input) => dispatch({type: SET_INGREDIENTS, input })
+    const setTitle = (title) => dispatch({type: SET_TITLE, title})
 
     return (
         <section className={styles.slicer_wrapper} >
-           <Button text='sample recipe' onClick={()=>{}} />
-           <IngredientInput />
+           {isPreview && <Button text='sample recipe' onClick={()=>{}} />}
+           <IngredientInput ingredients={state.ingredients} setIngredients={setIngredients}/>
+           {!isPreview && <Button text='submit' onClick={onSubmit} />}
            {/* <ErrorText error='hi' /> */}
-                {!ingredients.length
-                    ? null
-                    : <ScaledIngredients ingredients={ingredients} />}
+           {!state?.parsedIngredients?.length && <ScaledIngredients ingredients={state.parsedIngredients} />}
         </section >
     )
 }
