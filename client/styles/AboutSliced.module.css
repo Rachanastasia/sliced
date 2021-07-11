@@ -1,0 +1,15 @@
+.about_wrapper {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+
+.subtitle{
+    padding: var(--spacer-1) 0 var(--spacer-2);
+}
+
+.about_text{
+    color: var(--colors-gray);
+}

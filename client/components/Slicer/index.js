@@ -47,11 +47,10 @@ function AddRecipe({ingredients=[]}) {
     return (
         <section className='add_section' >
            <IngredientInput />
-           <ErrorText error='hi' />
+           {/* <ErrorText error='hi' /> */}
                 {!ingredients.length
                     ? null
                     : <ScaledIngredients ingredients={ingredients} />}
-                <button type='submit'>Submit</button>
         </section >
     )
 }

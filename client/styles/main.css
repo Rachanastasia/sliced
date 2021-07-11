@@ -6,20 +6,38 @@
     box-sizing: border-box;
 }
 
+body{
+    height: 100vh;
+}
+
+#__next{
+    min-height: 100vh;
+    height: 100vh;
+    min-width: 300px;
+}
+
+#App{
+    height: 100%;
+    overflow-x: hidden;
+}
 
 main{
-  min-height: 100vh;
+  height: inherit;
   width: inherit;
   display: flex;
-  align-items: center;
+  align-items: stretch;
   flex-direction: column;
   font-family: 'Raleway', sans-serif;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
+  justify-content: space-between;
   font-family: var(--font);
   line-height: var(--line-spacing);
+}
+
+.screen_content{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    flex: 1;
 }
 
 h2, h3{
@@ -68,15 +86,7 @@ button:hover, .button:hover{
 }
 
 
-section{
-    display: flex;
-    flex-direction: column;
-    width: inherit;
-    padding: var(--spacer-sm) var(--spacer-lg);
-    justify-content: flex-start;
-    height: 100%;
-    color: var(--colors-black);
-}
+
 
 /*section padding increased on first and last items*/
 /* section:first-of-type{

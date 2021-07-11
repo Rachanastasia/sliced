@@ -7,7 +7,7 @@ import Slicer from '../components/Slicer/index'
 
 export default function Home() {
   return (
-    <div>
+    <div id='App'>
       <Head>
         <title>Sliced</title>
         <meta name="description" content="Scale your recipes" />
@@ -15,11 +15,14 @@ export default function Home() {
       </Head>
       <main>
         <Header />
-        <AboutSliced />
-        <Slicer />
+        <div className='screen_content'>
+          <AboutSliced />
+          <Slicer />
+        </div>
+        <Footer />
       </main>
 
-      <Footer />
+      
     </div>
   )
 }
