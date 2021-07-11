@@ -5,6 +5,7 @@ import ScaledIngredients from './ScaledIngredients'
 import IngredientInput from './IngredientInput';
 import ErrorText from './ErrorText';
 
+import '../../styles/Slicer.module.css'
 
 function AddRecipe({ingredients=[]}) {
     // const [title, setTitle] = useState('');
