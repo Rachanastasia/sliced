@@ -1,19 +1,28 @@
 import React from 'react'
+import { useScaledIngredient } from '../../hooks/useScaledIngredient'
 
-function Preview(props) {
+
+export default function ScaledIngredients({ingredients, constant}) {
   return (
+    <>
     <ul className='ingredients_wrapper'>
-      {props.ingredients.map((ing, index) =>
-        <li key={index} className=' preview_item'>
-          <p className='ing_amount'>{ing.amount}</p>
-          <p className='imt_unit'>{ing.unit}</p>
-          <p className='ing_title'>{ing.ingredient_name}</p>
-        </li>
-      )}
-
+      {ingredients.map(ingredient => <ScaledIngredient inputIngredient={ingredient} constant={constant}/>)}
     </ul>
+    </>
 
   )
 }
 
-export default Preview
+function ScaledIngredient({inputIngredient, constant}){
+const startingIngredient = {startingAmount: inputIngredient.amount, startingUnit: inputIngredient.unit}
+
+
+const scaledIngredient = useScaledIngredient(startingIngredient, constant)
+console.log('THIS IS STARTING INGREDEINT', scaledIngredient)
+
+  return (
+    <li  className=' preview_item'>
+          <p className='ing_title'>{inputIngredient?.title}</p>
+      </li>
+  )
+}

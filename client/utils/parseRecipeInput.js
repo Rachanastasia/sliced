@@ -12,7 +12,7 @@ export function parseRecipeInput(input) {
   with O(n) time complexity */
 
   let parsedIngredients = []
-  let currentIngredient = ''
+  let currentWordFromInput = ''
   
   let currentAmount = null
   let currentUnit = null
@@ -25,8 +25,8 @@ export function parseRecipeInput(input) {
   for (let i = 0; i < input.length; i++) {
     //loops through string once
     if (input[i] === ' ' || input[i] === '\n') {
-      sortWord(word);
-      word = '';
+      findCurrentWordType(currentWordFromInput);
+      currentWordFromInput = '';
 
       //if there is a next char
       //and it is a number or new line
@@ -35,7 +35,7 @@ export function parseRecipeInput(input) {
       if (input[i + 1]) {
         if (input[i + 1].match(/\d/) || input[i] === '\n') {
           if (ingredient_name) {
-            const obj = createObject(amount, unit, ingredient_name);
+            const obj = createIngredient(amount, unit, ingredient_name);
             arr.push(obj);
             amount = null;
             unit = null;
@@ -45,13 +45,13 @@ export function parseRecipeInput(input) {
       }
     }
     else {
-      word += input[i];
+      currentWordFromInput += input[i];
     }
   }
 
-  function sortWord (word){
-    //sorts words (after space or line break)
-    //into amount, unit, or ingredient_name
+  //is word 
+
+  function findCurrentWordType(word){
     word = word.toLowerCase()
     const regex = /\d/
     if (word.match(regex)) {
