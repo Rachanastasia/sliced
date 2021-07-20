@@ -26,6 +26,7 @@ export const UNITS = {
     "tsp": TEASPOON,
     "tsps.": TEASPOON,
     "tsp.": TEASPOON,
+    "t": TEASPOON,
     "oz": OUNCE,
     "ounce": OUNCE,
     "ounces": OUNCE,

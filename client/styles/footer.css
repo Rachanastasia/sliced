@@ -7,7 +7,6 @@ footer{
     min-height: 3rem;
     background-color: var(--colors-black);
     color: var(--colors-white);
-    padding: var(--spacer-sm);
 }
 
 footer .icon{

@@ -1,0 +1,1 @@
+export const sample = `1 cup rice 2 cups water 1 fish 1 t salt`
