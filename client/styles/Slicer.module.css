@@ -50,3 +50,12 @@
     align-items: flex-start;
     align-self: flex-start;
 }
+
+.clear_button{
+    width: 100%;
+    background-color: var(--colors-white);
+    color: var(--colors-accent-bold);
+    border: 2px solid var(--colors-accent-bold);
+
+
+}

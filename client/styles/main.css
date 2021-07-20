@@ -69,22 +69,18 @@ button, .button{
     outline: 0;
     font-size: var(--font-size-sm);
     width: var(--button-width);
-    height: var(--button-height);
     background-color: var(--colors-accent);
     color: var(--colors-white);
     border: var(--border-width) solid var(--colors-accent);
-    padding: var(--spacer-tiny);
+    padding: var(--spacer-1);
     border-radius: var(--button-border-radius);
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: var(--spacer-lg);
+    margin-top: calc(2 * var(--spacer-1));
 }
 
-button:focus, .button:focus,
-button:hover, .button:hover{
-    background-color: var(--colors-accent-dark);
-}
+
 
 
 
