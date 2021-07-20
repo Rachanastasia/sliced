@@ -1,8 +1,9 @@
 .about_wrapper {
-    padding: 1rem;
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
+    width: inherit;
+    max-width: 750px;
 }
 
 

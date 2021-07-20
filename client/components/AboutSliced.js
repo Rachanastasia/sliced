@@ -10,7 +10,7 @@ export default function AboutSliced(){
             <h2 className='title'>Welcome to Sliced!</h2>
             <span className={styles.subtitle}>Scale your recipes</span>
 
-            <span className={styles.about_text}>Copy and paste one of your favorite recipes or press the 'Copy Recipe' button and paste below.</span>
+            <span className={styles.about_text}>Copy and paste one of your favorite recipes or view the sample recipe below.</span>
         </div>
     )
 }

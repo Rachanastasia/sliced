@@ -16,8 +16,8 @@ export function transformInputIntoIngredientData(input){
   const currentWordIsUnit = ()=>!!UNITS[currentWord] 
 
 
-  for (let i = 0; i < input.length; i++) {
-    const currentChar = input[i].toLowerCase()
+  for (let i = 0; i <= input.length; i++) {
+    const currentChar = input[i]?.toLowerCase()
     if (currentChar === ' ' || currentChar === '\n') {
       validateIngredientAndAddToDataIngredients()
       sortCurrentWord()
@@ -43,7 +43,7 @@ export function transformInputIntoIngredientData(input){
 
   function transformParsedIngredientIntoDataIngredient({ingredient, amount, unit}){
     const unitData = unit ? UNITS[unit] : {ml: 1, name: null}
-    const amountFloat = transformParsedAmountToFloat(amount)
+    const amountFloat = Number(transformParsedAmountToFloat(amount).toFixed(2))
     const amountInMl = amountFloat * unitData.ml
     return {
       unit: unitData,
@@ -64,17 +64,13 @@ export function transformInputIntoIngredientData(input){
     if (indexOfSlash?.index) {
       const denominator = Number(amount[indexOfSlash.index + 1])
       const numerator = Number(amount[indexOfSlash.index - 1])
-
-      if (numerator && denominator){
-        const fraction = numerator / denominator
-        decimal = Number(fraction.toFixed(3))
-      } 
-    }
-    if (amount.length < 4) return decimal
-    else {
       const restOfNumber = amount.slice(0, indexOfSlash.index - 2)
       const wholeNumber = Number(restOfNumber)
-      return decimal ? wholeNumber + decimal : wholeNumber
+      if (numerator && denominator){
+        const fraction = numerator / denominator
+        decimal = Number(fraction.toFixed(2))
+        return decimal && wholeNumber ? wholeNumber + decimal : decimal
+      } 
     }
   }
 
