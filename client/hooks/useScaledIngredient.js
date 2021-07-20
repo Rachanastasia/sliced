@@ -10,9 +10,8 @@ import {getUnitFromString, getUnitAndAmountFromMlAmount} from '../utils/units.js
 //this shouldn't scale from the beginning, it should take in current
 
 
-export function useScaledIngredient({startingAmount=0, startingUnit=''}, constant=1) {
-    const unit = getUnitFromString(startingUnit)
-    const amount = {number: startingAmount}
+export function useScaledIngredient({amount, unit}, constant=1) {
+ 
     const [ingredient, setIngredient] = useState({})
 
     //startingUnit * ml * constant

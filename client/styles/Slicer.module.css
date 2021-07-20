@@ -14,3 +14,32 @@
     margin: 0;
     width: 100%;
 }
+
+.add_section button{
+    outline: none;
+    align-self: center;
+}
+
+.preview_ingredient {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 60%;
+    
+}
+
+.preview_ingredient_item {
+    width: inherit;
+    padding: var(--spacer-2) 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.preview_ingredients_wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}

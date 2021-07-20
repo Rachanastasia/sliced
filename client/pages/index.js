@@ -30,7 +30,7 @@ function Page(){
       <div className='screen_content'>
           <AboutSliced />
           <Slicer />
-        </div>å
+        </div>
     </>
   )
 }
