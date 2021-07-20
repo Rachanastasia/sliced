@@ -15,14 +15,22 @@ export default function Home() {
       </Head>
       <main>
         <Header />
-        <div className='screen_content'>
-          <AboutSliced />
-          <Slicer />
-        </div>
+        <Page />
         <Footer />
       </main>
-
-      
     </div>
+  )
+}
+
+//FOR TESTING
+//FIND A PLACE FOR THE MAIN SCREEN
+function Page(){
+  return (
+    <>
+      <div className='screen_content'>
+          <AboutSliced />
+          <Slicer />
+        </div>å
+    </>
   )
 }

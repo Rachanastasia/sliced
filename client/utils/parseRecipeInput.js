@@ -1,87 +1,97 @@
-import types from './unitNameConversions.json';
+import {UNITS} from './units'
 
-//TODO: Split into multiple functions that are outside method. 
 
-//make a factory function that returns object 
-//add object to array
-//have array for 
+export function transformInputIntoIngredientData(input){
+  const EMPTY_INGREDIENT = {
+    amount: null,
+    unit: null,
+    ingredient: null
+  }
+  let dataIngredients = []
+  let currentWord = ''
+  let temporaryParsedIngredient = EMPTY_INGREDIENT
 
-export function parseRecipeInput(input) {
-  /*This function parses the input from the inputarea ingredient input onChange
-  By splitting the numbers and valid types from the rest of the words
-  with O(n) time complexity */
-
-  let parsedIngredients = []
-  let currentWordFromInput = ''
-  
-  let currentAmount = null
-  let currentUnit = null
-  let currentTitle = null
-
-  const createIngredient = (amount = null, unit = null, ingredient_name) => ({ amount, unit, ingredient_name });
-
+  const regex = /\d/
+  const currentWordIsDigit = ()=>currentWord.match(regex)
+  const currentWordIsUnit = ()=>!!UNITS[currentWord] 
 
 
   for (let i = 0; i < input.length; i++) {
-    //loops through string once
-    if (input[i] === ' ' || input[i] === '\n') {
-      findCurrentWordType(currentWordFromInput);
-      currentWordFromInput = '';
-
-      //if there is a next char
-      //and it is a number or new line
-      //and there is already an ingredeint name
-      //add object to array
-      if (input[i + 1]) {
-        if (input[i + 1].match(/\d/) || input[i] === '\n') {
-          if (ingredient_name) {
-            const obj = createIngredient(amount, unit, ingredient_name);
-            arr.push(obj);
-            amount = null;
-            unit = null;
-            ingredient_name = null;
-          }
-        }
-      }
-    }
-    else {
-      currentWordFromInput += input[i];
+    const currentChar = input[i].toLowerCase()
+    if (currentChar === ' ' || currentChar === '\n') {
+      validateIngredientAndAddToDataIngredients()
+      sortCurrentWord()
+      currentWord = ''
+    } else {
+      currentWord = currentWord + currentChar
     }
   }
 
-  //is word 
 
-  function findCurrentWordType(word){
-    word = word.toLowerCase()
-    const regex = /\d/
-    if (word.match(regex)) {
-      if (amount) {
-        amount += ` ${word}`;
-      }
-      else {
-        amount = word;
-      }
-    }
-    else if (types[`${word}`]) {
-      unit = types[word];
-    }
-    else {
-      if (ingredient_name) {
-        ingredient_name += ` ${word}`
-      }
-      else {
-        ingredient_name = word;
-      }
+  function validateIngredientAndAddToDataIngredients(){
+    const {ingredient, amount, unit} = temporaryParsedIngredient
+    const hasIngredientAmountAndUnit = ingredient && amount && unit
+    const hasIngredientAndAmount = ingredient && amount 
+    const nextWordIsDigit = currentWordIsDigit()
+
+    if ((hasIngredientAmountAndUnit || hasIngredientAndAmount) && nextWordIsDigit) {
+        const dataIngredient = transformParsedIngredientIntoDataIngredient({ingredient, amount, unit})
+        addDataIngredientToList(dataIngredient)
+        setTemporaryParsedIngredient(EMPTY_INGREDIENT)
     }
   }
 
-  if (ingredient_name) {
-    const obj = createObject(amount, unit, ingredient_name);
-    arr.push(obj);
-
+  function transformParsedIngredientIntoDataIngredient({ingredient, amount, unit}){
+    const unitData = UNITS[unit]
+    const amountFloat = transformParsedAmountToFloat(amount)
+    const amountInMl = amountFloat * unitData.ml
+    return {
+      unit: unitData,
+      ingredient,
+      amount: { ml: amountInMl, value: amountFloat}
+    }
   }
 
-  return arr;
+  function transformParsedAmountToFloat(amount){
+    //could be fraction
+    //could be whole number
+    //TODO: work out this logic here
+    return Number(amount)
+  }
+
+  function addDataIngredientToList(data){
+    dataIngredients.push(data)
+  }
+
+  function sortCurrentWord(){
+    const isDigit = currentWordIsDigit()
+    const isUnit = currentWordIsUnit()
+    if (isDigit){
+      addCurrentWordToAmount(currentWord)
+    } else if (isUnit) {
+      addCurrentWordToUnit(currentWord)
+    } else {
+      addCurrentWordToIngredient(currentWord)
+    }
+  }
+
+  function addCurrentWordToAmount(currentWord){
+    const newAmount = temporaryParsedIngredient.amount ? temporaryParsedIngredient.amount + ' ' + currentWord : currentWord
+    setTemporaryParsedIngredient({...temporaryParsedIngredient, amount: newAmount})
+  }
+
+  function addCurrentWordToUnit(currentWord){
+    setTemporaryParsedIngredient({...temporaryParsedIngredient, unit: currentWord})
+  }
+
+  function addCurrentWordToIngredient(currentWord){
+    const newIngredient = temporaryParsedIngredient.ingredient ? temporaryParsedIngredient.ingredient + ' ' + currentWord : currentWord
+    setTemporaryParsedIngredient({...temporaryParsedIngredient, ingredient: newIngredient})
+  }
+
+  function setTemporaryParsedIngredient(ingredient){
+    temporaryParsedIngredient = ingredient
+  }
+
+  return dataIngredients
 }
-
-

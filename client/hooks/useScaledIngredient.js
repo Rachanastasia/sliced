@@ -135,3 +135,31 @@ return ingredient
     // return { num: formatNum, unit: newUnit };
 
 }
+
+
+
+
+
+// takes in the block of text input
+//parses for words and categorizes words
+    //is  it a number?
+    //is it a special ingredient term? 
+    //is it an ingredient title?
+
+    // MAKE INGREDIENT OBJECT
+    //UNIT.isScalable
+    // number in number object
+        // CONTROLS INGREDIENT OBJECT WITH AMOUNT
+        // nullable
+        // float
+        // ml (if applicable)
+        // is this denormalized instance good?
+    // make ingredient object
+        //  title
+        // attributes (what are the adjectives?)
+    
+    // return an array and display the result
+    
+    // pass this array to a scaling function
+    //HOW DOES THE SCALING FUNCTION WORK?
+        //divides the amount in ml by the units

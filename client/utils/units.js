@@ -1,4 +1,4 @@
-import {CUSTOMARY_UNIT_TO_ML} from '../config/constants'
+import {UNIT_DATA} from '../config/constants'
 
 //takes in amount in ml and returns amount with unit 
 const GRAM = null
@@ -6,8 +6,8 @@ const POUND = null
 const PINCH = null //unscalable units that scale with the constant only
 
 
-const {TEASPOON, TABLESPOON, CUP, QUART, PINT, GALLON, OUNCE} = CUSTOMARY_UNIT_TO_ML
-const UNITS = {
+const {TEASPOON, TABLESPOON, CUP, QUART, PINT, GALLON, OUNCE} = UNIT_DATA
+export const UNITS = {
     "cups": CUP,
     "cup": CUP,
     "c": CUP,

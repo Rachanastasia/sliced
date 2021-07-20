@@ -1,7 +1,7 @@
 export const SET_TITLE = 'set title'
 export const SET_INGREDIENTS = 'set ingredients'
 
-export const CUSTOMARY_UNIT_TO_ML = {
+export const UNIT_DATA = {
     TEASPOON: {ml:5, name: 'teaspoon'},
     TABLESPOON: {ml:15, name: 'tablespoon'},
     CUP: {ml:237, name: 'cup'},

@@ -1,8 +1,8 @@
-import React from 'react'
+import React, {useState} from 'react'
 import styles from '../../styles/Slicer.module.css'
 
-export default function IngredientInput(){
-
+export default function IngredientInput({setInput}){
+    const onChange = value => setInput(value.target.value)
     return (
         <form className='add-recipe-form'
         autoComplete='off'>
@@ -11,6 +11,7 @@ export default function IngredientInput(){
             <textarea
                 name='ingredients'
                 className={styles.slicer_input}
+                onChange={onChange}
             />
         </fieldset>
         </form>
