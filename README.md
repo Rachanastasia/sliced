@@ -1,6 +1,6 @@
 # Sliced
 
-This is a repository is a monorepo for Sliced - Version 2. 
+This is the repository for Sliced 2.0, containing a WIP monorepo.  
 
 View the old [Sliced app](https://sliced.rachanastasia.vercel.app/) or the old [frontend](https://github.com/Rachanastasia/sliced-client) and [backend](https://github.com/Rachanastasia/sliced-API) code on GitHub. 
 
