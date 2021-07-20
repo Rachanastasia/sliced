@@ -53,10 +53,29 @@ export function transformInputIntoIngredientData(input){
   }
 
   function transformParsedAmountToFloat(amount){
-    //could be fraction
-    //could be whole number
-    //TODO: work out this logic here
-    return Number(amount)
+    const number = Number(amount)
+    return !!number ? number : parseStringWithFraction(amount)
+  }
+
+  function parseStringWithFraction(amount){
+    const regex = /\//ig
+    const indexOfSlash = regex.exec(amount)
+    let decimal;
+    if (indexOfSlash?.index) {
+      const denominator = Number(amount[indexOfSlash.index + 1])
+      const numerator = Number(amount[indexOfSlash.index - 1])
+
+      if (numerator && denominator){
+        const fraction = numerator / denominator
+        decimal = Number(fraction.toFixed(3))
+      } 
+    }
+    if (amount.length < 4) return decimal
+    else {
+      const restOfNumber = amount.slice(0, indexOfSlash.index - 2)
+      const wholeNumber = Number(restOfNumber)
+      return decimal ? wholeNumber + decimal : wholeNumber
+    }
   }
 
   function addDataIngredientToList(data){
