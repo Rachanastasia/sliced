@@ -48,7 +48,7 @@ export function transformInputIntoIngredientData(input){
     return {
       unit: unitData,
       ingredient,
-      amount: { ml: amountInMl, value: amountFloat}
+      amount: amountFloat
     }
   }
 

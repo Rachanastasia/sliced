@@ -23,7 +23,7 @@ function ScaledIngredient({ingredient, constant}){
   const test = scaleIngredient({unit: ingredient?.unit, amount: ingredient?.amount}, constant)
   return (
       <li  className={styles.preview_ingredient}>
-          {ingredient.amount.value > 0 && <p className={styles.preview_ingredient_item}>{test?.amount?.value}</p>}
+          {ingredient.amount > 0 && <p className={styles.preview_ingredient_item}>{test?.amount}</p>}
           <p className={styles.preview_ingredient_item}>{test?.unit?.name}</p>
           <p className={styles.preview_ingredient_item}>{ingredient.ingredient}</p>
       </li>

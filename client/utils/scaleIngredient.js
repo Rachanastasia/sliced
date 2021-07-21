@@ -5,9 +5,9 @@ const {TEASPOON, TABLESPOON, CUP, QUART, PINT, GALLON} = UNIT_DATA
 
 export function scaleIngredient({amount, unit}, constant=1) {
     if (!amount || constant === 1) return {amount, unit}
-    else if (!unit || !unit?.isScalable) return {unit, amount: amount?.value * constant}
+    else if (!unit || !unit?.isScalable) return {unit, amount: amount * constant}
     else {
-        const scaledAmountInMl = unit.ml * amount.value * constant
+        const scaledAmountInMl = unit.ml * amount * constant
         const scaleUnitandAmount = constant > 1 ? scaleUpUnitAndAmount : scaleDownUnitAndAmount
         const scaledData = scaleUnitandAmount(scaledAmountInMl)
         return scaledData ? {amount: scaledData.amount, unit: scaledData.unit} : {amount, unit}
@@ -42,6 +42,5 @@ function scaleDownUnitAndAmount(amountInMl){
 
 function getAmountForCurrentUnit (amountInMl, mlPerUnit){
     const value = Number((amountInMl / mlPerUnit))
-    console.log('TO BE RETURNED FROM TURNING BACK INTO CONVENTIONAL', {value, amountInMl, mlPerUnit})
-    return {value, ml: amountInMl}
+    return value
 }
