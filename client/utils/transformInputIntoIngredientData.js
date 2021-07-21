@@ -11,19 +11,22 @@ export function transformInputIntoIngredientData(input){
   let currentWord = ''
   let temporaryParsedIngredient = EMPTY_INGREDIENT
 
+
+
   const regex = /\d/
   const currentWordIsDigit = ()=>currentWord.match(regex)
   const currentWordIsUnit = ()=>!!UNITS[currentWord] 
+  const hasMoreText = () => i+1 >= input.length
 
-
-  for (let i = 0; i <= input.length; i++) {
+  let i;
+  for (i = 0; i <= input.length; i++) {
     const currentChar = input[i]?.toLowerCase()
     if (currentChar === ' ' || currentChar === '\n') {
-      validateIngredientAndAddToDataIngredients()
       sortCurrentWord()
       currentWord = ''
     } else {
       currentWord = currentWord + currentChar
+      validateIngredientAndAddToDataIngredients()
     }
   }
 
@@ -33,8 +36,12 @@ export function transformInputIntoIngredientData(input){
     const hasIngredientAmountAndUnit = ingredient && amount && unit
     const hasIngredientAndAmount = ingredient && amount 
     const nextWordIsDigit = currentWordIsDigit()
+    const isMore = hasMoreText()
 
-    if ((hasIngredientAmountAndUnit || hasIngredientAndAmount) && nextWordIsDigit) {
+    const meetsItemRequirements = hasIngredientAmountAndUnit || hasIngredientAndAmount
+    const isEndOfItem = nextWordIsDigit || isMore
+
+    if (meetsItemRequirements && isEndOfItem) {
         const dataIngredient = transformParsedIngredientIntoDataIngredient({ingredient, amount, unit})
         addDataIngredientToList(dataIngredient)
         setTemporaryParsedIngredient(EMPTY_INGREDIENT)
