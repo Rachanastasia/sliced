@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { transformInputIntoIngredientData } from '../../utils/parseRecipeInput'
+import { transformInputIntoIngredientData } from '../../utils/transformInputIntoIngredientData'
 import ScaledIngredients from './ScaledIngredients'
 import IngredientInput from './IngredientInput';
 import Button from '../Button'
