@@ -1,27 +1,34 @@
 import {UNIT_DATA} from '../config/constants'
 
-const {TEASPOON, TABLESPOON, CUP, QUART, PINT, GALLON, OUNCE, GRAM, POUND} = UNIT_DATA
+const {TEASPOON, TABLESPOON, CUP, QUART, PINT, GALLON} = UNIT_DATA
 
 
 export function scaleIngredient({amount, unit}, constant=1) {
-    if (!amount) return {amount: null, unit: null}
-    if (!unit || !unit?.isScalable) return {unit, amount: amount?.value * constant}
+    if (!amount || constant === 1) return {amount, unit}
+    else if (!unit || !unit?.isScalable) return {unit, amount: amount?.value * constant}
     else {
         const scaledAmountInMl = unit.ml * amount.value * constant
-        const newData = getUnitAndAmountFromMlAmount(scaledAmountInMl)
-        return newData ? {amount: newData?.amount, unit: newData?.unit} : {amount, unit}
+        const scaleUnitandAmount = constant > 1 ? scaleUpUnitAndAmount : scaleDownUnitAndAmount
+        const scaledData = scaleUnitandAmount(scaledAmountInMl)
+        return scaledData ? {amount: scaledData.amount, unit: scaledData.unit} : {amount, unit}
     }
 }
 
-//if constant >=1 scale up units
-//if constant <=1 scale down units
+const makeIngredientObject = (amount, unit) => ({amount: getAmountForCurrentUnit(amount, unit.ml), unit})
+
+function scaleUpUnitAndAmount(amountInMl){
+    switch(true){
+        case (amountInMl < TABLESPOON): return makeIngredientObject(amountInMl, TEASPOON)
+        case (amountInMl >= TABLESPOON): return makeIngredientObject(amountInMl, TABLESPOON);
+        case (amountInMl >= TABLESPOON * 4): return makeIngredientObject(amountInMl, CUP);
+        case (amountInMl >= QUART): return makeIngredientObject(amountInMl, QUART);
+        case (amountInMl > GALLON): return makeIngredientObject(amountInMl, GALLON);
+        default: return {amount: getAmountForCurrentUnit(amountInMl, 1), unit: {ml: 1, name: null}}
+    }
+}
 
 
-function getUnitAndAmountFromMlAmount(amountInMl){
-    const makeIngredientObject = (amount, unit) => ({amount: getAmountForCurrentUnit(amount, unit.ml), unit})
-    //is it more than the last number?
-    //is it less than the previous number 
-    //have descending fuction and ascending function
+function scaleDownUnitAndAmount(amountInMl){
     switch(true){
         case (amountInMl >= GALLON.ml/2): return makeIngredientObject(amountInMl, GALLON);
         case (amountInMl >= QUART.ml): return makeIngredientObject(amountInMl, QUART);
@@ -29,7 +36,7 @@ function getUnitAndAmountFromMlAmount(amountInMl){
         case (amountInMl >= CUP.ml/4): return makeIngredientObject(amountInMl, CUP);
         case (amountInMl >= TABLESPOON.ml): return makeIngredientObject(amountInMl, TABLESPOON);
         case (amountInMl <= TEASPOON.ml): return makeIngredientObject(amountInMl, TEASPOON);
-        default: console.log('RETURNED INVALID ML AMOUNT')
+        default: return {amount: getAmountForCurrentUnit(amountInMl, 1), unit: {ml: 1, name: null}}
     }
 }
 

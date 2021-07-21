@@ -5,7 +5,7 @@ header {
     align-items: center;
     justify-content: space-between;
     width: 100vw;
-    height: var(--height-4);
+    height: var(--height-3);
     margin-bottom: var(--spacer-5);
     text-align: center;
     background-color: var(--colors-black);
