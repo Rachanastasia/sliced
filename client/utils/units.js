@@ -1,12 +1,7 @@
 import {UNIT_DATA} from '../config/constants'
 
-//takes in amount in ml and returns amount with unit 
-const GRAM = null
-const POUND = null
-const PINCH = null //unscalable units that scale with the constant only
+const {TEASPOON, TABLESPOON, CUP, QUART, PINT, GALLON, OUNCE, GRAM, POUND} = UNIT_DATA
 
-
-const {TEASPOON, TABLESPOON, CUP, QUART, PINT, GALLON, OUNCE} = UNIT_DATA
 export const UNITS = {
     "cups": CUP,
     "cup": CUP,
@@ -47,29 +42,26 @@ export const UNITS = {
     "grams": GRAM,
     "gram": GRAM,
     "g": GRAM,
-  }
-
-export function getUnitFromString(parsedUnit){
-    return UNITS[parsedUnit]
-}
-
-function getAmountForCurrentUnit (amountInMl, mlPerUnit){
-    const number = amountInMl / mlPerUnit
-    const fraction = null //get fraction from amount
-    return {number, fraction}
 }
 
 
 export function getUnitAndAmountFromMlAmount(amountInMl){
     const makeIngredientObject = (amount, unit) => ({amount: getAmountForCurrentUnit(amount, unit.ml), unit})
-    switch(amountInMl){
-        case (amountInMl > GALLON.ml): return makeIngredientObject(amountInMl, GALLON);
-        case (amountInMl > QUART.ml): return makeIngredientObject(amountInMl, QUART);
-        case (amountInMl > PINT.ml): return makeIngredientObject(amountInMl, PINT);
-        case (amountInMl > CUP.ml): return makeIngredientObject(amountInMl, CUP);
-        case (amountInMl > OUNCE.ml): return makeIngredientObject(amountInMl, OUNCE);
-        case (amountInMl > TABLESPOON.ml): return makeIngredientObject(amountInMl, TABLESPOON);
+    switch(true){
+        case (amountInMl >= GALLON.ml): return makeIngredientObject(amountInMl, GALLON);
+        case (amountInMl >= QUART.ml): return makeIngredientObject(amountInMl, QUART);
+        case (amountInMl >= PINT.ml): return makeIngredientObject(amountInMl, PINT);
+        case (amountInMl >= CUP.ml): return makeIngredientObject(amountInMl, CUP);
+        case (amountInMl >= OUNCE.ml): return makeIngredientObject(amountInMl, OUNCE);
+        case (amountInMl >= TABLESPOON.ml): return makeIngredientObject(amountInMl, TABLESPOON);
         case (amountInMl <= TEASPOON.ml): return makeIngredientObject(amountInMl, TEASPOON);
         default: console.log('Invalid ml amount')
     }
+}
+
+function getAmountForCurrentUnit (amountInMl, mlPerUnit){
+    const value = Number((amountInMl / mlPerUnit).toFixed(2)).toString()
+    const fixed = value
+    console.log('TO BE RETURNED FROM TURNING BACK INTO CONVENTIONAL', {value, fixed, amountInMl, mlPerUnit})
+    return {value, ml: amountInMl}
 }

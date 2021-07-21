@@ -1,7 +1,7 @@
-import React, {Fragment} from 'react'
+import React from 'react'
 import styles from '../../styles/Slicer.module.css'
 import { convertFloatToFraction } from '../../utils/displayAsFraction'
-import { useScaledIngredient } from '../../hooks/useScaledIngredient'
+import { scaleIngredient } from '../../utils/scaleIngredient'
 import SelectConstant from './SelectConstant'
 
 export default function ScaledIngredients({ingredients, constant, setConstant}) {
@@ -16,7 +16,9 @@ export default function ScaledIngredients({ingredients, constant, setConstant}) 
 }
 
 function ScaledIngredient({ingredient, constant}){
-  const formattedAmount = convertFloatToFraction(ingredient.amount.value)
+  const test = scaleIngredient({unit: ingredient?.unit, amount: ingredient?.amount}, constant)
+  console.log('THIS IS THE RESPONSE SCALE', {constant, test, ingredient})
+  const formattedAmount = convertFloatToFraction(test?.amount.value)
   return (
       <li  className={styles.preview_ingredient}>
           {ingredient.amount.value > 0 && <p className={styles.preview_ingredient_item}>{formattedAmount}</p>}
