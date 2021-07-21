@@ -10,7 +10,8 @@ import {sample} from '../../utils/sampleRecipe'
 function AddRecipe({isPreview=true}) {
     const [ingredients, setIngredients] = useState({input: [], ingredientData: []})
     const setIngredientInput = (input) => {
-        const ingredientData = transformInputIntoIngredientData(input)
+        const formattedInput = input + " "
+        const ingredientData = transformInputIntoIngredientData(formattedInput)
         setIngredients({input, ingredientData})
     }
 
