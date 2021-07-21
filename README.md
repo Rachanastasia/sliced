@@ -8,4 +8,6 @@ View the old [Sliced app](https://sliced.rachanastasia.vercel.app/) or the old [
 
 - React.js
 - Next.js
+- Jest
+- CSS3
 
