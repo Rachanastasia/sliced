@@ -96,3 +96,8 @@
     color: var(--colors-accent-bold);
     border: 2px solid var(--colors-accent-bold);
 }
+
+.button{
+    background-color: var(--colors-accent-bold);
+    border: var(--border-width) solid var(--colors-accent-bright);
+}

@@ -44,11 +44,10 @@ export function transformInputIntoIngredientData(input){
   function transformParsedIngredientIntoDataIngredient({ingredient, amount, unit}){
     const unitData = unit ? UNITS[unit] : {ml: 1, name: null}
     const amountFloat = Number(transformParsedAmountToFloat(amount).toFixed(2))
-    const amountInMl = amountFloat * unitData.ml
     return {
       unit: unitData,
       ingredient,
-      amount: { ml: amountInMl, value: amountFloat}
+      amount: amountFloat
     }
   }
 

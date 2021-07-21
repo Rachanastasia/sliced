@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { transformInputIntoIngredientData } from '../../utils/parseRecipeInput'
+import { transformInputIntoIngredientData } from '../../utils/transformInputIntoIngredientData'
 import ScaledIngredients from './ScaledIngredients'
 import IngredientInput from './IngredientInput';
 import Button from '../Button'
@@ -9,7 +9,6 @@ import {sample} from '../../utils/sampleRecipe'
 
 function AddRecipe({isPreview=true}) {
     const [ingredients, setIngredients] = useState({input: [], ingredientData: []})
-    const [constant, setConstant] = useState(1)
     const setIngredientInput = (input) => {
         const ingredientData = transformInputIntoIngredientData(input)
         setIngredients({input, ingredientData})
@@ -18,15 +17,15 @@ function AddRecipe({isPreview=true}) {
     const setSampleRecipe = () => setIngredientInput(sample)
     const clearRecipe = () => {
         setIngredients({input: [], ingredientData: []})
-        if (constant !== 1) setConstant(1)
     }
+  
     return (
         <section className={styles.slicer_wrapper} >
            <IngredientInput input={ingredients.input} setInput={setIngredientInput}/>
            {!isPreview && <Button text='submit' />}
            {isPreview && <Button text='sample recipe' onClick={setSampleRecipe} />}
            <ClearButton clearInput={clearRecipe} />
-           {ingredients.ingredientData.length ? <ScaledIngredients constant={constant} ingredients={ingredients.ingredientData} setConstant={setConstant} /> : null}
+           {ingredients.ingredientData.length ? <ScaledIngredients ingredients={ingredients.ingredientData} /> : null}
         </section >
     )
 }
