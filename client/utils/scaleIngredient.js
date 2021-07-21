@@ -24,9 +24,9 @@ const makeIngredientObject = (amount, unit) => {
 
 function scaleUpUnitAndAmount(amountInMl){
     const units = {
-        gallon: amountInMl > GALLON.ml / 1.9,
-        cup: amountInMl > CUP.ml / 3.9,
-        tablespoon: amountInMl < TABLESPOON.ml * 2.9,
+        gallon: amountInMl > GALLON.ml / 2,
+        cup: amountInMl > CUP.ml / 4,
+        tablespoon: amountInMl < TABLESPOON.ml * 3,
     }
     switch(true){
         case (units.gallon): return makeIngredientObject(amountInMl, GALLON);
