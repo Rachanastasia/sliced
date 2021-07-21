@@ -55,6 +55,14 @@ export const CONSTANT_OPTIONS = [
         constant: 0.3333,
     },
     {
+        label: 'x 2/3',
+        constant: 0.6666,
+    },
+    {
+        label: 'x 3/4',
+        constant: 0.75,
+    },
+    {
         label: 'x 1',
         constant: 1,
     },
@@ -63,7 +71,11 @@ export const CONSTANT_OPTIONS = [
         constant: 1.5,
     },
     {
-        label: 'x 3',
-        constant: 3,
+        label: 'x 2 1/2',
+        constant: 2.5,
+    },
+    {
+        label: 'x 4',
+        constant: 4,
     }
 ]
