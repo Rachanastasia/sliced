@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import Button from '../Button'
 import styles from '../../styles/Slicer.module.css'
 import { convertFloatToFraction } from '../../utils/displayAsFraction'
@@ -8,6 +8,11 @@ import { CONSTANT_OPTIONS } from '../../config/constants'
 
 export default function ScaledIngredients({ingredients}) {
   const [constant, setConstant] = useState(1)
+
+  useEffect(()=>{
+    if (constant !== 1) setConstant(1)
+  }, [ingredients])
+  
   return (
     <div className={styles.scaled_indgredients_with_button_wrapper}>
       <ul className={styles.preview_ingredients_wrapper}>
