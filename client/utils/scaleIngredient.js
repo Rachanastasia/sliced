@@ -7,14 +7,14 @@ export function scaleIngredient({amount, unit}, constant=1) {
     if (!amount) return {amount: null, unit: null}
     if (!unit || !unit?.isScalable) return {unit, amount: amount?.value * constant}
     else {
-        const scaledAmountInMl = (unit.ml * amount.value) * constant
-        console.log('SCALED AMOUNT IN ML::', scaledAmountInMl)
+        const scaledAmountInMl = unit.ml * amount.value * constant
         const newData = getUnitAndAmountFromMlAmount(scaledAmountInMl)
-        console.log('THIS IS DATA FROM GETUNITANDAMOUNTFROMML:', newData)
         return newData ? {amount: newData?.amount, unit: newData?.unit} : {amount, unit}
     }
 }
 
+//if constant >=1 scale up units
+//if constant <=1 scale down units
 
 
 function getUnitAndAmountFromMlAmount(amountInMl){

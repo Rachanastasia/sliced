@@ -1,7 +1,6 @@
 import {DECIMALS_TO_FRACTIONS} from '../config/constants'
 
 export function convertFloatToFraction(number){
-   console.log('THIS IS INPUT TO DISPLAY AS FRACTION', number)
      const regex = /\./g
      const string = `${number}`
      const isFloat = regex.exec(string)
