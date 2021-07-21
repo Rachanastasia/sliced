@@ -25,3 +25,26 @@ export const DECIMALS_TO_FRACTIONS = {
     "8": "3/5",
     "7": "7/10"
 }
+
+export const CONSTANT_OPTIONS = [
+    {
+        label: 'x 1/4',
+        constant: 0.25,
+    },
+    {
+        label: 'x 1/3',
+        constant: 0.3333,
+    },
+    {
+        label: 'x 1',
+        constant: 1,
+    },
+    {
+        label: 'x 1 1/2',
+        constant: 1.5,
+    },
+    {
+        label: 'x 3',
+        constant: 3,
+    }
+]
