@@ -14,6 +14,8 @@ export const UNIT_DATA = {
 
 export const DECIMALS_TO_FRACTIONS = {
     "5": "1/2",
+    "51": "1/2",
+    "49": "1/2",
     "25": "1/4",
     "26": "1/4",
     "24": "1/4",
