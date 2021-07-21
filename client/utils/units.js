@@ -44,24 +44,3 @@ export const UNITS = {
     "g": GRAM,
 }
 
-
-export function getUnitAndAmountFromMlAmount(amountInMl){
-    const makeIngredientObject = (amount, unit) => ({amount: getAmountForCurrentUnit(amount, unit.ml), unit})
-    switch(true){
-        case (amountInMl >= GALLON.ml): return makeIngredientObject(amountInMl, GALLON);
-        case (amountInMl >= QUART.ml): return makeIngredientObject(amountInMl, QUART);
-        case (amountInMl >= PINT.ml): return makeIngredientObject(amountInMl, PINT);
-        case (amountInMl >= CUP.ml): return makeIngredientObject(amountInMl, CUP);
-        case (amountInMl >= OUNCE.ml): return makeIngredientObject(amountInMl, OUNCE);
-        case (amountInMl >= TABLESPOON.ml): return makeIngredientObject(amountInMl, TABLESPOON);
-        case (amountInMl <= TEASPOON.ml): return makeIngredientObject(amountInMl, TEASPOON);
-        default: console.log('Invalid ml amount')
-    }
-}
-
-function getAmountForCurrentUnit (amountInMl, mlPerUnit){
-    const value = Number((amountInMl / mlPerUnit).toFixed(2)).toString()
-    const fixed = value
-    console.log('TO BE RETURNED FROM TURNING BACK INTO CONVENTIONAL', {value, fixed, amountInMl, mlPerUnit})
-    return {value, ml: amountInMl}
-}

@@ -16,13 +16,13 @@ export default function ScaledIngredients({ingredients, constant, setConstant}) 
 }
 
 function ScaledIngredient({ingredient, constant}){
-  const test = scaleIngredient({unit: ingredient?.unit, amount: ingredient?.amount}, constant)
-  console.log('THIS IS THE RESPONSE SCALE', {constant, test, ingredient})
-  const formattedAmount = convertFloatToFraction(test?.amount.value)
+  const test = scaleIngredient({unit: ingredient?.unit, amount: ingredient?.amount}, 0.3)
+  //value * ml/unit * constant
+  //const formattedAmount = convertFloatToFraction(test?.amount?.value)
   return (
       <li  className={styles.preview_ingredient}>
-          {ingredient.amount.value > 0 && <p className={styles.preview_ingredient_item}>{formattedAmount}</p>}
-          <p className={styles.preview_ingredient_item}>{ingredient.unit.name}</p>
+          {ingredient.amount.value > 0 && <p className={styles.preview_ingredient_item}>{test?.amount?.value}</p>}
+          <p className={styles.preview_ingredient_item}>{test?.unit?.name}</p>
           <p className={styles.preview_ingredient_item}>{ingredient.ingredient}</p>
       </li>
   )
