@@ -17,7 +17,6 @@ function AddRecipe({isPreview=true}) {
     const setSampleRecipe = () => setIngredientInput(sample)
     const clearRecipe = () => {
         setIngredients({input: [], ingredientData: []})
-        if (constant !== 1) setConstant(1)
     }
   
     return (

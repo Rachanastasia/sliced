@@ -8,7 +8,6 @@ import { CONSTANT_OPTIONS } from '../../config/constants'
 
 export default function ScaledIngredients({ingredients}) {
   const [constant, setConstant] = useState(1)
-  console.log('THIS IS THE CURRENT CONSTANT', constant)
   return (
     <div className={styles.scaled_indgredients_with_button_wrapper}>
       <ul className={styles.preview_ingredients_wrapper}>
@@ -21,9 +20,10 @@ export default function ScaledIngredients({ingredients}) {
 
 function ScaledIngredient({ingredient, constant}){
   const test = scaleIngredient({unit: ingredient?.unit, amount: ingredient?.amount}, constant)
+  const formattedAmount = convertFloatToFraction(test.amount)
   return (
       <li  className={styles.preview_ingredient}>
-          {ingredient.amount > 0 && <p className={styles.preview_ingredient_item}>{test?.amount}</p>}
+          {ingredient.amount > 0 && <p className={styles.preview_ingredient_item}>{formattedAmount}</p>}
           <p className={styles.preview_ingredient_item}>{test?.unit?.name}</p>
           <p className={styles.preview_ingredient_item}>{ingredient.ingredient}</p>
       </li>
