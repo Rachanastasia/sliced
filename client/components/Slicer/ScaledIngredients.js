@@ -6,12 +6,12 @@ import SelectConstant from './SelectConstant'
 
 export default function ScaledIngredients({ingredients, constant, setConstant}) {
   return (
-    <Fragment>
-      <SelectConstant constant={constant} setConstant={setConstant} />
+    <div className={styles.scaled_indgredients_with_button_wrapper}>
       <ul className={styles.preview_ingredients_wrapper}>
-        {ingredients.map(ingredient => <ScaledIngredient ingredient={ingredient} constant={constant}/>)}
+        {ingredients.map((ingredient, index) => <ScaledIngredient key={index} ingredient={ingredient} constant={constant}/>)}
       </ul>
-    </Fragment>
+      <SelectConstant constant={constant} setConstant={setConstant} />
+    </div>
   )
 }
 

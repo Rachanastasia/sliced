@@ -5,7 +5,7 @@
 .slicer_wrapper{
     width: inherit;
     height: 100%;
-    max-width: 750px;
+    max-width: var(--width-content-full);
 }
 
 .slicer_input{
@@ -25,29 +25,43 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    border-bottom: 1px solid var(--colors-gray);
+
     
 }
 
 .preview_ingredient_item {
-    width: inherit;
-    padding: var(--spacer-2) 0 0;
+    width: 33.333%;
     display: flex;
     align-items: center;
     justify-content: center;
+    height: var(--height-2);
+
+    
+    
+    
 }
 
 .preview_ingredients_wrapper {
     display: flex;
+    flex: 4;
     flex-direction: column;
     align-items: center;
     margin: var(--spacer-1) 0 var(--spacer-2);
+    font-family: var(--font);
+    line-height: calc(1.5 * var(--text-size-1));
+    font-size: var(--text-size-1);
+    padding-right: var(--spacer-2);
 }
 
 .select_amount_wrapper{
     display: flex;
-    justify-content: stretch;
-    align-items: flex-start;
+    flex-direction: column;
+    width: 100%;
+    max-width: var(--width-2);
+    align-items: stretch;
     align-self: flex-start;
+    margin-top: var(--spacer-2);
 }
 
 .clear_button{
@@ -55,6 +69,30 @@
     background-color: var(--colors-white);
     color: var(--colors-accent-bold);
     border: 2px solid var(--colors-accent-bold);
+}
 
+.constant_button{
+    background-color: var(--colors-accent-light);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+.constant_button_text{
+    font-size: var(--text-size-1);
+    text-align: start;
+    width: 50px;
+}
+
+.scaled_indgredients_with_button_wrapper {
+    display: flex;
+    margin: var(--spacer-3) 0 var(--spacer-4);
+}
+
+.button_inverted{
+    height: var(--height-1);
+    width: 100%;
+    background-color: var(--colors-white);
+    color: var(--colors-accent-bold);
+    border: 2px solid var(--colors-accent-bold);
 }

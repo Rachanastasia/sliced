@@ -29,7 +29,7 @@ const options = [
 ]
     return (
         <div className={styles.select_amount_wrapper}>
-            {options.map(o => <Button ref={o.ref} onClick={()=>setConstant(o.ref.current)} text={o.label} />)}
+            {options.map(o => <Button buttonStyle={styles.button_inverted} textStyle={styles.constant_button_text} key={o.constant} ref={o.ref} onClick={()=>setConstant(o.ref.current)} text={o.label} />)}
         </div>
     )
 }

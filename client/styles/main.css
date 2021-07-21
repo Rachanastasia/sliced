@@ -46,10 +46,7 @@ h2, h3{
 }
 
 
-p{
-    padding: var(--spacer-tiny) 0;
-    font-size: var(--font-size-sm);
-}
+
 
 
 a{
@@ -67,11 +64,10 @@ article span{
 button, .button{
     cursor: pointer;
     outline: 0;
-    font-size: var(--font-size-sm);
-    width: var(--button-width);
-    background-color: var(--colors-accent);
+    font-size: var(--text-size-2);
+    width: 100%;
+    height: var(--height-1);
     color: var(--colors-white);
-    border: var(--border-width) solid var(--colors-accent);
     padding: var(--spacer-1);
     border-radius: var(--button-border-radius);
     display: flex;

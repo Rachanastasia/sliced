@@ -1,5 +1,16 @@
 .button{
+    background-color: var(--colors-accent-bold);
+    border: var(--border-width) solid var(--colors-accent-bright);
+}
+
+.button_inverted{
+    background-color: var(--colors-white);
+    color: var(--colors-accent-bold);
+    border: 2px solid var(--colors-accent-bold);
+}
+
+.button_light{
     height: var(--height-1);
-    width: 100%;
-    background-color:var(--colors-accent-bold);
+    background-color: var(--colors-accent);
+    border: var(--border-width) solid var(--colors-accent);
 }

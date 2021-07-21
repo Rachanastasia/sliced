@@ -28,10 +28,12 @@ fieldset .hidden{
 
 input, textarea{
     width: 100%;
-    padding: var(--spacer-tiny) ;
-    font-size: var(--font-size-sm);
+    padding: var(--spacer-1) ;
+    font-size: var(--text-size-1);
     outline: 0;
     border: var(--border-width) solid grey;
+    font-family: var(--font);
+    line-height: calc(1.5 * var(--text-size-1));
 }
 
 textarea{

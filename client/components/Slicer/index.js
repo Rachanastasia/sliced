@@ -16,14 +16,17 @@ function AddRecipe({isPreview=true}) {
     }
 
     const setSampleRecipe = () => setIngredientInput(sample)
-    const clearRecipe = () => setIngredients({input: [], ingredientData: []})
+    const clearRecipe = () => {
+        setIngredients({input: [], ingredientData: []})
+        if (constant !== 1) setConstant(1)
+    }
     return (
         <section className={styles.slicer_wrapper} >
            <IngredientInput input={ingredients.input} setInput={setIngredientInput}/>
            {!isPreview && <Button text='submit' />}
-           <ClearButton clearInput={clearRecipe} />
            {isPreview && <Button text='sample recipe' onClick={setSampleRecipe} />}
-           {ingredients.ingredientData.length ? <ScaledIngredients constant={constant} ingredients={ingredients.ingredientData} constant={setConstant} /> : null}
+           <ClearButton clearInput={clearRecipe} />
+           {ingredients.ingredientData.length ? <ScaledIngredients constant={constant} ingredients={ingredients.ingredientData} setConstant={setConstant} /> : null}
         </section >
     )
 }

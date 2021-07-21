@@ -3,7 +3,7 @@
     align-self: center;
 }
 
-.preview_category{
+.preview_category {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -17,7 +17,6 @@
     width: inherit;
     padding: 0;
     margin-top: var(--spacer-sm);
- background-color: var(--colors-accent-light);
  border-radius: var(--button-border-radius);
 }
 
