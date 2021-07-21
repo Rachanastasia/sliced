@@ -19,12 +19,13 @@ export default function ScaledIngredients({ingredients}) {
 }
 
 function ScaledIngredient({ingredient, constant}){
-  const test = scaleIngredient({unit: ingredient?.unit, amount: ingredient?.amount}, constant)
-  const formattedAmount = convertFloatToFraction(test.amount)
+  const scaledIngredient = scaleIngredient({unit: ingredient?.unit, amount: ingredient?.amount}, constant)
+  const formattedAmount = convertFloatToFraction(scaledIngredient.amount)
+  const formattedUnit = Number(scaledIngredient.amount) > 1 ?  scaledIngredient.unit.name + 's' : scaledIngredient.unit.name
   return (
       <li  className={styles.preview_ingredient}>
           {ingredient.amount > 0 && <p className={styles.preview_ingredient_item}>{formattedAmount}</p>}
-          <p className={styles.preview_ingredient_item}>{test?.unit?.name}</p>
+          <p className={styles.preview_ingredient_item}>{ingredient.unit?.name && formattedUnit}</p>
           <p className={styles.preview_ingredient_item}>{ingredient.ingredient}</p>
       </li>
   )
