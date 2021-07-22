@@ -14,17 +14,7 @@ header > * {
     padding: var(--spacer-2);
 }
 
-header button{
-    background-color: var(--colors-gray);
-    border:var(--border-width) solid var(--colors-gray);
-    color: var(--colors-white);
-    cursor: pointer;
-    font-size: var(--fontsize--sm);
-    font-family: var(--font--open-sans);
-    outline: 0;
-    margin-top: 0;
-    
-}
+
 
 h1{
     font-size: var(--font-size-lg);
@@ -42,10 +32,15 @@ header .title_link:focus{
     border:var(--border-width) solid var(--colors-accent-extra-light);
 }
 
-header button:focus,
-header button:hover{
-    border:var(--border-width) solid var(--colors-accent-extra-light);
-    background-color: var(--colors-gray);
+
+
+header ul {
+    display: flex;
+    flex: 2;
+    align-items: center;
+    justify-content: flex-end;
+    list-style: none;
+
 }
 
 

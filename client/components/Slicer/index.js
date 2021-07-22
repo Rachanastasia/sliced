@@ -21,7 +21,7 @@ function AddRecipe({isPreview=true}) {
     }
   
     return (
-        <section className={styles.slicer_wrapper} >
+        <section className={styles.slicer_wrapper}   id='slicer'>
            <IngredientInput input={ingredients.input} setInput={setIngredientInput}/>
            {!isPreview && <Button text='submit' />}
            {isPreview && <Button text='sample recipe' onClick={setSampleRecipe} />}
