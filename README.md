@@ -2,7 +2,7 @@
 
 This is the repository for Sliced, the app to scale your recipes. 
 
-With Sliced, a user can input the ingredients of their favorite recipes. Sliced parses the ingredients and allows you to scale the recipe up or down. Some units--including **cups**, **tablespoons**, **teaspoons**, and **gallons**--scale with the amount. The amounts are displayed in fractions when possible. All other numbers are rounded to the second decimal.
+With Sliced, users can scale up and down their favorite recipes. Sliced parses the ingredients and allows the user to select the multiple of the ingredients. Some units--including *cups*, *tablespoons*, *teaspoons*, and *gallons*--scale with the amount. The amounts are displayed in fractions when possible. All other numbers are rounded to the second decimal.
 
 View the old [Sliced app](https://sliced.rachanastasia.vercel.app/) or the old [frontend](https://github.com/Rachanastasia/sliced-client) and [backend](https://github.com/Rachanastasia/sliced-API) code on GitHub. 
 
