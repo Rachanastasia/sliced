@@ -6,17 +6,17 @@ With Sliced, users can scale up and down their favorite recipes. Sliced parses t
 
 Sliced was recently updated. View the old [Sliced app](https://sliced.rachanastasia.vercel.app/) or the old [frontend](https://github.com/Rachanastasia/sliced-client) and [backend](https://github.com/Rachanastasia/sliced-API) code on GitHub. 
 
-## Images
-
-![](/client/public/scale-up-screenshot.png)
-![](/client/public/scale-down-screenshot.png)
-
 ## Tech Stack
 
 - React.js
 - Next.js
 - Jest
 - CSS3
+
+## Images
+
+![](/client/public/scale-up-screenshot.png)
+![](/client/public/scale-down-screenshot.png)
 
 ## Codebase
 
