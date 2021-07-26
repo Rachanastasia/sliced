@@ -14,11 +14,11 @@ export default function ScaledIngredients({ingredients}) {
   }, [ingredients])
   
   return (
-    <div className={styles.scaled_indgredients_with_button_wrapper}>
+    <div className={styles.scaled_indgredients_with_slider}>
+    <SelectScaleConstant constant={constant} setConstant={setConstant} />
       <ul className={styles.preview_ingredients_wrapper}>
         {ingredients.map((ingredient, index) => <ScaledIngredient key={index} ingredient={ingredient} constant={constant}/>)}
       </ul>
-      <SelectScaleConstant constant={constant} setConstant={setConstant} />
     </div>
   )
 }
@@ -36,20 +36,20 @@ function ScaledIngredient({ingredient, constant}){
   )
 }
 
+const SELECT_FROM = [ 0.25, 0.3333, 0.5, 0.666, 0.75, 1, 1.5, 2, 3, 4, 6]
 
 function SelectScaleConstant({constant, setConstant}){
-
+  console.log('THIS IS MY CONSTANT', constant)
+  const min = 0
+  const max = SELECT_FROM[SELECT_FROM.length - 1]
       return (
-          <div className={styles.select_amount_wrapper}>
-              {CONSTANT_OPTIONS.map(o => <ConstantOption option={o} key={o.label} constant={constant} setConstant={setConstant}/>)}
+          <div >
+            <form>
+              <input type='range' defaultValue={1} min={min} step={'any'} max={max} list="options" onChange={(e)=>setConstant(e.target.value)} />
+              <datalist id="options">
+                  {SELECT_FROM.map((item)=><option value={item} id={item} label={`${item}`}>{item}</option>)}
+              </datalist>
+              </form>
           </div>
       )
-  }
-
-
-  function ConstantOption({option, constant, setConstant}){
-    const isSelected = option.constant == constant
-    const buttonStyle = isSelected ? styles.button : styles.button_inverted
-    return <Button buttonStyle={buttonStyle} textStyle={styles.constant_button_text} onClick={()=>setConstant(option.constant)} text={option.label} />
-
   }
