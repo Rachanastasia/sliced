@@ -22,10 +22,10 @@ function AddRecipe({isPreview=true}) {
   
     return (
         <section className={styles.slicer_wrapper}   id='slicer'>
-           <IngredientInput input={ingredients.input} setInput={setIngredientInput}/>
-           {!isPreview && <Button text='submit' />}
-           {isPreview && <Button text='sample recipe' onClick={setSampleRecipe} />}
-           <ClearButton clearInput={clearRecipe} />
+            <div className={styles.input_button_wrapper}>
+                <IngredientInput input={ingredients.input} setInput={setIngredientInput}/>
+                <SampleAndClearButtons isPreview={isPreview} setSampleRecipe={setSampleRecipe} clearRecipe={clearRecipe} />
+           </div>
            {ingredients.ingredientData.length ? <ScaledIngredients ingredients={ingredients.ingredientData} /> : null}
         </section >
     )
@@ -33,3 +33,13 @@ function AddRecipe({isPreview=true}) {
 
 
 export default AddRecipe;
+
+
+function SampleAndClearButtons({isPreview, setSampleRecipe, clearRecipe}){
+    return (
+        <div className={styles.button_wrapper}>
+           {isPreview ? <Button text='sample recipe' onClick={setSampleRecipe} /> : <Button text='save' />}
+           <ClearButton clearInput={clearRecipe} />
+        </div>
+    )
+}
