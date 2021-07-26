@@ -14,9 +14,9 @@ function Page(){
   return (
     <>
       <div className='screen_content'>
-          <AboutSliced />
+          {/* <AboutSliced /> */}
           
-          <About />
+          {/* <About /> */}
           <Slicer />
         </div>
     </>
