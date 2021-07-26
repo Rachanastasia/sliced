@@ -8,14 +8,15 @@ import { CONSTANT_OPTIONS } from '../../config/constants'
 
 export default function ScaledIngredients({ingredients}) {
   const [constant, setConstant] = useState(1)
+  const handleSetConstant = (input) => input >= 0.25 ? setConstant(input) : null
 
   useEffect(()=>{
     if (constant !== 1) setConstant(1)
   }, [ingredients])
-  
+
   return (
     <div className={styles.scaled_indgredients_with_slider}>
-    <SelectScaleConstant constant={constant} setConstant={setConstant} />
+    <SelectScaleConstant constant={constant} setConstant={handleSetConstant} />
       {ingredients && <ul className={styles.preview_ingredients_wrapper}>
         {ingredients.map((ingredient, index) => <ScaledIngredient key={index} ingredient={ingredient} constant={constant}/>)}
       </ul>}
@@ -36,15 +37,15 @@ function ScaledIngredient({ingredient, constant}){
   )
 }
 
-const SELECT_FROM = [ 0.25, 0.3333, 0.5, 0.666, 0.75, 1, 1.5, 2, 3, 4, 6]
 
 function SelectScaleConstant({constant, setConstant}){
+  const SELECT_FROM = [ 0.25, 0.3333, 0.5, 0.666, 0.75, 1, 1.5, 2, 3, 4, 6]
   const min = 0
   const max = SELECT_FROM[SELECT_FROM.length - 1]
       return (
           <div >
             <form>
-              <input type='range' defaultValue={1} min={min} step={'any'} max={max} list="options" onChange={(e)=>setConstant(e.target.value)} />
+              <input type='range' value={constant} defaultValue={1} min={min} step={'any'} max={max} list="options" onChange={(e)=>setConstant(e.target.value)} />
               <datalist id="options">
                   {SELECT_FROM.map((item)=><option value={item} id={item} label={`${item}`}>{item}</option>)}
               </datalist>
