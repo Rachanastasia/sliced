@@ -37,7 +37,7 @@ input, textarea{
 }
 
 textarea{
-    height: 200px;
+    height: 300px;
 }
 input:focus,
 input:active{
