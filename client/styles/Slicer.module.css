@@ -126,8 +126,9 @@
     width: 50px;
 }
 
-.scaled_indgredients_with_button_wrapper {
+.scaled_indgredients_with_slider {
     display: flex;
+    flex-direction: column;
     margin: var(--spacer-3) 0 var(--spacer-4);
 }
 
