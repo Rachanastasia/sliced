@@ -26,7 +26,7 @@ function AddRecipe({isPreview=true}) {
                 <IngredientInput input={ingredients.input} setInput={setIngredientInput}/>
                 <SampleAndClearButtons isPreview={isPreview} setSampleRecipe={setSampleRecipe} clearRecipe={clearRecipe} />
            </div>
-           {ingredients.ingredientData.length ? <ScaledIngredients ingredients={ingredients.ingredientData} /> : null}
+           <ScaledIngredients ingredients={ingredients.ingredientData} />
         </section >
     )
 }
@@ -43,3 +43,19 @@ function SampleAndClearButtons({isPreview, setSampleRecipe, clearRecipe}){
         </div>
     )
 }
+
+
+function SelectScaleConstant({constant, setConstant}){
+    const min = 0
+    const max = SELECT_FROM[SELECT_FROM.length - 1]
+        return (
+            <div >
+              <form>
+                <input type='range' defaultValue={1} min={min} step={'any'} max={max} list="options" onChange={(e)=>setConstant(e.target.value)} />
+                <datalist id="options">
+                    {SELECT_FROM.map((item)=><option value={item} id={item} label={`${item}`}>{item}</option>)}
+                </datalist>
+                </form>
+            </div>
+        )
+    }

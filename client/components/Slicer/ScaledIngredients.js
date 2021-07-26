@@ -16,9 +16,9 @@ export default function ScaledIngredients({ingredients}) {
   return (
     <div className={styles.scaled_indgredients_with_slider}>
     <SelectScaleConstant constant={constant} setConstant={setConstant} />
-      <ul className={styles.preview_ingredients_wrapper}>
+      {ingredients && <ul className={styles.preview_ingredients_wrapper}>
         {ingredients.map((ingredient, index) => <ScaledIngredient key={index} ingredient={ingredient} constant={constant}/>)}
-      </ul>
+      </ul>}
     </div>
   )
 }
@@ -30,8 +30,8 @@ function ScaledIngredient({ingredient, constant}){
   return (
       <li  className={styles.preview_ingredient}>
           {ingredient.amount > 0 && <p className={styles.preview_ingredient_item}>{formattedAmount}</p>}
-          <p className={styles.preview_ingredient_item}>{ingredient.unit?.name && formattedUnit}</p>
-          <p className={styles.preview_ingredient_item}>{ingredient.ingredient}</p>
+          <p className={`${styles.preview_ingredient_item} ${styles.preview_unit_item}`}>{ingredient.unit?.name && formattedUnit}</p>
+          <p  className={`${styles.preview_ingredient_item} ${styles.preview_ingredient_item}`}>{ingredient.ingredient}</p>
       </li>
   )
 }
@@ -39,7 +39,6 @@ function ScaledIngredient({ingredient, constant}){
 const SELECT_FROM = [ 0.25, 0.3333, 0.5, 0.666, 0.75, 1, 1.5, 2, 3, 4, 6]
 
 function SelectScaleConstant({constant, setConstant}){
-  console.log('THIS IS MY CONSTANT', constant)
   const min = 0
   const max = SELECT_FROM[SELECT_FROM.length - 1]
       return (
