@@ -11,7 +11,7 @@
     align-items: center;
     overflow: hidden;
     position: relative;
-    background-color: #fbe9e7be;
+    background-color: #fbe9e775;
 }
 
 
@@ -23,6 +23,7 @@
     background-position: cover;
     content: "";
     height: 100vw;
+    opacity: 0.4;
     padding: 0;
     margin: 0;
     position: absolute;
