@@ -11,10 +11,10 @@ export default function Footer(){
             <a className='footer-button' href='https://www.linkedin.com/in/rachel-a-reilly/'>
               <RiLinkedinLine />
             </a>
-            <a className="footer-button" href='https://rachanastasia.medium.com/'>
+            <a className="footer-button" href='https://rachelrly.medium.com/'>
                <AiOutlineMedium/>
             </a>
-            <a className='footer-button' href='https://github.com/Rachanastasia'>
+            <a className='footer-button' href='https://github.com/rachelrly'>
                 <RiGithubLine />
             </a>
         </footer>
