@@ -27,6 +27,7 @@ body{
 
 main{
   width: inherit;
+  min-height: 100%;
   display: flex;
   align-items: stretch;
   flex-direction: column;
@@ -44,7 +45,7 @@ main{
     align-items: center;
 }
 .screen_content >* {
-    margin-bottom: var(--spacer-3);
+    margin-bottom: var(--spacer-3-flex-lg);
 }
 
 h2, h3{
@@ -84,19 +85,6 @@ button, .button{
 
 
 
-
-
-
-/*section padding increased on first and last items*/
-/* section:first-of-type{
-    padding-top: var(--spacer-lg);
-}
-
-section:last-of-type{
-    padding-bottom: var(--spacer-lg);
-} */
-
-
 img{
     width: 100%;
 }
@@ -120,7 +108,8 @@ img{
     height: 100%;
     flex: 3;
     padding: var(--spacer-2);
-    margin-top: var(--spacer-3);
+    margin-top: var(--spacer-2-flex-lg);
+    padding-right: calc(var(--spacer-2) + 10px);
 }
 
 

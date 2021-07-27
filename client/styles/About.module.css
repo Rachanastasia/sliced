@@ -2,9 +2,10 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    padding: var(--spacer-2);
     background-color: var(--colors-accent-extra-light);
     max-width: var(--width-content-full);
+    padding: var(--spacer-2-flex-lg) var(--spacer-3-flex-lg);
+
 }
 
 .about_subtitle {

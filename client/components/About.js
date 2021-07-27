@@ -11,6 +11,9 @@ export default function About(){
 
             <h2 className={styles.about_subtitle}>How can I use Sliced?</h2>
             <p className={styles.about_p}>Just type out one of your recipes or copy and paste it below. The slider beneath the textbox lets you select the amount to scale.</p>
+
+
+            <h2>How precise are the Sliced conversions?</h2>
         </div>
     )
 }

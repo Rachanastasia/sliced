@@ -6,9 +6,8 @@
     height: var(--height-3);
     text-align: center;
     background-color: var(--colors-black);
+    padding: var(--spacer-2-flex) var(--spacer-2-flex-lg);
 }
-
-
 
 .menu_wrapper{
     display: flex;
@@ -16,7 +15,6 @@
     align-items: center;
     justify-content: flex-end;
     list-style: none;
-    margin-right: var(--spacer-2);
 }
 
 .menu_item{
