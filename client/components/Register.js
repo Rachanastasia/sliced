@@ -1,8 +1,9 @@
 import React, { useState, useContext, useEffect } from 'react';
 import Link from 'next/link'
-import Button from './Button';
+import styles from '../styles/Login.module.css'
 
-function Register(props) {
+
+function Register() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -11,8 +12,10 @@ function Register(props) {
 
 
   return (
-    <section>
-      <form>
+      <section className={styles.temp_block}>
+                <h2>Sliced has a new registration system in progress</h2>
+                <span>To try out Sliced without creating an account, use the Slicer <Link href='/#slicer'>here</Link>. </span>
+      {/* <form>
         <fieldset>
           <label htmlFor='register-name'>Name</label>
           <input type='text' value={name} onChange={e => setName(e.target.value)} id='register-name' name='register-name' placeholder='Your name' />
@@ -35,9 +38,9 @@ function Register(props) {
             <span>Already have an account?</span>
           </Link>
         </div>
-      </form>
+      </form> */}
     </section>
   )
-}
+    }
 
 export default Register;
