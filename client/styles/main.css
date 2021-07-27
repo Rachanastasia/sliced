@@ -14,12 +14,16 @@ body{
     min-height: 100vh;
     height: 100vh;
     min-width: 300px;
+    width: 100vw;
+    overflow-x: hidden;
 }
 
 #App{
     height: 100%;
     overflow-x: hidden;
 }
+
+
 
 main{
   height: inherit;
@@ -39,6 +43,9 @@ main{
     width: 100%;
     flex: 1;
     align-items: center;
+}
+.screen_content >* {
+    margin-bottom: var(--spacer-3);
 }
 
 h2, h3{
@@ -109,3 +116,61 @@ img{
   }
 }
 
+.image_wrapper{
+    width: 100vw;
+    height: calc(100vh - 106px);
+    padding: 0;
+    margin: 0;
+    color: var(--colors--dark);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.image_wrapper::before{
+    z-index: -1;
+    opacity: 0.2;
+    background-image: url(background.jpeg);
+    background-position: center;
+    content: "";
+    width: 100vw;
+    height: calc(100vh - 106px);
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    overflow: hidden;
+
+
+}
+
+.screen {
+    height: inherit;
+    flex: 3;
+    min-height: 100vh;
+    padding: var(--spacer-2);
+}
+
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: var(--colors-white);
+   
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: var(--colors-accent);
+    max-height: 20px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--colors-accent-bold);
+  }

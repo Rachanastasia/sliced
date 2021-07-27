@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { transformInputIntoIngredientData } from '../../utils/transformInputIntoIngredientData'
 import ScaledIngredients from './ScaledIngredients'
 import IngredientInput from './IngredientInput';
@@ -19,17 +19,31 @@ function AddRecipe({isPreview=true}) {
     const clearRecipe = () => {
         setIngredients({input: [], ingredientData: []})
     }
+
+    useEffect(()=>{
+        if (!ingredients.input?.length) setSampleRecipe()
+    },[])
   
     return (
-        <section className={styles.slicer_wrapper} >
-           <IngredientInput input={ingredients.input} setInput={setIngredientInput}/>
-           {!isPreview && <Button text='submit' />}
-           {isPreview && <Button text='sample recipe' onClick={setSampleRecipe} />}
-           <ClearButton clearInput={clearRecipe} />
-           {ingredients.ingredientData.length ? <ScaledIngredients ingredients={ingredients.ingredientData} /> : null}
+        <section className={styles.slicer_wrapper}   id='slicer'>
+            <div className={styles.input_button_wrapper}>
+                <IngredientInput input={ingredients.input} setInput={setIngredientInput}/>
+                <SampleAndClearButtons isPreview={isPreview} setSampleRecipe={setSampleRecipe} clearRecipe={clearRecipe} />
+           </div>
+           <ScaledIngredients ingredients={ingredients.ingredientData} />
         </section >
     )
 }
 
 
 export default AddRecipe;
+
+
+function SampleAndClearButtons({isPreview, setSampleRecipe, clearRecipe}){
+    return (
+        <div className={styles.button_wrapper}>
+            <ClearButton clearInput={clearRecipe} />
+           {isPreview ? <Button text='sample recipe' onClick={setSampleRecipe} /> : <Button text='save' />}
+        </div>
+    )
+}
