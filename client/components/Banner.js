@@ -9,7 +9,9 @@ export default function Banner(){
                 <h2 className={styles.banner_title}>Welcome to Sliced!</h2>
                 <span className={styles.banner_subtitle}>Scale your recipes</span>
                 <Link href='/#slicer' className={styles.banner_button}>
+                    <a>
                     <Button text='Try it out!' buttonStyle={styles.button_inverted}/>
+                    </a>
                 </Link>
             </div>
         </div>

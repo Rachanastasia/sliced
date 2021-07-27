@@ -51,7 +51,7 @@ main{
 h2, h3{
     font-size: var(--text-size-3);
     line-height: calc(1.5 * var(--text-size-3));
-    color: var(--colors-gray);
+    color: var(--colors-black);
     margin-bottom: var(--spacer-1-flex);
 }
 

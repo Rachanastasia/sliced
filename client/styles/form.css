@@ -39,11 +39,12 @@ textarea{
     height: 300px;
     background-color: inherit;
     border: 1px solid var(--colors-gray);
+    color: var(--colors-black);
+    caret-color: var(--colors-accent-bold);
 }
 
 textarea:active, textarea:focus{
-    border: 1px solid var(--colors-accent);
-    outline: 1px solid var(--colors-accent);
+    border: 1px solid var(--colors-accent-bold);
 }
 
 

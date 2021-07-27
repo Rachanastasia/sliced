@@ -1,7 +1,6 @@
 import React from 'react';
 import { RiKnifeLine } from 'react-icons/ri'
 import Link from 'next/link'
-import Button from './Button';
 import styles from '../styles/Header.module.css'
 
 function Header() {
