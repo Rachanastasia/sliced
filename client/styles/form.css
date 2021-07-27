@@ -38,6 +38,7 @@ input, textarea{
 
 textarea{
     height: 300px;
+    background-color: inherit;
 }
 input:focus,
 input:active{
@@ -52,7 +53,6 @@ input[type=password]:focus, textarea:focus{
 
 textarea:focus,
 textarea:active{
-    outline :var(--border-width) solid var(--colors-accent-bold);
     border :var(--border-width) solid var(--colors-accent-bold);
 
 }

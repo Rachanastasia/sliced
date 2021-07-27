@@ -6,6 +6,8 @@
     width: inherit;
     height: 100%;
     max-width: var(--width-content-full);
+    background-color: var(--colors-accent-extra-light);
+    padding: var(--spacer-2);
 }
 
 .slicer_input{
@@ -118,7 +120,7 @@
 
 .clear_button{
     width: 100%;
-    background-color: var(--colors-white);
+    background-color: var(--colors-accent-extra-light);
     color: var(--colors-accent-bold);
     border: 2px solid var(--colors-accent-bold);
 }

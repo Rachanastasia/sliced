@@ -24,11 +24,20 @@
     font-size: var(--text-size-1);
     display: flex;
     align-items: flex-end;
-    color: var(--colors-white)
+    color: var(--colors-accent-extra-light);
 }
 
 .action_button{
     padding: var(--spacer-2);
     background-color: var(--colors-accent-bold);
     border: var(--border-width) solid var(--colors-accent-bright);
+}
+
+.title{
+    font-size: var(--font-size-lg);
+    color: var(--colors-white);
+    display: flex;
+    flex-wrap: nowrap;
+    overflow: hidden;
+    align-items: center;
 }

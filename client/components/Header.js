@@ -9,7 +9,7 @@ function Header() {
     return (
         <header>
                 <h1>
-                    <div aria-label='Sliced'>
+                    <div aria-label='Sliced' className={styles.title}>
                         <span>S</span><RiKnifeLine /><span>iced</span>
                     </div>
                 </h1>
