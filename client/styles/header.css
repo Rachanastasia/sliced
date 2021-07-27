@@ -16,10 +16,7 @@ header > * {
 
 
 
-h1{
-    font-size: var(--font-size-lg);
-    color: var(--colors-white);
-}
+
 
 header a{
     outline: 0;
