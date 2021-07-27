@@ -5,14 +5,15 @@ import Button from './Button';
 import styles from '../styles/Header.module.css'
 
 function Header() {
-
     return (
         <header>
+            <Link href='/'>
                 <h1>
                     <div aria-label='Sliced' className={styles.title}>
                         <span>S</span><RiKnifeLine /><span>iced</span>
                     </div>
                 </h1>
+            </Link>
 
                 <ul className={styles.menu_wrapper}>
                     <li className={styles.menu_item}>

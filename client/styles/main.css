@@ -23,10 +23,7 @@ body{
     overflow-x: hidden;
 }
 
-#about{
-    height: 100vh;
-    background-color: red;
-}
+
 
 main{
   height: inherit;
@@ -46,6 +43,9 @@ main{
     width: 100%;
     flex: 1;
     align-items: center;
+}
+.screen_content >* {
+    margin-bottom: var(--spacer-3);
 }
 
 h2, h3{
