@@ -29,7 +29,7 @@
 
   --line-spacing: calc(var(--font-size-sm) * 1.4);
 
-  --border-width: 1.5px;
+  --border-width: 2px;
   
   --font: "Verdana", sans-serif;
 }

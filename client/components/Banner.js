@@ -6,9 +6,9 @@ export default function Banner(){
     return (
         <div className={styles.img_wrapper}>
             <h2>Welcome to Sliced!</h2>
-            <span>Slice your recipes</span>
+            <span>Scale your recipes</span>
             <Link href='/#slicer'>
-                <Button text='try it out!' />
+                <Button text='try it out!' buttonStyle={styles.button_inverted}/>
             </Link>
         </div>
     )

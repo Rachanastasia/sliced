@@ -38,23 +38,22 @@ input, textarea{
 textarea{
     height: 300px;
     background-color: inherit;
-}
-input:focus,
-input:active{
-    border:var(--border-width) solid var(--colors-accent-bright);
+    border: 1px solid var(--colors-gray);
 }
 
+textarea:active, textarea:focus{
+    border: 1px solid var(--colors-accent);
+    outline: 1px solid var(--colors-accent);
+}
+
+
 input[type=text]:focus,
-input[type=password]:focus, textarea:focus{
+input[type=password]:focus{
     outline: var(--border-width) solid var(--colors-accent);
 }
 
 
-textarea:focus,
-textarea:active{
-    border :var(--border-width) solid var(--colors-accent-bold);
 
-}
 
 .form_button {
     outline: 0;
