@@ -33,6 +33,7 @@ footer a svg:focus{
 
 footer p{
     padding: 0;
-    font-size: var(--text-size-1);
+    font-size: 1rem;
+    font-family: var(--font-body);
 }
 

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;400;700&family=Open+Sans&display=swap');
+
 :root{
     --colors-accent: #FF8A65;
     --colors-accent-bold: #F4511E;
@@ -37,12 +39,15 @@
 
     --text-size-1: 1rem;
     --text-size-2: 1.2rem;
-
     --text-size-3: 1.8rem;
+
+    --text-size-3-flex: var(--text-size-3);
+    --text-size-1-flex: var(--text-size-1);
+
   
     --font-size-sm: 1.2rem;
     --font-size-med: 1.6rem;
-    --font-size-lg: 2rem;
+    --font-size-lg: 3rem;
   
     --max-page-width: 80vw;
   
@@ -50,7 +55,9 @@
   
     --border-width: 1.5px;
     
-    --font: "Verdana", sans-serif;
+    --font: 'Noto Sans JP', sans-serif;
+    --font-title: 'Noto Sans JP', sans-serif;
+    --font-body: 'Open Sans', sans-serif;
   }
   
   @media all and (min-width: 400px){
@@ -67,6 +74,8 @@
 
      --spacer-2-flex-lg: calc(1.6 * var(--spacer-2));
      --spacer-3-flex-lg: calc(1.6 * var(--spacer-3));
+
+     --text-size-3-flex: calc(1.2 * var(--text-size-3));
 
     }
   }
@@ -85,6 +94,8 @@
      --spacer-3-flex-lg: calc(3.8 * var(--spacer-3));
 
      --text-size-1: 1.2rem;
+     --text-size-1-flex: 1.2rem;
+     --text-size-3-flex: calc(1.5 * var(--text-size-3));
   
      --font-size-med: 2rem;
      --font-size-lg: 3.8rem;

@@ -45,7 +45,7 @@ function SelectScaleConstant({constant, setConstant}){
       return (
           <div >
             <form>
-              <input type='range' value={constant}  min={min} step={'any'} max={max} list="options" onChange={(e)=>setConstant(e.target.value)} />
+              <input type='range' value={constant} className={styles.input_range} min={min} step={'any'} max={max} list="options" onChange={(e)=>setConstant(e.target.value)} />
               <datalist id="options">
                   {SELECT_FROM.map((item)=><option value={item} key={item} id={item} label={`${item}`}>{item}</option>)}
               </datalist>

@@ -31,7 +31,7 @@ input, textarea{
     padding: var(--spacer-1) ;
     font-size: var(--text-size-1);
     outline: 0;
-    font-family: var(--font);
+    font-family: var(--font-body);
     line-height: calc(1.5 * var(--text-size-1));
 }
 

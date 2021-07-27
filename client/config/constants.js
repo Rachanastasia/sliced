@@ -79,3 +79,12 @@ export const CONSTANT_OPTIONS = [
         constant: 4,
     }
 ]
+
+
+export const STARTING_INGREDIENT_OBJECT_DATA = [
+{    
+    amount: 0.5,
+    ingredient: "butter ",
+    unit: {ml: 236.588, name: "cup", isScalable: true}
+}
+]

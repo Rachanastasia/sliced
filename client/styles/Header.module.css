@@ -9,6 +9,12 @@
     padding: var(--spacer-2-flex) var(--spacer-2-flex-lg);
 }
 
+.knife_icon{
+    fill: white;
+    transform: scale(-2.2, -2.2) rotate(150deg);
+    margin-top: 5px;
+}
+
 .menu_wrapper{
     display: flex;
     flex: 2;
@@ -20,6 +26,7 @@
 .menu_item{
     padding-left: var(--spacer-2);
     font-size: var(--text-size-1);
+    font-family: var(--font-body);
     display: flex;
     align-items: flex-end;
     color: var(--colors-accent-extra-light);
@@ -43,6 +50,9 @@
     flex-wrap: nowrap;
     overflow: hidden;
     align-items: center;
+    font-family: var(--font-title);
+    height: var(--font-size-lg);
+    font-weight: 400;
 }
 
 
@@ -57,7 +67,5 @@
         padding-top: 0;
     }
 
-    .title{
-        padding-bottom: var(--spacer-1);
-    }
+    
 }

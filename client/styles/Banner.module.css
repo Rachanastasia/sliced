@@ -42,13 +42,19 @@
 
 .banner_title{
     padding-bottom: var(--spacer-1);
+    font-family: var(--font-title);
+    font-weight: 700;
+    font-size: var(--text-size-3-flex);
+    line-height: calc(1.5 * var(--text-size-3-flex));
+    color: var(--colors-black);
 }
 
 .banner_subtitle{
-    font: var(--font);
+    font: var(--font-title);
     font-size: var(--text-size-1);
     color: var(--colors-gray);
     text-align: center;
+    font-weight: 400;
 }
 
 .button_inverted{
@@ -58,6 +64,7 @@
     width: 200px;
     margin: var(--spacer-2-flex) 0;
     padding: var(--spacer-2) var(--spacer-1) ;
+    text-align: center;
 }
 
 .button_inverted:hover, .button_inverted:focus{

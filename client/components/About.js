@@ -14,6 +14,10 @@ export default function About(){
 
 
             <h2>How precise are the Sliced conversions?</h2>
+
+            <h2>What are the limitations of Sliced recipe conversion?</h2>
         </div>
     )
 }
+
+//the app, the measurements, the creator

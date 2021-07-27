@@ -15,6 +15,7 @@ Sliced was recently updated. View the old [Sliced app](https://sliced.rachanasta
 
 ## Images
 
+![](/client/public/main-page.png)
 ![](/client/public/scale-up-screenshot.png)
 ![](/client/public/scale-down-screenshot.png)
 
