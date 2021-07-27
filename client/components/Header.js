@@ -6,7 +6,7 @@ import styles from '../styles/Header.module.css'
 
 function Header() {
     return (
-        <header>
+        <header className={styles.header_wrapper}>
             <Link href='/'>
                 <h1>
                     <div aria-label='Sliced' className={styles.title}>
@@ -17,6 +17,11 @@ function Header() {
 
                 <ul className={styles.menu_wrapper}>
                     <li className={styles.menu_item}>
+                        <Link href='/#about'>
+                            <span>about</span>
+                        </Link>
+                    </li>
+                    <li className={styles.menu_item}>
                         <Link href='/login'>
                             <span>login</span>
                         </Link>
@@ -24,16 +29,6 @@ function Header() {
                     <li className={styles.menu_item}>
                         <Link href='/register'>
                             <span>register</span>
-                        </Link>
-                    </li>
-                    <li className={styles.menu_item}>
-                        <Link href='/#about'>
-                            <span>about</span>
-                        </Link>
-                    </li>
-                    <li className={styles.menu_item}>
-                        <Link href='/#slicer'>
-                            <Button text='try it out' buttonStyle={styles.action_button} />
                         </Link>
                     </li>
                 </ul>

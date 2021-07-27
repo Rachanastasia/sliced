@@ -9,12 +9,12 @@ footer{
     color: var(--colors-white);
 }
 
-footer .icon{
-    color: var(--colors-white);
+/* /* footer .icon{
+    color: var(--colors-accent);
     font-size: var(--font-size-med);
     height: var(--font-size-med);
     
-}
+} */
 
 footer a{
     height: inherit;
@@ -23,14 +23,16 @@ footer a{
     align-items: center;
     outline: 0;
     color: var(--colors-white);
-}
+} 
 
-footer a:hover .icon,
-footer a:focus .icon{
+footer a svg:hover,
+footer a svg:focus{
     color: var(--colors-accent-bold);
+    fill: var(--colors-accent-bold);
 }
 
 footer p{
     padding: 0;
     font-size: var(--text-size-1);
 }
+

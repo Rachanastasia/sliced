@@ -1,0 +1,7 @@
+.footer_icon{
+    color: var(--colors-accent-extra-light);
+}
+
+.footer_icon:hover, .footer_icon:focus{
+    color: var(--colors-accent-bold);
+}

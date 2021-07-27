@@ -5,7 +5,7 @@ import Header from '../components/Header'
 
 export default function Screen({children, description='Scale your recipes'}) {
   return (
-    <div>
+    <>
       <Head>
         <title>Sliced</title>
         <meta name="description" content={description} />
@@ -18,6 +18,6 @@ export default function Screen({children, description='Scale your recipes'}) {
         </div>
         <Footer />
       </main>
-    </div>
+    </>
   )
 }
