@@ -10,8 +10,8 @@ export default function Home() {
 function Page(){
   return (
       <div className='screen_content'>
-          <Slicer />
           <About />
+          <Slicer />
       </div>
   )
 }

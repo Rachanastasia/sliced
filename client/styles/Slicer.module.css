@@ -33,6 +33,10 @@
     justify-content: stretch;
 }
 
+.preview_title {
+    margin-bottom: var(--spacer-2-flex);
+}
+
 @media all and (min-width: 600px){
     .input_button_wrapper {
         flex-direction: row;

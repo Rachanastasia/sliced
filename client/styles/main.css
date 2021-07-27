@@ -45,12 +45,14 @@ main{
     align-items: center;
 }
 .screen_content >* {
-    margin-bottom: var(--spacer-3-flex-lg);
+    margin-bottom: var(--spacer-2-flex-lg);
 }
 
 h2, h3{
-    font-size: var(--font-size-med);
-    line-height: calc(1.5 * var(--font-size-med));
+    font-size: var(--text-size-3);
+    line-height: calc(1.5 * var(--text-size-3));
+    color: var(--colors-gray);
+    margin-bottom: var(--spacer-1-flex);
 }
 
 

@@ -1,22 +1,20 @@
 
-.img_wrapper{
+.banner_wrapper{
     width: 100vw;
     height: calc(100vh - 92px);
     padding: 0;
     margin: 0;
     color: var(--colors--dark);
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     overflow: hidden;
     position: relative;
-    background-color: #fbe9e775;
+    background-color: #fbe9e74f;
+
 }
 
-
-
-.img_wrapper::before{
+.banner_wrapper::before{
     z-index: -1;
     width: calc(100vh - 92px);
     background-image: url(background.jpeg);
@@ -31,17 +29,39 @@
     transform: rotate(90deg);
 }
 
+
+.banner_contents{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 70vh;
+    max-height: 300px;
+    width: 100%;
+}
+
+.banner_title{
+    padding-bottom: var(--spacer-1);
+}
+
+.banner_subtitle{
+    font: var(--font);
+    font-size: var(--text-size-1);
+    color: var(--colors-gray);
+    text-align: center;
+}
+
 .button_inverted{
-    background-color: inherit;
-    color: var(--colors-accent-bold);
+    background-color: var(--colors-accent-bold);
     border: var(--border-width) solid var(--colors-accent-bold);
+    color: var(--colors-accent-extra-light);
     width: 200px;
+    margin: var(--spacer-2-flex) 0;
     padding: var(--spacer-2) var(--spacer-1) ;
 }
 
 .button_inverted:hover, .button_inverted:focus{
-    background-color: var(--colors-accent-bold);
-    border: var(--border-width) solid var(--colors-accent-bold);
+    background-color: var(--colors-accent);
+    border: var(--border-width) solid var(--colors-accent);
     outline: 0;
-    color: var(--colors-accent-extra-light)
 }

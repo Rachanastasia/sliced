@@ -6,6 +6,7 @@
     --colors-black: #212121;
     --colors-white: #FFF;
     --colors-gray: #424242;
+    --colors-banner-bg: #fbe9e775;
   
     
     --spacer-1: 0.2rem;
@@ -36,6 +37,8 @@
 
     --text-size-1: 1rem;
     --text-size-2: 1.2rem;
+
+    --text-size-3: 1.8rem;
   
     --font-size-sm: 1.2rem;
     --font-size-med: 1.6rem;
