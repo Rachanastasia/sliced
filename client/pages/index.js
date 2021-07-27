@@ -4,7 +4,7 @@ import Slicer from '../components/Slicer/index'
 
 
 export default function Home() {
-  return <Screen><Page /></Screen>
+  return <Screen showBanner><Page /></Screen>
 }
 
 function Page(){

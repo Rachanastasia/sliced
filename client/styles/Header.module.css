@@ -4,7 +4,6 @@
     justify-content: space-between;
     width: 100vw;
     height: var(--height-3);
-    margin-bottom: var(--spacer-3);
     text-align: center;
     background-color: var(--colors-black);
 }

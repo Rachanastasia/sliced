@@ -1,4 +1,4 @@
-
+/*TODO: EXTRACT THIS INTO MODULE AND DELETE FILE*/
 
 header {
     display: flex;
@@ -6,38 +6,11 @@ header {
     justify-content: space-between;
     width: 100vw;
     height: var(--height-3);
-    margin-bottom: var(--spacer-5);
     text-align: center;
     background-color: var(--colors-black);
 }
 header > * {
     padding: var(--spacer-2);
-}
-
-
-
-
-
-header a{
-    outline: 0;
-    border-radius: 8px;
-    padding-top: 0;
-
-}
-
-header .title_link:focus{
-    border:var(--border-width) solid var(--colors-accent-extra-light);
-}
-
-
-
-header ul {
-    display: flex;
-    flex: 2;
-    align-items: center;
-    justify-content: flex-end;
-    list-style: none;
-
 }
 
 

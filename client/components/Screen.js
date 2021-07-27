@@ -1,9 +1,9 @@
 import Head from 'next/head'
 import Footer from '../components/Footer'
 import Header from '../components/Header'
+import Banner from '../components/Banner'
 
-
-export default function Screen({children, description='Scale your recipes'}) {
+export default function Screen({children, description='Scale your recipes', showBanner}) {
   return (
     <>
       <Head>
@@ -13,6 +13,7 @@ export default function Screen({children, description='Scale your recipes'}) {
       </Head>
       <main>
         <Header />
+        {showBanner && <Banner />}
         <div className='screen'>
             {children}
         </div>

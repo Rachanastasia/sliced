@@ -115,39 +115,12 @@ img{
   }
 }
 
-.image_wrapper{
-    width: 100vw;
-    height: calc(100vh - 106px);
-    padding: 0;
-    margin: 0;
-    color: var(--colors--dark);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-}
-
-.image_wrapper::before{
-    z-index: -1;
-    opacity: 0.2;
-    background-image: url(background.jpeg);
-    background-position: center;
-    content: "";
-    width: 100vw;
-    height: calc(100vh - 106px);
-    padding: 0;
-    margin: 0;
-    position: absolute;
-    overflow: hidden;
-
-
-}
 
 .screen {
     height: 100%;
     flex: 3;
     padding: var(--spacer-2);
+    margin-top: var(--spacer-3);
 }
 
 

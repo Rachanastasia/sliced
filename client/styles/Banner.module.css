@@ -1,0 +1,31 @@
+
+.img_wrapper{
+    width: 100vw;
+    height: calc(100vh - 92px);
+    padding: 0;
+    margin: 0;
+    color: var(--colors--dark);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    background-color: #fbe9e7be;
+}
+
+
+
+.img_wrapper::before{
+    z-index: -1;
+    width: calc(100vh - 92px);
+    background-image: url(background.jpeg);
+    background-position: cover;
+    content: "";
+    height: 100vw;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    overflow: hidden;
+    transform: rotate(90deg);
+}
