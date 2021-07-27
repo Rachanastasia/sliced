@@ -26,7 +26,6 @@ body{
 
 
 main{
-  height: inherit;
   width: inherit;
   display: flex;
   align-items: stretch;
@@ -50,6 +49,7 @@ main{
 
 h2, h3{
     font-size: var(--font-size-med);
+    line-height: calc(1.5 * var(--font-size-med));
 }
 
 
@@ -60,7 +60,6 @@ a{
     text-decoration: none;
     color: var(--colors-accent);
     outline: 0;
-    font-size: var(--font-size-sm);
 
 }
 
@@ -146,9 +145,8 @@ img{
 }
 
 .screen {
-    height: inherit;
+    height: 100%;
     flex: 3;
-    min-height: 100vh;
     padding: var(--spacer-2);
 }
 
