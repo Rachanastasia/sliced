@@ -192,7 +192,7 @@
 .input_range::-moz-range-thumb{
     width: 26px;
     height: 26px;
-    background: url(slice-line.svg) no-repeat center;
+    background: url(slice-line.svg) no-repeat fixed;
     transform: translateY(-10px) scale(2);
     cursor: pointer;
     outline: none;

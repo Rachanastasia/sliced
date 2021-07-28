@@ -47,6 +47,7 @@
     font-size: var(--text-size-3-flex);
     line-height: calc(1.5 * var(--text-size-3-flex));
     color: var(--colors-black);
+    height: var(--font-size-3-flex);
 }
 
 .banner_subtitle{

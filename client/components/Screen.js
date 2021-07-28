@@ -7,7 +7,7 @@ export default function Screen({children, description='A copy and paste your fav
   return (
     <>
       <Head>
-      <link rel="shortcut icon" href="../public/favicon_knife.png" />
+        {/* <link rel="icon" type="image/x-icon"  href="../public/favicon_io/" /> */}
         <title>Sliced</title>
         <meta name="description" content={description} />
         <meta name="og:description" content={description} />
