@@ -15,9 +15,9 @@ Sliced was recently updated. View the old [Sliced app](https://sliced.rachanasta
 
 ## Images
 
-![](https://www.flickr.com/photos/193574908@N02/51345247352/in/dateposted-public/)
-![](/client/public/scale-up-screenshot.png)
-![](/client/public/scale-down-screenshot.png)
+![](/client/public/main-page.jpg)
+![](/client/public/scale-up.jpg)
+![](/client/public/scale-down.jpg)
 
 ## Codebase
 
