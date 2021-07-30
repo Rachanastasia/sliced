@@ -1,6 +1,6 @@
-# Sliced
+# [Sliced](https://sliced-rachanastasia.vercel.app/)
 
-This is the repository for Sliced, the app to scale your recipes. 
+This is the repository for [Sliced](https://sliced-rachanastasia.vercel.app/), the app to scale your recipes. 
 
 With Sliced, users can scale up and down their favorite recipes. Sliced parses the ingredients and allows the user to select the multiple of the ingredients. Some units--including *cups*, *tablespoons*, *teaspoons*, and *gallons*--scale with the amount. Amounts are displayed in fractions when possible. All other numbers are rounded to the second decimal.
 
