@@ -14,7 +14,7 @@ export default function Screen({children, description=DEFAULT_DESCRIPTION, title
         <title>{title}</title>
         <meta property="og:type" content="website" key='ogtype'/>
         <meta name="author" content="Rachel Reilly"/>
-        <meta property="og:url" content='https://sliced-rachanastasia.vercel.app/' key="ogurl" />
+        <meta property="og:url" content='https://sliced.vercel.app/' key="ogurl" />
         <meta name="description" property="og:description" content={description} key="ogdesc"/>
         <meta name="title" property="og:title" content={title} key="ogtitle"/>
         <meta name="image" property="og:image" content="../public/main-page.png" key="ogimage"/>
