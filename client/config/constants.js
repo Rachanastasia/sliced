@@ -82,9 +82,11 @@ export const CONSTANT_OPTIONS = [
 
 
 export const STARTING_INGREDIENT_OBJECT_DATA = [
-{    
-    amount: 0.5,
-    ingredient: "butter ",
-    unit: {ml: 236.588, name: "cup", isScalable: true}
-}
+    {    
+        amount: 0.5,
+        ingredient: "butter ",
+        unit: {ml: 236.588, name: "cup", isScalable: true}
+    }
 ]
+
+export const DEFAULT_DESCRIPTION = `With Sliced, you can half, quarter, or two and a half your recipes. Just copy one of your favorite recipes and paste it in the textbox. Use the slider to scale the ingredient amounts. It works by parsing your recipe's ingredients and splitting the ingredient name, amount, and unit.`

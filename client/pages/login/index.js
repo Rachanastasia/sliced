@@ -1,6 +1,6 @@
-import Screen from '../../components/Screen'
+import Screen from '../../components/layout'
 import Login from '../../components/Login'
 
 export default function LoginPage(){
-    return <Screen><Login /></Screen>
+    return <Screen title='Log in to Sliced'><Login /></Screen>
 }

@@ -1,4 +1,4 @@
-# [Sliced Client](https://sliced-rachanastasia.vercel.app/)
+# [Sliced Client](https://sliced.vercel.app/)
 
 ## Codebase
 

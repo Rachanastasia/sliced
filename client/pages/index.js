@@ -1,4 +1,4 @@
-import Screen from '../components/Screen'
+import Screen from '../components/layout'
 import About from '../components/About'
 import Slicer from '../components/Slicer/index'
 
