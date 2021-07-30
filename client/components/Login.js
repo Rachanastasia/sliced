@@ -11,11 +11,11 @@ function Login() {
                         autoComplete='off'
                         className={styles.form_wrapper}>
                         <fieldset>
-                            <label  htmlFor='email'>email</label>
+                            <label  htmlFor='email'>Email</label>
                             <input name='email' type='text'/>
                         </fieldset>
                         <fieldset>
-                            <label  htmlFor='password'>password</label>
+                            <label  htmlFor='password'>Password</label>
                             <input name='password' type='password' />
                         </fieldset>
                         <TempLoginRegistrationWarning />
