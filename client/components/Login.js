@@ -21,7 +21,7 @@ function Login() {
                         <TempLoginRegistrationWarning />
                         <div className={styles.button_wrapper}>
                             <Button buttonStyle={styles.button} disabled/>
-                            <Link href='/register'>
+                            <Link href='/register' passHref>
                                 <span className={styles.button_link}>Create an account</span>
                             </Link>
                         </div>

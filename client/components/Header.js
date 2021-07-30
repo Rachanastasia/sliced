@@ -7,7 +7,7 @@ import styles from '../styles/Header.module.css'
 function Header() {
     return (
         <header className={styles.header_wrapper}>
-            <Link href='/'>
+            <Link href='/' passHref>
                     <h1 className={styles.title} aria-label='Sliced'>
                         <span>S</span><KnifeIcon iconStyles={styles.KnifeIcon} /><span>iced</span>
                     </h1>
@@ -15,17 +15,17 @@ function Header() {
 
                 <ul className={styles.menu_wrapper}>
                     <li className={styles.menu_item}>
-                        <Link href='/#about'>
+                        <Link href='/#about' passHref>
                             <span>about</span>
                         </Link>
                     </li>
                     <li className={styles.menu_item}>
-                        <Link href='/login'>
+                        <Link href='/login' passHref>
                             <span>login</span>
                         </Link>
                     </li>
                     <li className={styles.menu_item}>
-                        <Link href='/register'>
+                        <Link href='/register' passHref>
                             <span>register</span>
                         </Link>
                     </li>

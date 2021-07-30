@@ -33,7 +33,7 @@ function Register() {
         </fieldset>
         <div className={styles.button_wrapper}>
           <Button buttonStyle={styles.button} disabled/>
-          <Link href='/login'>
+          <Link href='/login' passHref>
             <span className={styles.button_link}>Already have an account?</span>
           </Link>
         </div>
