@@ -112,35 +112,8 @@ img{
     padding-right: calc(var(--spacer-2) + 10px);
 }
 
-
-/* width */
-::-webkit-scrollbar {
-    width: 10px;
+@media all and (min-width: 600px){
+  button, .button{
+    padding: var(--spacer-2-flex) var(--spacer-1);
   }
-  
-  /* Track */
-  ::-webkit-scrollbar-track {
-    background: var(--colors-white);
-   
-  }
-  
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: var(--colors-accent);
-    max-height: 20px;
-  }
-  
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background: var(--colors-accent-bold);
-  }
-
-  input[type=range]{
-    appearance: none;
-    border: 0;
-    outline: none;
-    transition: opacity 0.2s;
 }
-
-
-
