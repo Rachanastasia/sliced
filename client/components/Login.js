@@ -20,7 +20,7 @@ function Login() {
                         </fieldset>
                         <TempLoginRegistrationWarning />
                         <div className={styles.button_wrapper}>
-                            <Button disabled buttonStyle={styles.button} disabled/>
+                            <Button buttonStyle={styles.button} disabled/>
                             <Link href='/register'>
                                 <span className={styles.button_link}>Create an account</span>
                             </Link>
