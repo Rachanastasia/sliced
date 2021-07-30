@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect } from 'react';
 import Link from 'next/link'
 import Button from './Button'
+import TempLoginRegistrationWarning from './TempLoginRegistrationWarning'
 import styles from '../styles/Login.module.css'
 
 
@@ -31,6 +32,7 @@ function Register() {
           <label htmlFor='register-repeat-password'>Repeat password</label>
           <input type='password' value={repeatPassword} onChange={e => setRepeatPassword(e.target.value)} id='register-repeat-password' name='register-repeat-password' />
         </fieldset>
+        <TempLoginRegistrationWarning />
         <div className={styles.button_wrapper}>
           <Button buttonStyle={styles.button} disabled/>
           <Link href='/login' passHref>

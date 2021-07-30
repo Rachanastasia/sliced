@@ -17,7 +17,7 @@ export default function Screen({children, description=DEFAULT_DESCRIPTION, title
         <meta property="og:url" content='https://sliced.vercel.app/' key="ogurl" />
         <meta name="description" property="og:description" content={description} key="ogdesc"/>
         <meta name="title" property="og:title" content={title} key="ogtitle"/>
-        <meta name="image" property="og:image" content="https://www.flickr.com/photos/193574908@N02/51345247352/in/dateposted-public/" key="ogimage"/>
+        <meta name="image" property="og:image" content="https://live.staticflickr.com/65535/51345247352_dc5e2fb7c5_k.jpg" key="ogimage"/>
         <meta property="og:site_name" content='Sliced' key="ogsitename" />
         <link rel="icon" type="image/x-icon"  href="https://sliced-rachanastasia.vercel.app/_next/static/media/slice-line.c74f7d520b78c549bc1920b7a803dee8.svg" />
       </Head>
