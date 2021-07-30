@@ -40,15 +40,14 @@ function ScaledIngredient({ingredient, constant}){
 
 function SelectScaleConstant({constant, setConstant}){
   const handleSetConstant = e => {
-    const indexFloat = e?.target?.value
-    const index = Math.round(indexFloat)
+    const index = e?.target?.value
     const option = CONSTANT_OPTIONS[index]
     setConstant(option)
   }
       return (
           <div >
             <form>
-              <input type='range' value={constant.index} className={styles.input_range} min={0} step={0.01} max={10} list="options" onChange={handleSetConstant} />
+              <input type='range' value={constant.index} className={styles.input_range} min={0} step={1} max={10} list="options" onChange={handleSetConstant} />
               <datalist id="options">
                   {CONSTANT_OPTIONS.map((item)=><option value={item.index} key={item.label} id={item.index} label={item.lable}>{item.label}</option>)}
               </datalist>
