@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from '../styles/ect.module.css'
+import styles from '../styles/modules/ect.module.css'
 
 export default function Button({onClick, text='submit', buttonStyle=styles.button, textStyle=undefined, disabled}){
     buttonStyle = disabled ? `${buttonStyle} ${styles.button_disabled}` : buttonStyle

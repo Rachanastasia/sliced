@@ -49,7 +49,28 @@ Scales the ingredient using the data object returned from `transformInputIntoIng
 
 #### styles/
 
-Contains the styles for Sliced, written in CSS. Some base styles are imported into `/pages/_app.js`, but most use CSS modules
+Contains the styles for Sliced, written in CSS. Base styles are imported into `/pages/_app.js`
+
+##### main.css
+
+Contains base styles for the viewport, the elements, and the psuedoselectors for the range slider
+
+##### variables.old.css
+
+**Depreciated**
+Contains the variables from the last iteration of Sliced. Only legacy styles use these variables
+
+##### variables.css
+
+Contains the current variables used in Sliced 0.3.0, including flexible padding that increases with the viewport size
+
+##### form.css
+
+Contains base element styles for form-specific elements
+
+##### modules/
+
+Includes modules for five different components and the assets included in the CSS such as `Banner.module.css` and `Slicer.module.css`
 
 #### __tests__/
 

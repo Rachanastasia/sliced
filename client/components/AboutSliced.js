@@ -1,5 +1,5 @@
 import React, {Fragment} from 'react'
-import styles from '../styles/AboutSliced.module.css'
+import styles from '../styles/modules/AboutSliced.module.css'
 
 
 

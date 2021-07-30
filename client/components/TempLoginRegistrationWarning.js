@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import styles from '../styles/Login.module.css'
+import styles from '../styles/modules/Login.module.css'
 
 export default function TempLoginRegistrationWarning(){
     return (

@@ -1,5 +1,5 @@
 import React, {useEffect, useRef} from 'react'
-import styles from '../../styles/Slicer.module.css'
+import styles from '../../styles/modules/Slicer.module.css'
 
 export default function IngredientInput({setInput, input}){
     const inputRef = useRef(null)

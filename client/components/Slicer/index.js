@@ -4,7 +4,7 @@ import ScaledIngredients from './ScaledIngredients'
 import IngredientInput from './IngredientInput';
 import Button from '../Button'
 import ClearButton from './ClearButton'
-import styles from '../../styles/Slicer.module.css'
+import styles from '../../styles/modules/Slicer.module.css'
 import {sample} from '../../utils/sampleRecipe'
 
 function AddRecipe({isPreview=true}) {

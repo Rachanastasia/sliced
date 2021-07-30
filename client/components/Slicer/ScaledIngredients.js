@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import Button from '../Button'
-import styles from '../../styles/Slicer.module.css'
+import styles from '../../styles/modules/Slicer.module.css'
 import { convertFloatToFraction } from '../../utils/displayAsFraction'
 import { scaleIngredient } from '../../utils/scaleIngredient'
 import { CONSTANT_OPTIONS } from '../../config/constants'

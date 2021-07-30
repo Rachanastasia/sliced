@@ -2,7 +2,7 @@ import React from 'react';
 import { RiKnifeLine } from 'react-icons/ri'
 import KnifeIcon from './KnifeIcon';
 import Link from 'next/link'
-import styles from '../styles/Header.module.css'
+import styles from '../styles/modules/Header.module.css'
 
 function Header() {
     return (

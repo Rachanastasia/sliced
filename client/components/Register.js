@@ -2,7 +2,7 @@ import React, { useState, useContext, useEffect } from 'react';
 import Link from 'next/link'
 import Button from './Button'
 import TempLoginRegistrationWarning from './TempLoginRegistrationWarning'
-import styles from '../styles/Login.module.css'
+import styles from '../styles/modules/Login.module.css'
 
 
 function Register() {
