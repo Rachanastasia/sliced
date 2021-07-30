@@ -1,31 +1,32 @@
 import React from 'react';
 import Link from 'next/link'
+import Button from './Button'
+import TempLoginRegistrationWarning from './TempLoginRegistrationWarning'
 import styles from '../styles/Login.module.css'
 
 function Login() {
     return (
-            <section className={styles.temp_block}>
-                <h2>Sliced has a new login system in progress</h2>
-                <span>To try out Sliced without saving your reipes, use the Slicer <Link href='/#slicer'>here</Link>. </span>
-                    {/* <form
+            <section className={styles.outer_wrapper}>
+                    <form
                         autoComplete='off'
-                        className='Login_form'>
+                        className={styles.form_wrapper}>
                         <fieldset>
-                            <label className='hidden' htmlFor='email'></label>
+                            <label  htmlFor='email'>email</label>
                             <input name='email' type='text'/>
                         </fieldset>
                         <fieldset>
-                            <label className='hidden' htmlFor='password'></label>
+                            <label  htmlFor='password'>password</label>
                             <input name='password' type='password' />
                         </fieldset>
-                        <div className='form-login-button-wrapper'>
-                            <Button disabled />
+                        <TempLoginRegistrationWarning />
+                        <div className={styles.button_wrapper}>
+                            <Button disabled buttonStyle={styles.button} disabled/>
                             <Link href='/register'>
-                                <span>Create an account</span>
+                                <span className={styles.button_link}>Create an account</span>
                             </Link>
                         </div>
 
-                    </form> */}
+                    </form>
                 </section>
 
     )
