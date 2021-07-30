@@ -8,8 +8,6 @@ export default function ScaledIngredients({ingredients}) {
   const originalValues = CONSTANT_OPTIONS[5]
   const [constant, setConstant] = useState(originalValues)
 
-  console.log('THIS IS MY CONSTANT', constant)
-
   useEffect(()=>{
     if (constant.index !== 5) setConstant(originalValues)
   }, [ingredients])

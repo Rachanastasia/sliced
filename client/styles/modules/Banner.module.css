@@ -48,15 +48,10 @@
     line-height: calc(1.5 * var(--text-size-3-flex));
     color: var(--colors-black);
     height: var(--font-size-3-flex);
+    text-align: center;
+    align-self: center;
 }
 
-.banner_subtitle{
-    font: var(--font-title);
-    font-size: var(--text-size-1);
-    color: var(--colors-gray);
-    text-align: center;
-    font-weight: 400;
-}
 
 .button_inverted{
     background-color: var(--colors-accent-bold);
