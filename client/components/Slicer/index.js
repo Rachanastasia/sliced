@@ -15,8 +15,6 @@ function AddRecipe({isPreview=true}) {
         setIngredients({input, ingredientData})
     }
 
-    console.log('THIS HERE', ingredients)
-
     const setSampleRecipe = () => setIngredientInput(sample)
     const clearRecipe = () => {
         setIngredients({input: [], ingredientData: []})
