@@ -2,7 +2,6 @@ import Head from 'next/head'
 import Footer from './Footer'
 import Header from './Header'
 import Banner from './Banner'
-import favicon from '../public/favicon_io/favicon.ico'
 import { DEFAULT_DESCRIPTION } from '../config/constants'
 
 export default function Screen({children, description=DEFAULT_DESCRIPTION, title='Scale your recipes with Sliced', showBanner}) {

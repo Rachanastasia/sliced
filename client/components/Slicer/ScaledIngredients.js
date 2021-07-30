@@ -4,20 +4,21 @@ import { convertFloatToFraction } from '../../utils/displayAsFraction'
 import { scaleIngredient } from '../../utils/scaleIngredient'
 import { CONSTANT_OPTIONS } from '../../config/constants'
 
-
 export default function ScaledIngredients({ingredients}) {
-  const [constant, setConstant] = useState(1)
-  const handleSetConstant = (input) => input >= 0.25 ? setConstant(input) : null
+  const originalValues = CONSTANT_OPTIONS[5]
+  const [constant, setConstant] = useState(originalValues)
+
+  console.log('THIS IS MY CONSTANT', constant)
 
   useEffect(()=>{
-    if (constant !== 1) setConstant(1)
+    if (constant.index !== 5) setConstant(originalValues)
   }, [ingredients])
 
   return (
     <div className={styles.scaled_indgredients_with_slider}>
-    <SelectScaleConstant constant={constant} setConstant={handleSetConstant} />
+    <SelectScaleConstant constant={constant} setConstant={setConstant} />
       {ingredients && <ul className={styles.preview_ingredients_wrapper}>
-        {ingredients.map((ingredient, index) => <ScaledIngredient key={index} ingredient={ingredient} constant={constant}/>)}
+        {ingredients.map((ingredient, index) => <ScaledIngredient key={index} ingredient={ingredient} constant={constant.value}/>)}
       </ul>}
     </div>
   )
@@ -38,15 +39,18 @@ function ScaledIngredient({ingredient, constant}){
 
 
 function SelectScaleConstant({constant, setConstant}){
-  const SELECT_FROM = [ 0.25, 0.3333, 0.5, 0.666, 0.75, 1, 1.5, 2, 3, 4, 6]
-  const min = 0
-  const max = SELECT_FROM[SELECT_FROM.length - 1]
+  const handleSetConstant = e => {
+    const index = e?.target?.value
+    const option = CONSTANT_OPTIONS[index]
+    setConstant(option)
+  }
+
       return (
           <div >
             <form>
-              <input type='range' value={constant} className={styles.input_range} min={min} step={0.25} max={max} list="options" onChange={(e)=>setConstant(e.target.value)} />
+              <input type='range' value={constant.index} className={styles.input_range} min={0} step={1} max={10} list="options" onChange={handleSetConstant} />
               <datalist id="options">
-                  {SELECT_FROM.map((item)=><option value={item} key={item} id={item} label={`${item}`}>{item}</option>)}
+                  {CONSTANT_OPTIONS.map((item)=><option value={item.index} key={item.label} id={item.index} label={item.lable}>{item.label}</option>)}
               </datalist>
               </form>
           </div>

@@ -45,42 +45,6 @@ export const DECIMALS_TO_FRACTIONS = {
     "69": "7/10"
 }
 
-export const CONSTANT_OPTIONS = [
-    {
-        label: 'x 1/4',
-        constant: 0.25,
-    },
-    {
-        label: 'x 1/3',
-        constant: 0.3333,
-    },
-    {
-        label: 'x 2/3',
-        constant: 0.6666,
-    },
-    {
-        label: 'x 3/4',
-        constant: 0.75,
-    },
-    {
-        label: 'x 1',
-        constant: 1,
-    },
-    {
-        label: 'x 1 1/2',
-        constant: 1.5,
-    },
-    {
-        label: 'x 2 1/2',
-        constant: 2.5,
-    },
-    {
-        label: 'x 4',
-        constant: 4,
-    }
-]
-
-
 export const STARTING_INGREDIENT_OBJECT_DATA = [
     {    
         amount: 0.5,
@@ -90,3 +54,52 @@ export const STARTING_INGREDIENT_OBJECT_DATA = [
 ]
 
 export const DEFAULT_DESCRIPTION = `With Sliced, you can half, quarter, or two and a half your recipes. Just copy one of your favorite recipes and paste it in the textbox. Use the slider to scale the ingredient amounts. It works by parsing your recipe's ingredients and splitting the ingredient name, amount, and unit.`
+
+export const CONSTANT_OPTIONS = [ 
+    {
+      index: 0,
+      value:0.25,
+      label: '1/4'
+    }, {
+      index: 1,
+      label: '1/3',
+      value: 0.3333
+    }, {
+      index: 2,
+      value: 0.5,
+      label: '1/2'
+    }, {
+      index: 3,
+      value: 0.6666,
+      label: '2/3'
+    }, {
+      index: 4,
+      value: 0.75,
+      label: '3/4'
+    }, {
+      index: 5,
+      value: 1,
+      label: '1',
+    }, {
+      index: 6,
+      value: 1.75,
+      label: '1 3/4'
+    }, {
+      index: 7,
+      value: 2.5,
+      label: '2 1/2'
+    }, {
+      index: 8,
+      value: 3.5,
+      label: '3 1/2'
+    }, {
+      index: 9,
+      value: 5,
+      label: '5'
+    }, 
+    {
+        index: 10,
+        value: 8,
+        label: '8'
+      }, 
+  ]
