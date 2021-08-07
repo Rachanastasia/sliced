@@ -11,8 +11,14 @@
 
 .knife_icon{
     fill: white;
-    transform: scale(-2.2, -2.2) rotate(150deg);
-    margin-top: 5px;
+    padding-top: 2px;
+    transform: scale(-1.3, -1.3) rotate(150deg);
+}
+
+@media screen and (min-width: 600px) {
+    .knife_icon{
+        transform: scale(-2, -2) rotate(150deg);
+    }
 }
 
 .menu_wrapper{
