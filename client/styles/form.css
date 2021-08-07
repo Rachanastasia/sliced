@@ -42,7 +42,6 @@ textarea{
     background-color: inherit;
     border: 1px solid var(--colors-gray);
     color: var(--colors-black);
-    caret-color: var(--colors-accent-bold);
 }
 
 textarea:active, textarea:focus{
@@ -86,6 +85,7 @@ option{
       align-items: center;
       background: var(--colors-accent);
       max-height: 20px;
+      outline: none;
   }
   
   /* Handle on hover */

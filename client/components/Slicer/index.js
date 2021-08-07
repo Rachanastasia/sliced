@@ -26,7 +26,7 @@ function AddRecipe({isPreview=true}) {
   
     return (
         <section className={styles.slicer_wrapper}   id='slicer'>
-            {isPreview && <h2 className={styles.preview_title}>Try Sliced</h2>}
+            {isPreview && <h2 className={styles.preview_title}>Slice a Recipe</h2>}
             <div className={styles.input_button_wrapper}>
                 <IngredientInput input={ingredients.input} setInput={setIngredientInput}/>
                 <SampleAndClearButtons isPreview={isPreview} setSampleRecipe={setSampleRecipe} clearRecipe={clearRecipe} />

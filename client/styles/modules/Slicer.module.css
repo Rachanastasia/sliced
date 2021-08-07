@@ -199,14 +199,17 @@
     transform: translateY(-10px) translateX(5px) scale(1.8) rotate(20deg);
     cursor: pointer;
     outline: none;
+    border: none;
     transition: transform 0.08s;
 
 }
 
 .input_range:focus::-moz-range-thumb, 
 .input_range:active::-moz-range-thumb, 
-.input_range:hover::-moz-range-thumb{
-    outline: none;
+.input_range:hover::-moz-range-thumb,
+.input_range:focus::-ms-thumb, 
+.input_range:active::-ms-thumb, 
+.input_range:hover::-ms-thumb{
     transform: translateY(-10px) translateX(5px) scale(1.8) rotate(80deg);
 }
 
@@ -214,7 +217,6 @@
 .input_range:focus::-webkit-slider-thumb, 
 .input_range:active::-webkit-slider-thumb, 
 .input_range:hover::-webkit-slider-thumb{
-    outline: none;
     transform: translateY(-10px) translateX(5px) scale(1.8) rotate(80deg);
 
 }
