@@ -133,6 +133,7 @@
     background-color: var(--colors-accent-extra-light);
     color: var(--colors-accent-bold);
     border: 2px solid var(--colors-accent-bold);
+    transition: all 0.09s;
 }
 
 .constant_button{
@@ -160,6 +161,7 @@
     background-color: var(--colors-white);
     color: var(--colors-accent-bold);
     border: 2px solid var(--colors-accent-bold);
+    transition: all 0.09s;
 }
 
 .clear_button:hover, .clear_button:focus{
@@ -177,24 +179,45 @@
 }
 
 
+
 .input_range::-webkit-slider-thumb{
     -webkit-appearance: none;
-    width: 26px;
-    height: 26px;
+    border: 1.5px solid inherit;
+    width: 30px;
+    height: 30px;
     background: url(slice-line.svg) no-repeat center;
-    transform: translateY(-10px) scale(2);
+    transform: translateY(-10px) translateX(5px) scale(1.8) rotate(20deg);
     cursor: pointer;
     outline: none;
-
-
+    transition: transform 0.08s;
 }
+
 
 .input_range::-moz-range-thumb{
     width: 26px;
     height: 26px;
     background: url(slice-line.svg) no-repeat fixed;
-    transform: translateY(-10px) scale(2);
+    transform: translateY(-10px) translateX(5px) scale(1.8) rotate(20deg);
     cursor: pointer;
     outline: none;
+    transition: transform 0.08s;
+
 }
+
+.input_range:focus::-moz-range-thumb, 
+.input_range:active::-moz-range-thumb, 
+.input_range:hover::-moz-range-thumb{
+    outline: 0;
+    transform: translateY(-10px) translateX(5px) scale(1.8) rotate(80deg);
+}
+
+
+.input_range:focus::-webkit-slider-thumb, 
+.input_range:active::-webkit-slider-thumb, 
+.input_range:hover::-webkit-slider-thumb{
+    outline: 0;
+    transform: translateY(-10px) translateX(5px) scale(1.8) rotate(80deg);
+
+}
+
 

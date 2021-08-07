@@ -16,19 +16,22 @@ footer{
     
 } */
 
-footer a{
+footer a {
     height: inherit;
     display: flex;
     justify-content: center;
     align-items: center;
     outline: 0;
     color: var(--colors-white);
+    fill: var(--colors-white);
+    transition: color fill 0.08s;
 } 
 
-footer a svg:hover,
-footer a svg:focus{
+a svg:hover,
+a svg:focus {
     color: var(--colors-accent-bold);
     fill: var(--colors-accent-bold);
+    outline: 0;
 }
 
 footer p{
@@ -36,42 +39,3 @@ footer p{
     font-size: 1rem;
     font-family: var(--font-body);
 }
-
-datalist{
-    height: 100px;
-}
-
-
-/* width */
-::-webkit-scrollbar {
-    width: 10px;
-  }
-  
-  /* Track */
-  ::-webkit-scrollbar-track {
-    background: var(--colors-white);
-   
-  }
-  
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: var(--colors-accent);
-      max-height: 20px;
-  }
-  
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background: var(--colors-accent-bold);
-  }
-
-  input[type=range]{
-    appearance: none;
-    border: 0;
-    outline: none;
-    transition: opacity 0.2s;
-}
-
-

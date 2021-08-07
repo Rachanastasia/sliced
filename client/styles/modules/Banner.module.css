@@ -60,6 +60,7 @@
     width: 140px;
     margin: var(--spacer-2-flex) 0;
     text-align: center;
+    transition: all 0.09s;
 }
 
 .button_inverted:hover, .button_inverted:focus{

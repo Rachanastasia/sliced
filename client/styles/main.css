@@ -1,6 +1,4 @@
-/*RACHELS BASE CSS STYLES*/
-
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -22,7 +20,6 @@ body{
     height: 100%;
     overflow-x: hidden;
 }
-
 
 main{
   width: inherit;
@@ -61,7 +58,6 @@ a{
     text-decoration: none;
     color: var(--colors-accent);
     outline: 0;
-
 }
 
 article span{
@@ -83,18 +79,14 @@ button, .button{
     margin-top: calc(2 * var(--spacer-1));
 }
 
-
-
 img{
     width: 100%;
 }
-
 
 .error{
     color: var(--colors-accent-dark);
     margin-bottom: var(--spacer-tiny);
 }
-
 
 @media all and (min-width: 500px){
   section{
@@ -102,7 +94,6 @@ img{
     justify-content: center;
   }
 }
-
 
 .screen {
     height: 100%;

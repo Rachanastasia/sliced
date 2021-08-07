@@ -9,7 +9,7 @@ function Header() {
         <header className={styles.header_wrapper}>
             <Link href='/' passHref>
                     <h1 className={styles.title} aria-label='Sliced'>
-                        <span>S</span><KnifeIcon iconStyles={styles.KnifeIcon} /><span>iced</span>
+                        <span>S</span><KnifeIcon iconStyles={styles.knife_icon} /><span>iced</span>
                     </h1>
             </Link>
 

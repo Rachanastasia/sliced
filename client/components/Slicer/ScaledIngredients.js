@@ -42,12 +42,13 @@ function SelectScaleConstant({constant, setConstant}){
     const option = CONSTANT_OPTIONS[index]
     setConstant(option)
   }
+  const makeLabel = ({index, label})=> index === 0 || index === 10 ? label : ' '
       return (
           <div >
             <form>
               <input type='range' value={constant.index} className={styles.input_range} min={0} step={1} max={10} list="options" onChange={handleSetConstant} />
               <datalist id="options">
-                  {CONSTANT_OPTIONS.map((item)=><option value={item.index} key={item.label} id={item.index} label={item.lable}>{item.label}</option>)}
+                  {CONSTANT_OPTIONS.map((item)=><option value={item.index} key={item.label} id={item.index} label={makeLabel(item)}>{item.label}</option>)}
               </datalist>
               </form>
           </div>
