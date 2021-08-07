@@ -37,6 +37,8 @@
     align-items: flex-end;
     color: var(--colors-accent-extra-light);
     cursor: pointer;
+    transition: color 0.08s;
+
 }
 
 .menu_item:hover {

@@ -133,6 +133,7 @@
     background-color: var(--colors-accent-extra-light);
     color: var(--colors-accent-bold);
     border: 2px solid var(--colors-accent-bold);
+    transition: all 0.09s;
 }
 
 .constant_button{
@@ -160,6 +161,7 @@
     background-color: var(--colors-white);
     color: var(--colors-accent-bold);
     border: 2px solid var(--colors-accent-bold);
+    transition: all 0.09s;
 }
 
 .clear_button:hover, .clear_button:focus{
@@ -207,7 +209,6 @@
 .input_range:hover::-moz-range-thumb{
     outline: 0;
     transform: translateY(-10px) translateX(5px) scale(1.8) rotate(80deg);
-
 }
 
 
