@@ -182,7 +182,6 @@
 
 .input_range::-webkit-slider-thumb{
     -webkit-appearance: none;
-    border: 1.5px solid inherit;
     width: 30px;
     height: 30px;
     background: url(slice-line.svg) no-repeat center;
@@ -207,7 +206,7 @@
 .input_range:focus::-moz-range-thumb, 
 .input_range:active::-moz-range-thumb, 
 .input_range:hover::-moz-range-thumb{
-    outline: 0;
+    outline: none;
     transform: translateY(-10px) translateX(5px) scale(1.8) rotate(80deg);
 }
 
@@ -215,7 +214,7 @@
 .input_range:focus::-webkit-slider-thumb, 
 .input_range:active::-webkit-slider-thumb, 
 .input_range:hover::-webkit-slider-thumb{
-    outline: 0;
+    outline: none;
     transform: translateY(-10px) translateX(5px) scale(1.8) rotate(80deg);
 
 }
