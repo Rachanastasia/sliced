@@ -25,8 +25,12 @@ export function transformInputIntoIngredientData(input){
       sortCurrentWord()
       currentWord = ''
     } else {
-      currentWord = currentWord + currentChar
-      validateIngredientAndAddToDataIngredients()
+      const VALID_CHARACTER = /[\w|\.|\\|\-]/
+      const isValidCharacter = currentChar?.match(VALID_CHARACTER)
+      if (isValidCharacter){
+        currentWord = currentWord + currentChar
+        validateIngredientAndAddToDataIngredients()
+      }
     }
   }
 
