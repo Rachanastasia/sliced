@@ -1,5 +1,5 @@
 import {UNITS} from './units'
-
+import { convertVulgerFractionToUsableFloat } from '../slicer/convertVulgarFractionToUsableFloat'
 
 export function transformInputIntoIngredientData(input){
   const EMPTY_INGREDIENT = {
@@ -25,8 +25,13 @@ export function transformInputIntoIngredientData(input){
       sortCurrentWord()
       currentWord = ''
     } else {
-      currentWord = currentWord + currentChar
-      validateIngredientAndAddToDataIngredients()
+      const strippedCharacter = convertVulgerFractionToUsableFloat(currentChar)
+      const VALID_CHARACTER = /[\w|\.|\\|\-]/g
+      const isValidCharacter = strippedCharacter?.match(VALID_CHARACTER)
+      if (isValidCharacter){
+        currentWord = currentWord + strippedCharacter
+        validateIngredientAndAddToDataIngredients()
+      }
     }
   }
 
