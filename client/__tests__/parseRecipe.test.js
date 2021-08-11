@@ -26,13 +26,13 @@ describe('handles special characters as expected', () => {
         expect(testIngredient?.amount).toBe(0.25)
     })
     
-    // test('strips invalid characters from recipe', () => {
-    //     const parsedRecipe = transformInputIntoIngredientData(SPECIAL_CHARACTERS)
-    //     console.log('THIS IS THE PARSED RECIPE', parsedRecipe)
-    //     const testIngredientName = parsedRecipe[0].ingredient
-    //     const numberOfIngredients = !!parsedRecipe?.length
-    //     console.log('NAME AND NUMBER', testIngredientName, numberOfIngredients    )
-    //     expect(numberOfIngredients).toBeTruthy()
-    //     expect(testIngredientName).not.stringContaining('(')
-    // })
+    test('strips invalid characters from recipe', () => {
+        const parsedRecipe = transformInputIntoIngredientData(SPECIAL_CHARACTERS)
+        console.log('THIS IS THE PARSED RECIPE', parsedRecipe)
+        const testIngredientName = parsedRecipe[0].ingredient
+        const numberOfIngredients = !!parsedRecipe?.length
+        console.log('NAME AND NUMBER', testIngredientName, numberOfIngredients    )
+        expect(numberOfIngredients).toBeTruthy()
+        expect(testIngredientName).not.stringContaining('(')
+    })
 })
