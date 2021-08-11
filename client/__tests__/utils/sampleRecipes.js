@@ -25,7 +25,7 @@ const TIRAMISU = `1/2 cup (120 ml) brewed espresso or very strong coffee, at roo
 
 `
 
-const CHICKEN_PAPRIKASH = `2 to 2 1/2 pounds chicken pieces, preferably thighs and legs
+const SPECIAL_CHARACTERS = `2 to 2 1/2 pounds chicken pieces, preferably thighs and legs
 Salt
 2 to 3 tablespoons unsalted butter
 2 pounds yellow onions (about 2 to 3 large onions)
@@ -36,7 +36,7 @@ Black pepper to taste
 1/2 cup sour cream
 `
 
-const ALFREDO_SAUCE = `¼ cup butter
+export const VULGAR_FRACTIONS = `¼ cup butter
 
 1 cup heavy cream
 
@@ -57,3 +57,6 @@ const PANCAKES = `1 cup milk
 1 teaspoon salt
 Butter for greasing the pan -about 3 tablespoons
 Maple syrup for serving`
+
+
+export const RECIPES = {VULGAR_FRACTIONS, PANCAKES, SPECIAL_CHARACTERS, TIRAMISU, BASIC_BREAD}
