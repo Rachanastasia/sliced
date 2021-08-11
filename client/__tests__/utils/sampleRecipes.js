@@ -59,4 +59,4 @@ Butter for greasing the pan -about 3 tablespoons
 Maple syrup for serving`
 
 
-export const RECIPES = [VULGAR_FRACTIONS, PANCAKES, SPECIAL_CHARACTERS, TIRAMISU, BASIC_BREAD]
+export const RECIPES = {VULGAR_FRACTIONS, PANCAKES, SPECIAL_CHARACTERS, TIRAMISU, BASIC_BREAD}
