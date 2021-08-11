@@ -19,7 +19,7 @@ export function transformInputIntoIngredientData(input){
   const hasMoreText = () => i+1 >= input.length
 
   let i;
-  for (i = 0; i <= input.length; i++) {
+  for (i = 0; i <= input?.length; i++) {
     const currentChar = input[i]?.toLowerCase()
     if (currentChar === ' ' || currentChar === '\n') {
       sortCurrentWord()
