@@ -1,4 +1,5 @@
 import {stringToUnit} from './stringToUnit'
+import {Amount} from './Amount'
 
 export class Ingredient{
     constructor(unit, amount, ingredientName, ingredientDescriptors){
@@ -29,13 +30,3 @@ export class Ingredient{
     }
 }
 
-class Amount {
-    constructor(integer, float, numerator, denominator){
-        this.integer = integer
-        this.float = float
-        this.numerator = numerator
-        this.denominator = denominator
-    }
-
-
-}
