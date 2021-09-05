@@ -2,9 +2,13 @@
 
 This is the repository for [Sliced](https://sliced.vercel.app/), the app to scale your recipes. 
 
+Sliced was recently updated. This is a repository for the newest version. The [previous version](https://github.com/rachelrly/sliced-client) is a full stack app that allowed users to create accounts and save their recipes. To focus on what Sliced most special and make the tool accessable to users without an account, this iteration is currently a static site. 
+
+View the old [Sliced app](https://sliced.rachanastasia.vercel.app/) or the old [frontend](https://github.com/rachelrly/sliced-client) and [backend](https://github.com/rachelrly/sliced-API) code on GitHub. 
+
 With Sliced, users can scale up and down their favorite recipes. Sliced parses the ingredients and allows the user to select the multiple of the ingredients. Some units--including *cups*, *tablespoons*, *teaspoons*, and *gallons*--scale with the amount. Amounts are displayed in fractions when possible. All other numbers are rounded to the second decimal.
 
-Sliced was recently updated. View the old [Sliced app](https://sliced.rachanastasia.vercel.app/) or the old [frontend](https://github.com/Rachanastasia/sliced-client) and [backend](https://github.com/Rachanastasia/sliced-API) code on GitHub. 
+
 
 ## Tech Stack
 
