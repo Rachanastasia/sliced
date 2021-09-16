@@ -1,13 +1,13 @@
 
 
 export const UNIT_DATA = {
-    TEASPOON: {ml:4.92892, name: 'teaspoon', isScalable: true},
-    TABLESPOON: {ml:14.7868, name: 'tablespoon', isScalable: true},
-    OUNCE: {ml: 29.5735, name: 'ounce', isScalable: true},
-    CUP: {ml:236.588, name: 'cup', isScalable: true},
-    PINT: {ml:473.176, name: 'pint', isScalable: true},
-    QUART: {ml:946.353, name: 'quart', isScalable: true},
-    GALLON: {ml:3785.41, name: 'gallon', isScalable: true},
+    TEASPOON: {inMl:4.92892, name: 'teaspoon', isScalable: true},
+    TABLESPOON: {inMl:14.7868, name: 'tablespoon', isScalable: true},
+    OUNCE: {inMl: 29.5735, name: 'ounce', isScalable: true},
+    CUP: {inMl:236.588, name: 'cup', isScalable: true},
+    PINT: {inMl:473.176, name: 'pint', isScalable: true},
+    QUART: {inMl:946.353, name: 'quart', isScalable: true},
+    GALLON: {inMl:3785.41, name: 'gallon', isScalable: true},
     GRAM: {name: 'gram', isScalable: false},
     POUND: {name: 'pound', isScalable: false}
 }
