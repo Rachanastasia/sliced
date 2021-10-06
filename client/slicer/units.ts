@@ -1,0 +1,36 @@
+//TODO: Make sure periods at the end of non-numeric values are stripped
+//TODO: if length > 1, turn to lowercase, otherwise, check here
+
+export enum Units {
+    Cup1 = 'cups',
+    Cup2 = 'cup',
+    Cup3 = 'c',
+    Cup4 = 'cs',
+    Tablespoon1 = 'tablespoons',
+    Tablespoon2 = 'tablespoon',
+    Tablespoon3 = 'tbsp',
+    Tablespoon4 = 'tbsps',
+    Tablespoon5 = 'T',
+    Teaspoon1 = 'teaspoon',
+    Teaspoon2 = 'tsp',
+    Teaspoon3 = 't',
+    Teaspoon4 = 'tsps',
+    Ounce1 = 'ounce',
+    Ounce2 = 'oz',
+    Ounce3 = 'ounces',
+    Ounce4 = 'ozs',
+    Pound1 = 'lbs',
+    Pound2 = 'lb',
+    Pound3 = 'pounds',
+    Gallon1 = 'gallons',
+    Gallon2 = 'gallon',
+    Pint1 = 'pints',
+    Pint2 = 'pint',
+    Pint3 = 'p',
+    Quart1 = 'quart',
+    Quart2 = 'quarts',
+    Quaurt3 = 'quart',
+    Gram1 = 'gram',
+    Gram2 = 'grams',
+    Gram3 = 'g'
+}
