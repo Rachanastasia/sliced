@@ -10,12 +10,6 @@ function AddRecipe({ isPreview = true }) {
   const [recipeInput, setRecipeInput] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
-  //   const setIngredientInput = (input) => {
-  //     const formattedInput = input + " ";
-  //     const ingredientData = transformInputIntoIngredientData(formattedInput);
-  //     setIngredients({ input, ingredientData });
-  //   };
-
   const setSampleRecipe = () => setRecipeInput(sample);
   const clearRecipe = () => setRecipeInput([]);
 
@@ -34,7 +28,9 @@ function AddRecipe({ isPreview = true }) {
           isLoading={isLoading}
         />
       </div>
-      <Ingredients ingredients={recipeInput} isLoading={isLoading} />
+      {recipeInput.length && (
+        <Ingredients ingredients={recipeInput} isLoading={isLoading} />
+      )}
     </section>
   );
 }
