@@ -1,19 +1,13 @@
 import React, { useState, useEffect } from "react";
 import styles from "../../styles/modules/Slicer.module.css";
 import { convertFloatToFraction } from "../../utils/displayAsFraction";
-import { scaleIngredient } from "../../utils/scaleIngredient";
-import { CONSTANT_OPTIONS } from "../../config/constants";
 import ItemInput from "./ItemInput";
 import AddButton from "./AddButton";
 import UnitInput from "./UnitInput";
 
-export default function Ingredients({ ingredients }) {
-  const originalValues = CONSTANT_OPTIONS[5];
+export default function Ingredients({ ingredients, isLoading }) {
   const [constant, setConstant] = useState(originalValues);
-  // Interact with node package of slicer algo
-  // useEffect(() => {
-  //   if (constant.index !== 5) setConstant(originalValues);
-  // }, [ingredients]);
+  // THIS IS WHERE THE REDUCER LIVES
 
   return (
     <ul className={styles.scaled_indgredients_with_slider}>
@@ -33,6 +27,23 @@ function Ingredient({ ingredient }) {
   const { unit, amount = null, title = null } = ingredient;
   //TODO: set up reducer in here
   //TODO: set up context for screen size
+  //if locked, change in isolation
+  //if not, change constant (ripple out)
+
+  // isLocked
+
+  /**
+   * {
+   * constant: number
+   * unit: ENUM READ ONLY
+   * amount: {
+   * float: number
+   * display: string
+   * }
+   * ingredient: string
+   * isLocked: boolean
+   * }
+   */
 
   const formattedAmount = convertFloatToFraction(scaledIngredient.amount);
   return (

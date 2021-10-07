@@ -1,17 +1,18 @@
-import Screen from '../components/layout'
-import About from '../components/About'
-import Slicer from '../components/Slicer/index'
-
+import Screen from "../components/layout";
+import Slicer from "../components/Slicer/index";
 
 export default function Home() {
-  return <Screen showBanner><Page /></Screen>
+  return (
+    <Screen showBanner>
+      <Page />
+    </Screen>
+  );
 }
 
-function Page(){
+function Page() {
   return (
-      <div className='screen_content'>
-          <About />
-          <Slicer />
-      </div>
-  )
+    <div className="screen_content">
+      <Slicer />
+    </div>
+  );
 }
