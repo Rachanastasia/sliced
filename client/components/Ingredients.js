@@ -8,12 +8,8 @@ export function Ingredients({ ingredients }) {
   const [constant, setConstant] = useState(originalValues)
 
   useEffect(() => {
-    console.log('THESE ARE MY INGREDIENTS', ingredients)
     if (constant.index !== 5) setConstant(originalValues)
   }, [ingredients])
-
-  // use ingredient data returns an array with refs attached
-  // meaning ingredinet has ref
 
   return (
     <div className={styles.scaled_indgredients_with_slider}>
