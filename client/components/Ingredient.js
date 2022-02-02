@@ -6,7 +6,7 @@ import { convertFloatToFraction, scaleIngredient } from '../utils'
 import styles from '../styles/modules/Slicer.module.css'
 
 export const Ingredient = forwardRef(function IngredientItem(
-  { ingredient, constant, handleActiveIngredient },
+  { ingredient, constant, handleActiveIngredient, handleChangeIngredient },
   ref
 ) {
   const scaledIngredient = scaleIngredient(

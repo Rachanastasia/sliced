@@ -3,7 +3,11 @@ import styles from '../styles/modules/Slicer.module.css'
 import { CONSTANT_OPTIONS } from '../config/constants'
 import { Ingredient } from './Ingredient'
 
-export function Ingredients({ ingredients, handleActiveIngredient }) {
+export function Ingredients({
+  ingredients,
+  handleActiveIngredient,
+  handleChangeIngredient
+}) {
   const originalValues = CONSTANT_OPTIONS[5]
   const [constant, setConstant] = useState(originalValues)
 
@@ -23,6 +27,9 @@ export function Ingredients({ ingredients, handleActiveIngredient }) {
                 constant={constant.value}
                 handleActiveIngredient={() =>
                   handleActiveIngredient(ingredient.id)
+                }
+                handleChangeIngredient={(amount) =>
+                  handleChangeIngredient(ingredient.id, amount)
                 }
               />
             )

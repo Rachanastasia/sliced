@@ -23,11 +23,16 @@ function recipeReducer(state, action) {
         constant: 1
       }
     case 'setIngredient':
+      // triggered when active
+
       // set new value
       // set active to false
-      const ingredients = state.ingredients.map(
-        (ingredient) =>
-          console.log('MAPPED THIS INGREDINENT', ingredient, action.payload.id) // find ingredient with that id
+      // set new constant based on amount of ingredient
+      // do calculations first
+      const ingredients = state.ingredients.map((ingredient) =>
+        ingredient?.id === action.payload.id
+          ? { ...ingredient, active: false, amount: action.payload.amount }
+          : ingredient
       )
       return { input: state.input, constant: state.constant, ingredients }
     case 'setIngredientActive':
@@ -57,6 +62,9 @@ export function Recipe() {
   const handleActiveIngredient = (id) =>
     dispatch({ type: 'setIngredientActive', payload: { id } })
 
+  const handleChangeIngredient = (id, amount) =>
+    dispatch({ type: 'setIngredient', payload: { id, amount } })
+
   useEffect(() => {
     if (!state.input?.length)
       dispatch({ type: 'setInput', payload: { input: sample } })
@@ -72,6 +80,7 @@ export function Recipe() {
           <Ingredients
             ingredients={state.ingredients}
             handleActiveIngredient={handleActiveIngredient}
+            handleChangeIngredient={handleChangeIngredient}
           />
         </div>
       </form>
