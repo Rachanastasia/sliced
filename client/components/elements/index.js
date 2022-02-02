@@ -1,3 +1,4 @@
 export * from './LabelInput'
-export * from './IngredientItem'
 export * from './Dropdown'
+export * from './Button'
+export * from './Textarea'
