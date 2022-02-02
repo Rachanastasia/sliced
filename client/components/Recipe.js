@@ -23,11 +23,25 @@ function recipeReducer(state, action) {
         constant: 1
       }
     case 'setIngredient':
+      // set new value
+      // set active to false
       const ingredients = state.ingredients.map(
         (ingredient) =>
           console.log('MAPPED THIS INGREDINENT', ingredient, action.payload.id) // find ingredient with that id
       )
       return { input: state.input, constant: state.constant, ingredients }
+    case 'setIngredientActive':
+      // find ingredient
+      // set active to true
+      //
+      console.log('BEGINNING SET ACTINVE')
+      const temp = state.ingredients.map((ingredient) =>
+        ingredient?.id === action.payload.id
+          ? { ...ingredient, active: !ingredient.active }
+          : ingredient
+      )
+      return { input: state.input, constant: state.constant, ingredients: temp }
+
     default:
       console.log('I AM RUNNING THE DEFAULT CASE IN REDUCER')
   }
@@ -39,6 +53,9 @@ export function Recipe() {
     constant: 1,
     ingredients: []
   })
+
+  const handleActiveIngredient = (id) =>
+    dispatch({ type: 'setIngredientActive', payload: { id } })
 
   useEffect(() => {
     if (!state.input?.length)
@@ -52,7 +69,10 @@ export function Recipe() {
           <Textarea />
         </div>
         <div>
-          <Ingredients ingredients={state.ingredients} />
+          <Ingredients
+            ingredients={state.ingredients}
+            handleActiveIngredient={handleActiveIngredient}
+          />
         </div>
       </form>
     </section>

@@ -5,9 +5,8 @@ import { convertFloatToFraction, scaleIngredient } from '../utils'
 
 import styles from '../styles/modules/Slicer.module.css'
 
-// This should come into the
 export const Ingredient = forwardRef(function IngredientItem(
-  { ingredient, constant },
+  { ingredient, constant, handleActiveIngredient },
   ref
 ) {
   const scaledIngredient = scaleIngredient(
@@ -16,8 +15,8 @@ export const Ingredient = forwardRef(function IngredientItem(
   )
   const formattedAmount = convertFloatToFraction(scaledIngredient.amount)
   return (
-    <li className={styles.preview_ingredient}>
-      <LabelInput text={formattedAmount} ref={ref} />
+    <li className={styles.preview_ingredient} onClick={handleActiveIngredient}>
+      <LabelInput text={formattedAmount} ref={ref} active={ingredient.active} />
       <Dropdown unit={ingredient.unit} />
       <LabelInput text={ingredient.ingredient} />
     </li>
