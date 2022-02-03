@@ -5,17 +5,21 @@
 }
 
 .label_input {
+  flex: 3;
   width: 6.5rem;
   text-align: center;
 }
 
 .label_input:first-of-type {
+  flex: 1;
   width: 3rem;
 }
 
 .dropdown_wrapper {
-  flex: 2;
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100px;
+  margin: 0;
+  padding: 0;
 }

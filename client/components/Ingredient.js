@@ -1,6 +1,6 @@
 import { forwardRef, useRef } from 'react'
 
-import { ButtonToInput, Dropdown, CloseButton } from './elements'
+import { ButtonToInput, Dropdown, IconButton } from './elements'
 
 import styles from '../styles/modules/Recipe.module.css'
 
@@ -27,7 +27,7 @@ export const Ingredient = forwardRef(function IngredientItem(
   return (
     <li className={styles.ingredient}>
       <div className={styles.close_wrapper}>
-        <CloseButton onClick={handleDeleteIngredient} />
+        <IconButton type="close" onClick={handleDeleteIngredient} />
       </div>
       <div className={styles.ingredient_content}>
         <ButtonToInput
@@ -39,6 +39,7 @@ export const Ingredient = forwardRef(function IngredientItem(
         />
         <Dropdown unit={ingredient.unit} />
         <ButtonToInput text={ingredient.ingredient} ref={ingredientRef} />
+        <IconButton type="lock" disabled />
       </div>
     </li>
   )
