@@ -8,6 +8,9 @@
   --color-step-2: hsla(14, 100%, 40%, 0.856);
   --color-step-3: hsl(14, 100%, 30%);
 
+  --icon-button-width: 26px;
+  --icon-button-offset: calc(2 * var(--icon-button-width));
+
   --colors-accent: hsla(14, 100%, 70%, 0.767);
   --colors-accent-bold: #f4511e;
   --colors-accent-light: #fbe9e7;
@@ -50,6 +53,7 @@
   --text-size-3-flex: var(--text-size-3);
   --text-size-1-flex: var(--text-size-1);
 
+  --font-size-caption: 0.6rem;
   --font-size-sm: 1.2rem;
   --font-size-med: 1.6rem;
   --font-size-lg: 3rem;

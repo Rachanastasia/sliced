@@ -48,6 +48,7 @@ input {
 textarea {
   height: 30vh;
   padding: var(--spacer-1);
+  flex: 2;
 }
 
 @media all and (min-width: 600px) {

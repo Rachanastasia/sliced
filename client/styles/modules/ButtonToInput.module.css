@@ -30,6 +30,10 @@
   flex: 1;
 }
 
+.label_input:first-of-type > .input_button {
+  width: 100%;
+}
+
 .label_input:last-of-type > .input_button {
   flex: 4;
   min-width: 100px;

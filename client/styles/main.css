@@ -55,7 +55,6 @@ button {
   cursor: pointer;
   outline: 0;
   font-size: var(--text-size-2);
-  width: 100%;
   height: var(--height-1);
   color: var(--colors-white);
   padding: var(--spacer-1);

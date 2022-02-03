@@ -1,12 +1,12 @@
 import { Textarea } from './elements'
+import { Controls } from './Controls'
+
 import styles from '../styles/modules/Recipe.module.css'
 
 export function RecipeControls({ input }) {
   return (
-    <div>
-      <span className={styles.caption}>
-        Copy and paste your favorite recipe below.
-      </span>
+    <div className={styles.recipe_controls}>
+      <Controls />
       <Textarea input={input} />
     </div>
   )
