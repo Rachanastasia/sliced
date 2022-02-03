@@ -1,6 +1,9 @@
 import { forwardRef } from 'react'
 
-export const Input = forwardRef(function Input({ text, onBlur }, ref) {
+export const Input = forwardRef(function Input(
+  { text, onBlur, maxLength },
+  ref
+) {
   return (
     <input
       ref={ref}
@@ -9,6 +12,7 @@ export const Input = forwardRef(function Input({ text, onBlur }, ref) {
       onClick={onBlur}
       autoFocus
       autoComplete="off"
+      maxLength={maxLength}
     />
   )
 })

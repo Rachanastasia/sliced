@@ -31,15 +31,6 @@
   border-bottom: 1px solid var(--colors-gray);
 }
 
-@media all and (min-width: 1000px) {
-  .recipe {
-    margin-top: var(--spacer-3);
-  }
-  .ingredients {
-    margin-top: var(--spacer-4);
-  }
-}
-
 .ingredient:last-of-type {
   border-bottom: 0;
 }
@@ -60,11 +51,20 @@
 .ingredient_content {
   background-color: var(--color-step-1);
   border-radius: var(--button-border-radius);
-
   padding: var(--spacer-1);
   display: flex;
   width: 100%;
   justify-content: space-between;
+}
+
+@media all and (min-width: 1000px) {
+  .recipe {
+    margin-top: var(--spacer-3);
+  }
+  .ingredients {
+    margin-top: var(--spacer-4);
+    padding: var(--spacer-2);
+  }
 }
 
 .icon_wrapper {

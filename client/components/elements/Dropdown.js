@@ -12,7 +12,7 @@ export function Dropdown({ name, options, onChange }) {
   // )
   return (
     <div className={styles.dropdown_wrapper}>
-      <p>{options[0]}</p>
+      {options[0] && <p>{options[0]}</p>}
     </div>
   )
 }

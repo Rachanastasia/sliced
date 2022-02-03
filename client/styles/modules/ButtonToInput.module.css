@@ -1,7 +1,6 @@
 .input_button {
   border: 0;
   background-color: inherit;
-  border: 1px solid var(--color-step-3);
   cursor: pointer;
   color: var(--color-step-3);
   padding: 0;
@@ -44,6 +43,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0;
+  margin: 0 var(--spacer-1);
   padding: 0 var(--spacer-1);
+  color: var(--color-step-3);
+  border-radius: var(--button-border-radius);
+  height: var(--button-to-input-height);
+  background-color: var(--color-step-1);
+  cursor: not-allowed;
+}
+
+.dropdown_wrapper:empty {
+  background-color: unset;
 }

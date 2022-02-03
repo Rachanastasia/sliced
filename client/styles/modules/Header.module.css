@@ -1,6 +1,6 @@
 .header_wrapper {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   width: 100%;
   height: var(--height-3);
@@ -8,13 +8,6 @@
   padding: var(--spacer-1);
   margin: 0;
   background-color: var(--color-step-1);
-}
-
-@media all and (min-width: 1400px) {
-  .header_wrapper {
-    max-width: unset;
-    padding: var(--spacer-3-flex);
-  }
 }
 
 .knife_icon {
@@ -36,6 +29,14 @@
   font-weight: 400;
   max-width: 1000px;
   width: 100%;
+}
+
+@media all and (min-width: 1400px) {
+  .title {
+    margin-left: var(--spacer-2);
+    width: 100%;
+    max-width: unset;
+  }
 }
 
 @media screen and (min-width: 600px) {

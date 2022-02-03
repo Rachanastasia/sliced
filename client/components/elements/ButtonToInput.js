@@ -10,13 +10,13 @@ import styles from '../../styles/modules/ButtonToInput.module.css'
  */
 
 export const ButtonToInput = forwardRef(function ButtonToInput(
-  { active = false, text, onClick, onBlur },
+  { active = false, text, onClick, onBlur, maxLength = 100 },
   ref
 ) {
   return (
     <div className={styles.label_input}>
       {active ? (
-        <Input ref={ref} text={text} onBlur={onBlur} />
+        <Input ref={ref} text={text} onBlur={onBlur} maxLength={maxLength} />
       ) : (
         <InputButton text={text} onClick={onClick} />
       )}
