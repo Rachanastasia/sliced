@@ -34,76 +34,21 @@ fieldset .hidden {
 input,
 textarea {
   width: 100%;
-  padding: var(--spacer-1);
   font-size: var(--text-size-1);
   outline: 0;
   font-family: var(--font-body);
   line-height: calc(1.5 * var(--text-size-1));
+  border: var(--button-to-input-border);
+  border-radius: var(--button-border-radius);
+  color: var(--colors-black);
+  transition: all 0.2s;
+}
+
+input {
+  padding: var(--spacer-1) var(--spacer-2);
+  height: var(--button-to-input-height);
 }
 
 textarea {
   height: 30vh;
-  background-color: inherit;
-  border: 1px solid var(--colors-gray);
-  color: var(--colors-black);
-}
-
-textarea:active,
-textarea:focus {
-  border: 1px solid var(--colors-accent-bold);
-}
-
-datalist {
-  display: flex;
-  width: 100%;
-  padding: 0;
-  justify-content: space-between;
-  margin-bottom: var(--spacer-tiny);
-}
-
-option {
-  height: 1px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-weight: 700;
-  font-family: var(--font-body);
-  font-size: 1rem;
-}
-
-/* width */
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-  background: var(--colors-white);
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: var(--colors-accent);
-  max-height: 20px;
-  outline: none;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: var(--colors-accent-bold);
-}
-
-input[type='range'] {
-  appearance: none;
-  border: 0;
-  outline: none;
-  transition: opacity 0.2s;
-}
-
-input[type='text'] {
-  transition: opacity 0.2s;
-  height: 2rem;
 }

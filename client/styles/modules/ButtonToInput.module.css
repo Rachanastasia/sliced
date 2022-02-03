@@ -1,30 +1,31 @@
 .input_button {
   border: 0;
   background-color: inherit;
-  border: 1px solid black;
+  border: var(--button-to-input-border);
   cursor: pointer;
   color: black;
   padding: 0;
   font-size: var(--text-size-1);
   flex: 2;
+  height: var(--button-to-input-height);
+  max-width: 300px;
 }
 
 .label_input {
   flex: 3;
   width: 6.5rem;
   text-align: center;
-}
-
-.label_input:first-of-type {
-  flex: 1;
-  width: 3rem;
+  display: flex;
+  align-items: center;
+  height: inherit;
+  justify-content: center;
 }
 
 .dropdown_wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100px;
+  width: 100;
   margin: 0;
   padding: 0 var(--spacer-1);
 }

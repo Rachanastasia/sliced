@@ -6,6 +6,7 @@
   align-items: center;
   font-family: var(--font-body);
   padding: var(--spacer-2);
+  max-width: 1000px;
 }
 
 .ingredients {
@@ -30,17 +31,33 @@
   border-bottom: 1px solid var(--colors-gray);
 }
 
+@media all and (min-width: 1000px) {
+  .recipe {
+    margin-top: var(--spacer-3);
+  }
+  .ingredients {
+    margin-top: var(--spacer-4);
+  }
+  .ingredient {
+    height: 4rem;
+  }
+}
+
+.ingredient:last-of-type {
+  border-bottom: 0;
+}
+
 .ingredient > * {
   padding: 0 var(--spacer-2);
 }
 
-.ingredient_content {
+.ingredient_content,
+.inactive_wrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
   height: inherit;
-  padding: 0;
 }
 
 .icon_wrapper {

@@ -65,7 +65,7 @@ export const Ingredient = forwardRef(function IngredientItem(
             <ButtonToInput
               text={ingredient?.amount}
               ref={amountRef}
-              active={ingredient.active === 'amount'}
+              active={false}
               onClick={handleActiveIngredientAmount}
               onBlur={handleChangeIngredientAmount}
             />
@@ -73,7 +73,7 @@ export const Ingredient = forwardRef(function IngredientItem(
             <ButtonToInput
               text={ingredient.ingredient}
               ref={ingredientRef}
-              active={ingredient.active === 'ingredient'}
+              active={false}
               onClick={handleActiveIngredientName}
               onBlur={handleChangeIngredientName}
             />

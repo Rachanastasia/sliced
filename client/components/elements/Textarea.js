@@ -1,3 +1,4 @@
+import { forwardRef } from 'react'
 import styles from '../../styles/modules/ect.module.css'
 
 export function Textarea({ input, onChange }) {

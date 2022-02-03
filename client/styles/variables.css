@@ -1,105 +1,102 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;400;700&family=Open+Sans&display=swap');
 
-:root{
-    --colors-accent: #FF8A65;
-    --colors-accent-bold: #F4511E;
-    --colors-accent-light: #FBE9E7;
-    --colors-accent-extra-light: #f7f6f5;
-    --colors-black: #212121;
-    --colors-white: #FFF;
-    --colors-gray: #424242;
-    --colors-banner-bg: #fbe9e775;
-  
-    
-    --spacer-1: 0.2rem;
-    --spacer-2: 1rem;
-    --spacer-3: 1.4rem;
-    --spacer-4: 1.8rem;
-    --spacer-5: 3.2rem;
-    --spacer-6: 3.4rem;
+:root {
+  --button-to-input-height: 40px;
+  --button-to-input-border: 1px solid black;
 
-    --spacer-1-flex:var(--spacer-1);
-    --spacer-2-flex: var(--spacer-2);
-    --spacer-3-flex: var(--spacer-3);
+  --colors-accent: #ff8a65;
+  --colors-accent-bold: #f4511e;
+  --colors-accent-light: #fbe9e7;
+  --colors-accent-extra-light: #f7f6f5;
+  --colors-black: #212121;
+  --colors-white: #fff;
+  --colors-gray: #424242;
+  --colors-banner-bg: #fbe9e775;
 
-    --spacer-2-flex-lg: var(--spacer-2);
-    --spacer-3-flex-lg: var(--spacer-3);
+  --spacer-1: 0.2rem;
+  --spacer-2: 1rem;
+  --spacer-3: 1.4rem;
+  --spacer-4: 1.8rem;
+  --spacer-5: 3.2rem;
+  --spacer-6: 3.4rem;
 
-    --height-1: 1.8rem;
-    --height-2: 3rem;
-    --height-4: 8rem;
+  --spacer-1-flex: var(--spacer-1);
+  --spacer-2-flex: var(--spacer-2);
+  --spacer-3-flex: var(--spacer-3);
 
-    --width-1: 1.8rem;
-    --width-2: 8rem;
-    --width-content-full: 1000px;
-  
-    --button-width: 6.8rem;
-    --button-height: 2rem;
-    --button-border-radius: 4px;
+  --spacer-2-flex-lg: var(--spacer-2);
+  --spacer-3-flex-lg: var(--spacer-3);
 
-    --text-size-1: 1rem;
-    --text-size-2: 1.2rem;
-    --text-size-3: 1.8rem;
+  --height-1: 1.8rem;
+  --height-2: 3rem;
+  --height-4: 8rem;
 
-    --text-size-3-flex: var(--text-size-3);
-    --text-size-1-flex: var(--text-size-1);
+  --width-1: 1.8rem;
+  --width-2: 8rem;
+  --width-content-full: 1000px;
 
-  
-    --font-size-sm: 1.2rem;
-    --font-size-med: 1.6rem;
-    --font-size-lg: 3rem;
-  
-    --max-page-width: 80vw;
-  
-    --line-spacing: calc(var(--font-size-sm) * 1.4);
-  
-    --border-width: 1.5px;
-    
-    --font: 'Noto Sans JP', sans-serif;
-    --font-title: 'Noto Sans JP', sans-serif;
-    --font-body: 'Open Sans', sans-serif;
+  --button-width: 6.8rem;
+  --button-height: 2rem;
+  --button-border-radius: 2px;
+
+  --text-size-1: 1rem;
+  --text-size-2: 1.2rem;
+  --text-size-3: 1.8rem;
+
+  --text-size-3-flex: var(--text-size-3);
+  --text-size-1-flex: var(--text-size-1);
+
+  --font-size-sm: 1.2rem;
+  --font-size-med: 1.6rem;
+  --font-size-lg: 3rem;
+
+  --max-page-width: 80vw;
+
+  --line-spacing: calc(var(--font-size-sm) * 1.4);
+
+  --border-width: 1.5px;
+
+  --font: 'Noto Sans JP', sans-serif;
+  --font-title: 'Noto Sans JP', sans-serif;
+  --font-body: 'Open Sans', sans-serif;
+}
+
+@media all and (min-width: 400px) {
+  :root {
+    --font-size-lg: 3.2rem;
   }
-  
-  @media all and (min-width: 400px){
-    :root{
-      --font-size-lg: 3.2rem;
-    }
+}
+
+@media all and (min-width: 550px) {
+  :root {
+    --spacer-1-flex: calc(1.2 * var(--spacer-1));
+    --spacer-2-flex: calc(1.2 * var(--spacer-2));
+    --spacer-3-flex: calc(1.2 * var(--spacer-3));
+
+    --spacer-2-flex-lg: calc(1.6 * var(--spacer-2));
+    --spacer-3-flex-lg: calc(1.6 * var(--spacer-3));
+
+    --text-size-3-flex: calc(1.2 * var(--text-size-3));
   }
+}
 
-  @media all and (min-width: 550px){
-    :root {
-     --spacer-1-flex: calc(1.2 * var(--spacer-1));
-     --spacer-2-flex: calc(1.2 * var(--spacer-2));
-     --spacer-3-flex: calc(1.2 * var(--spacer-3));
+@media all and (min-width: 800px) {
+  :root {
+    --spacer-med: 1.8rem;
+    --spacer-lg: 2.4rem;
 
-     --spacer-2-flex-lg: calc(1.6 * var(--spacer-2));
-     --spacer-3-flex-lg: calc(1.6 * var(--spacer-3));
+    --spacer-1-flex: calc(1.5 * var(--spacer-1));
+    --spacer-2-flex: calc(1.5 * var(--spacer-2));
+    --spacer-3-flex: calc(1.5 * var(--spacer-3));
 
-     --text-size-3-flex: calc(1.2 * var(--text-size-3));
+    --spacer-2-flex-lg: calc(3.8 * var(--spacer-2));
+    --spacer-3-flex-lg: calc(3.8 * var(--spacer-3));
 
-    }
+    --text-size-1: 1.2rem;
+    --text-size-1-flex: 1.2rem;
+    --text-size-3-flex: calc(1.5 * var(--text-size-3));
+
+    --font-size-med: 2rem;
+    --font-size-lg: 3.8rem;
   }
-  
-  
-  @media all and (min-width: 800px){
-    :root{
-     --spacer-med: 1.8rem;
-     --spacer-lg: 2.4rem;
-
-     --spacer-1-flex: calc(1.5 * var(--spacer-1));
-     --spacer-2-flex: calc(1.5 * var(--spacer-2));
-     --spacer-3-flex: calc(1.5 * var(--spacer-3));
-
-     --spacer-2-flex-lg: calc(3.8 * var(--spacer-2));
-     --spacer-3-flex-lg: calc(3.8 * var(--spacer-3));
-
-     --text-size-1: 1.2rem;
-     --text-size-1-flex: 1.2rem;
-     --text-size-3-flex: calc(1.5 * var(--text-size-3));
-  
-     --font-size-med: 2rem;
-     --font-size-lg: 3.8rem;
-  
-    } 
-  
-  }
+}
