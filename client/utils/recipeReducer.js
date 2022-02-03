@@ -1,5 +1,5 @@
 import { ACTIONS } from '../config'
-import { parse } from '../slicer'
+import { parse } from '../slicer/types/parse'
 import { scaleRecipe } from './scaleIngredient'
 
 export function recipeReducer(state, action) {
@@ -22,12 +22,12 @@ export function recipeReducer(state, action) {
       const ingredients = state.ingredients.map((ingredient) => {
         if (ingredient.id === action.payload.id) {
           // sets to "none"
-          ingredient.setActive(ingredient.active)
           if (action.payload.prop === 'amount') {
-            ingredient.setAmount(action.payload.value)
-          } else if (action.payload.prop === 'amount') {
-            ingredient.setIngredientName(action.payload.value)
+            ingredient.setAmount(action.payload.value, true)
+          } else if (action.payload.prop === 'ingredient') {
+            ingredient.setIngredientName(action.payload.value, true)
           }
+          ingredient.setActive(ingredient.active)
         }
         return ingredient
       })

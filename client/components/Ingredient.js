@@ -1,6 +1,7 @@
 import { forwardRef, useRef, Fragment } from 'react'
 
 import { ButtonToInput, Dropdown, IconButton } from './elements'
+import { displayAsFraction } from '../utils'
 
 import styles from '../styles/modules/Recipe.module.css'
 
@@ -46,7 +47,7 @@ export const Ingredient = forwardRef(function IngredientItem(
       <div className={styles.ingredient_content}>
         {ingredient.active === 'amount' ? (
           <ButtonToInput
-            text={ingredient.amount.amount}
+            text={displayAsFraction(ingredient.amount.amount)}
             ref={amountRef}
             active={ingredient.active === 'amount'}
             onClick={handleActiveIngredientAmount}
@@ -63,7 +64,7 @@ export const Ingredient = forwardRef(function IngredientItem(
         ) : (
           <Fragment>
             <ButtonToInput
-              text={ingredient.amount.amount}
+              text={displayAsFraction(ingredient.amount.amount)}
               ref={amountRef}
               active={false}
               onClick={handleActiveIngredientAmount}

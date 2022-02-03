@@ -10,7 +10,6 @@ export function Ingredients({
   handleChangeIngredient,
   handleDeleteIngredient
 }) {
-  console.log('ingredients from ingredient', ingredients)
   return (
     <Fragment>
       {ingredients && (
