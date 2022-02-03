@@ -1,5 +1,6 @@
 import { forwardRef, useRef, Fragment } from 'react'
 
+import { IngredientLock } from './IngredientLock'
 import { ButtonToInput, Dropdown, IconButton } from './elements'
 import { displayAsFraction } from '../utils'
 
@@ -81,9 +82,7 @@ export const Ingredient = forwardRef(function IngredientItem(
           </Fragment>
         )}
       </div>
-      <div className={styles.icon_wrapper}>
-        <IconButton type="lock" disabled />
-      </div>
+      <IngredientLock />
     </li>
   )
 })

@@ -11,13 +11,17 @@
   border-radius: unset;
 }
 
-.button:hover,
-.button:active,
-.button:focus {
-  border: 1px solid black;
+.button:hover svg {
+  fill: var(--color-step-3);
 }
 
 .button svg {
-  color: black;
+  color: var(--colors-black);
   height: 100%;
+}
+
+.icon_unlock svg,
+.icon_unlock:hover svg,
+.button:active svg {
+  fill: var(--color-step-2);
 }

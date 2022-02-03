@@ -67,7 +67,8 @@
   }
 }
 
-.icon_wrapper {
+.icon_wrapper,
+.icon_lock_wrapper {
   width: fit-content;
   padding: 0;
 }

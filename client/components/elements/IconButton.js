@@ -12,8 +12,9 @@ export function IconButton({ type, onClick, disabled = false }) {
   }
 
   const Icon = types[type]
+  const className = `${styles.button} ${styles[`icon_${type}`]}`
   return (
-    <button onClick={onClick} className={styles.button} disabled={disabled}>
+    <button onClick={onClick} className={className} disabled={disabled}>
       <Icon />
     </button>
   )
