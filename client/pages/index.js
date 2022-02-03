@@ -1,3 +1,5 @@
+import { Fragment } from 'react'
+
 import Head from 'next/head'
 import { Recipe, Header } from '../components'
 
