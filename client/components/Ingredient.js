@@ -8,7 +8,8 @@ export const Ingredient = forwardRef(function IngredientItem(
   {
     ingredient,
     handleActiveIngredient,
-    handleChangeIngredient,
+    handleChangeIngredientAmount,
+    handleChangeIngredientName,
     handleDeleteIngredient
   },
   ref
@@ -17,12 +18,12 @@ export const Ingredient = forwardRef(function IngredientItem(
   const ingredientRef = useRef('')
 
   function handleChangeIngredientAmount() {
-    handleChangeIngredient(amountRef.current.value)
+    handleChangeIngredientAmount(amountRef.current.value)
   }
 
-  // function handleChangeIngredientName() {
-  //   handleChangeIngredientName(ingredientRef.current.value)
-  // }
+  function handleChangeIngredientName() {
+    handleChangeIngredientName(ingredientRef.current.value)
+  }
 
   return (
     <li className={styles.ingredient}>
@@ -38,7 +39,12 @@ export const Ingredient = forwardRef(function IngredientItem(
           onBlur={handleChangeIngredientAmount}
         />
         <Dropdown unit={ingredient.unit} />
-        <ButtonToInput text={ingredient.ingredient} ref={ingredientRef} />
+        <ButtonToInput
+          text={ingredient.ingredient}
+          ref={ingredientRef}
+          onClick={handleActiveIngredient}
+          onBlur={handleChangeIngredientName}
+        />
         <IconButton type="lock" disabled />
       </div>
     </li>

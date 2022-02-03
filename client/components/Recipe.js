@@ -3,55 +3,9 @@ import React, { useEffect, useReducer } from 'react'
 import { transformInputIntoIngredientData, sample, scaleRecipe } from '../utils'
 import { Ingredients } from './Ingredients'
 import { Textarea } from './elements'
+import { recipeReducer } from '../utils'
 
 import styles from '../styles/modules/Recipe.module.css'
-
-function recipeReducer(state, action) {
-  switch (action.type) {
-    case 'setConstant':
-      // When constant is set, it scales and sets ingredients
-      return {
-        input: state.input,
-        ingredients: scaleRecipe(action.payload.constant, state.ingredients),
-        constant: action.payload.constant
-      }
-    case 'setInput':
-      // When input is set, it parses and sets ingredients
-      return {
-        input: action.payload.input,
-        ingredients: transformInputIntoIngredientData(
-          action.payload.input + ' '
-        ),
-        constant: 1
-      }
-    case 'setIngredient':
-      console.log('PAYLOAD FROMR REDUCER', action.payload)
-      const ingredients = state.ingredients.map((ingredient) =>
-        ingredient?.id === action.payload.id
-          ? { ...ingredient, active: false, amount: action.payload.amount }
-          : ingredient
-      )
-      return { input: state.input, constant: state.constant, ingredients }
-    case 'setIngredientActive':
-      const temp = state.ingredients.map((ingredient) =>
-        ingredient?.id === action.payload.id
-          ? { ...ingredient, active: !ingredient.active }
-          : ingredient
-      )
-      return { input: state.input, constant: state.constant, ingredients: temp }
-    case 'deleteIngredient':
-      const newIngredients = state.ingredients.filter(
-        (ingredient) => ingredient?.id !== action.payload.id
-      )
-      return {
-        input: state.input,
-        constant: state.constant,
-        ingredients: newIngredients
-      }
-    default:
-      console.log('I AM RUNNING THE DEFAULT CASE IN REDUCER')
-  }
-}
 
 export function Recipe() {
   const [state, dispatch] = useReducer(recipeReducer, {
@@ -63,8 +17,17 @@ export function Recipe() {
   const handleActiveIngredient = (id) =>
     dispatch({ type: 'setIngredientActive', payload: { id } })
 
-  const handleChangeIngredient = (id, amount) =>
-    dispatch({ type: 'setIngredient', payload: { id, amount } })
+  const handleChangeIngredientAmount = (id, amount) =>
+    dispatch({
+      type: 'setIngredient',
+      payload: { id, prop: 'amount', value: amount }
+    })
+
+  const handleChangeIngredientName = (id, name) =>
+    dispatch({
+      type: 'setIngredient',
+      payload: { id, prop: 'name', value: name }
+    })
 
   const handleDeleteIngredient = (id) =>
     dispatch({ type: 'deleteIngredient', payload: { id } })
@@ -76,11 +39,12 @@ export function Recipe() {
 
   return (
     <div className={styles.recipe} id="slicer">
-      <Textarea />
+      <Textarea input={state.input} />
       <Ingredients
         ingredients={state.ingredients}
         handleActiveIngredient={handleActiveIngredient}
-        handleChangeIngredient={handleChangeIngredient}
+        handleChangeIngredientAmount={handleChangeIngredientAmount}
+        handleChangeIngredientName={handleChangeIngredientName}
         handleDeleteIngredient={handleDeleteIngredient}
       />
     </div>
