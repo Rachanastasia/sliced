@@ -1,20 +1,21 @@
 import { ACTIONS } from '../config'
 import { parse } from '../slicer/types/parse'
+import { isDigit } from './isDigit'
 
-function scaleRecipe() {}
+function scaleRecipe(constant, _ingredients) {
+  console.log('PRETENDING TO SCALE INGREDIENT WITH THIS CONSTANT: ', constant)
+}
 
 export function recipeReducer(state, action) {
   switch (action.type) {
-    case ACTIONS.CONSTANT:
-      // When constant is set, it scales and sets ingredients
-      return {
-        input: state.input,
-        ingredients: scaleRecipe(action.payload.constant, state.ingredients),
-        constant: action.payload.constant
-      }
-
+    // case ACTIONS.CONSTANT:
+    //   // When constant is set, it scales and sets ingredients
+    //   return {
+    //     input: state.input,
+    //     ingredients: scaleRecipe(action.payload.constant, state.ingredients),
+    //     constant: action.payload.constant
+    //   }
     case ACTIONS.INPUT:
-      console.log('RUNNING ACTIONS.INPUT')
       // Parses and sets state.ingredients: Ingredient[]
       return {
         input: action.payload.input,
@@ -25,12 +26,16 @@ export function recipeReducer(state, action) {
     case ACTIONS.INGREDIENT:
       const ingredients = state.ingredients.map((ingredient) => {
         if (ingredient.id === action.payload.id) {
-          // sets to "none"
           if (action.payload.prop === 'amount') {
-            ingredient.setAmount(action.payload.value, true)
+            if (isDigit) ingredient.setAmount(action.payload.value, true)
+            else
+              console.log(
+                `I should be setting the error in the UI: '${action.payload.value} is not a valid amount.' `
+              )
           } else if (action.payload.prop === 'ingredient') {
             ingredient.setIngredientName(action.payload.value, true)
           }
+          // sets to "none"
           ingredient.setActive(ingredient.active)
         }
         return ingredient
@@ -39,12 +44,16 @@ export function recipeReducer(state, action) {
 
     case ACTIONS.ACTIVE:
       // Active can be 'none' | 'amount' | 'ingredient'
-      const temp = state.ingredients.map((ingredient) => {
+      const active = state.ingredients.map((ingredient) => {
         if (ingredient.id === action.payload.id)
           ingredient.setActive(action.payload.prop)
         return ingredient
       })
-      return { input: state.input, constant: state.constant, ingredients: temp }
+      return {
+        input: state.input,
+        constant: state.constant,
+        ingredients: active
+      }
 
     case ACTIONS.DELETE:
       const newIngredients = state.ingredients.filter(
@@ -55,7 +64,8 @@ export function recipeReducer(state, action) {
         constant: state.constant,
         ingredients: newIngredients
       }
+
     default:
-      console.log('I AM RUNNING THE DEFAULT CASE IN REDUCER')
+      console.log('I should be setting the error in UI: Error updating recipe')
   }
 }
