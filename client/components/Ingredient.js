@@ -46,7 +46,7 @@ export const Ingredient = forwardRef(function IngredientItem(
       <div className={styles.ingredient_content}>
         {ingredient.active === 'amount' ? (
           <ButtonToInput
-            text={ingredient?.amount}
+            text={ingredient.amount.amount}
             ref={amountRef}
             active={ingredient.active === 'amount'}
             onClick={handleActiveIngredientAmount}
@@ -54,7 +54,7 @@ export const Ingredient = forwardRef(function IngredientItem(
           />
         ) : ingredient.active === 'ingredient' ? (
           <ButtonToInput
-            text={ingredient.ingredient}
+            text={ingredient.ingredient.name}
             ref={ingredientRef}
             active={ingredient.active === 'ingredient'}
             onClick={handleActiveIngredientName}
