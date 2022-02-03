@@ -1,6 +1,6 @@
 import { forwardRef } from 'react'
 import { Input } from './Input'
-import { InputButton } from './InputButton'
+import { ButtonToInput } from './ButtonToInput'
 import styles from '../../styles/modules/ButtonToInput.module.css'
 
 export const LabelInput = forwardRef(function LablelInput(
@@ -12,7 +12,7 @@ export const LabelInput = forwardRef(function LablelInput(
       {active ? (
         <Input ref={ref} text={text} onBlur={onClick} />
       ) : (
-        <InputButton text={text} onClick={onClick} />
+        <ButtonToInput text={text} onClick={onClick} />
       )}
     </div>
   )
