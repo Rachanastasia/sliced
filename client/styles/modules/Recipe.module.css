@@ -59,6 +59,8 @@
 
 .ingredient_content {
   background-color: var(--color-step-1);
+  border-radius: var(--button-border-radius);
+
   padding: var(--spacer-1);
   display: flex;
   width: 100%;

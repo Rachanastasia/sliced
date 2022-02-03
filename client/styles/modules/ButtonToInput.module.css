@@ -21,13 +21,14 @@
   display: flex;
   align-items: center;
   height: inherit;
-  width: 100%;
+  width: fit-content;
+  overflow: hidden;
+  flex: 2;
   justify-content: space-between;
 }
 
-.label_input:first-of-type > .input_button {
+.label_input:first-of-type {
   flex: 1;
-  max-width: 100px;
 }
 
 .label_input:last-of-type > .input_button {
@@ -38,6 +39,8 @@
 .dropdown_wrapper {
   flex: 1;
   min-width: 60px;
+  width: 100%;
+  text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
