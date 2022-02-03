@@ -1,9 +1,19 @@
+import { forwardRef } from 'react'
+import { Input } from './Input'
+import { InputButton } from './InputButton'
 import styles from '../../styles/modules/ButtonToInput.module.css'
 
-export function ButtonToInput({ onClick, text }) {
+export const ButtonToInput = forwardRef(function ButtonToInput(
+  { active = false, text, onClick, onBlur },
+  ref
+) {
   return (
-    <button onClick={onClick} className={styles.input_button}>
-      <p className="label-input">{text}</p>
-    </button>
+    <div className={styles.label_input}>
+      {active ? (
+        <Input ref={ref} text={text} onBlur={onBlur} />
+      ) : (
+        <InputButton text={text} onClick={onClick} />
+      )}
+    </div>
   )
-}
+})

@@ -1,4 +1,4 @@
-export * from './LabelInput'
+export * from './ButtonToInput'
 export * from './Dropdown'
 export * from './Button'
 export * from './Textarea'

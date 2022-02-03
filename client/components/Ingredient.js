@@ -1,39 +1,44 @@
-import { forwardRef } from 'react'
+import { forwardRef, useRef } from 'react'
 
-import { LabelInput, Dropdown, CloseButton } from './elements'
-import { convertFloatToFraction, scaleIngredient } from '../utils'
+import { ButtonToInput, Dropdown, CloseButton } from './elements'
 
 import styles from '../styles/modules/Recipe.module.css'
 
 export const Ingredient = forwardRef(function IngredientItem(
   {
     ingredient,
-    constant,
     handleActiveIngredient,
     handleChangeIngredient,
     handleDeleteIngredient
   },
   ref
 ) {
-  const scaledIngredient = scaleIngredient(
-    { unit: ingredient?.unit, amount: ingredient?.amount },
-    (constant = 1)
-  )
-  const formattedAmount = convertFloatToFraction(scaledIngredient.amount)
+  const amountRef = useRef('')
+  const ingredientRef = useRef('')
+
+  function handleChangeIngredientAmount() {
+    handleChangeIngredient(amountRef.current.value)
+  }
+
+  // function handleChangeIngredientName() {
+  //   handleChangeIngredientName(ingredientRef.current.value)
+  // }
+
   return (
     <li className={styles.ingredient}>
       <div className={styles.close_wrapper}>
         <CloseButton onClick={handleDeleteIngredient} />
       </div>
       <div className={styles.ingredient_content}>
-        <LabelInput
-          text={formattedAmount}
-          ref={ref}
+        <ButtonToInput
+          text={ingredient?.amount}
+          ref={amountRef}
           active={ingredient.active}
           onClick={handleActiveIngredient}
+          onBlur={handleChangeIngredientAmount}
         />
         <Dropdown unit={ingredient.unit} />
-        <LabelInput text={ingredient.ingredient} />
+        <ButtonToInput text={ingredient.ingredient} ref={ingredientRef} />
       </div>
     </li>
   )

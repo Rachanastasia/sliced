@@ -1,8 +1,8 @@
-import React, { useState, useEffect, Fragment } from 'react'
-import styles from '../styles/modules/Recipe.module.css'
+import React, { Fragment } from 'react'
 
-import { CONSTANT_OPTIONS } from '../config/constants'
 import { Ingredient } from './Ingredient'
+
+import styles from '../styles/modules/Recipe.module.css'
 
 export function Ingredients({
   ingredients,
@@ -10,13 +10,6 @@ export function Ingredients({
   handleChangeIngredient,
   handleDeleteIngredient
 }) {
-  const originalValues = CONSTANT_OPTIONS[5]
-  const [constant, setConstant] = useState(originalValues)
-
-  // useEffect(() => {
-  //   if (constant.index !== 5) setConstant(originalValues)
-  // }, [ingredients])
-
   return (
     <Fragment>
       {ingredients && (
@@ -26,7 +19,7 @@ export function Ingredients({
               <Ingredient
                 key={index}
                 ingredient={ingredient}
-                constant={constant.value}
+                constant={1} // FOR TESTING
                 handleActiveIngredient={() =>
                   handleActiveIngredient(ingredient.id)
                 }

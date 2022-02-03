@@ -1,8 +1,10 @@
 import React, { useEffect, useReducer } from 'react'
+
 import { transformInputIntoIngredientData, sample, scaleRecipe } from '../utils'
 import { Ingredients } from './Ingredients'
 import { Textarea } from './elements'
-import styles from '../styles/modules/Slicer.module.css'
+
+import styles from '../styles/modules/Recipe.module.css'
 
 function recipeReducer(state, action) {
   switch (action.type) {
@@ -23,12 +25,7 @@ function recipeReducer(state, action) {
         constant: 1
       }
     case 'setIngredient':
-      // triggered when active
-
-      // set new value
-      // set active to false
-      // set new constant based on amount of ingredient
-      // do calculations first
+      console.log('PAYLOAD FROMR REDUCER', action.payload)
       const ingredients = state.ingredients.map((ingredient) =>
         ingredient?.id === action.payload.id
           ? { ...ingredient, active: false, amount: action.payload.amount }
@@ -43,7 +40,6 @@ function recipeReducer(state, action) {
       )
       return { input: state.input, constant: state.constant, ingredients: temp }
     case 'deleteIngredient':
-      console.log('ATTEMPTING TO DELETE')
       const newIngredients = state.ingredients.filter(
         (ingredient) => ingredient?.id !== action.payload.id
       )
@@ -74,12 +70,12 @@ export function Recipe() {
     dispatch({ type: 'deleteIngredient', payload: { id } })
 
   useEffect(() => {
-    if (!state.input?.length)
+    if (state.input === '')
       dispatch({ type: 'setInput', payload: { input: sample } })
   }, [])
 
   return (
-    <form className={styles.slicer_wrapper} id="slicer">
+    <div className={styles.recipe} id="slicer">
       <Textarea />
       <Ingredients
         ingredients={state.ingredients}
@@ -87,6 +83,6 @@ export function Recipe() {
         handleChangeIngredient={handleChangeIngredient}
         handleDeleteIngredient={handleDeleteIngredient}
       />
-    </form>
+    </div>
   )
 }
