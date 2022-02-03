@@ -17,7 +17,7 @@ export const Ingredient = forwardRef(function IngredientItem(
   const ingredientRef = useRef('')
 
   function handleActiveIngredientName() {
-    handleActiveIngredient('name')
+    handleActiveIngredient('ingredient')
   }
 
   function handleActiveIngredientAmount() {
@@ -26,16 +26,16 @@ export const Ingredient = forwardRef(function IngredientItem(
 
   function handleChangeIngredientAmount() {
     const newAmount = amountRef.current.value
-    if (Boolean(newAmount)) handleActiveIngredientAmount()
     // deactivate if empty string
+    if (!Boolean(newAmount)) handleActiveIngredientAmount()
     else handleChangeIngredient('amount', newAmount)
   }
 
   function handleChangeIngredientName() {
     const newName = ingredientRef.current.value
-    if (Boolean(newName)) handleActiveIngredientName()
     // deactivate if empty string
-    else handleChangeIngredient('name', newName)
+    if (!Boolean(newName)) handleActiveIngredientName()
+    else handleChangeIngredient('ingredient', newName)
   }
 
   return (
@@ -55,7 +55,7 @@ export const Ingredient = forwardRef(function IngredientItem(
         <ButtonToInput
           text={ingredient.ingredient}
           ref={ingredientRef}
-          active={ingredient.active === 'name'}
+          active={ingredient.active === 'ingredient'}
           onClick={handleActiveIngredientName}
           onBlur={handleChangeIngredientName}
         />
