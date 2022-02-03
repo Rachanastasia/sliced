@@ -6,39 +6,37 @@
   color: var(--color-step-3);
   padding: 0;
   font-size: var(--text-size-1);
-  flex: 2;
   height: var(--button-to-input-height);
-  max-width: 150px;
   background-color: var(--color-step-1);
 }
 
-@media all and (min-width: 800px) {
+/* @media all and (min-width: 800px) {
   .input_button {
     max-width: 300px;
   }
-}
+} */
 
 .label_input {
-  flex: 3;
   text-align: center;
   display: flex;
   align-items: center;
   height: inherit;
+  width: 100%;
   justify-content: space-between;
-  background-color: var(--color-step-1);
 }
 
-.label_input:first-of-type .input_button {
-  width: 50px !important;
-  max-width: 50px;
+.label_input:first-of-type > .input_button {
+  flex: 1;
+  max-width: 100px;
 }
 
-.label_input:last-of-type .input_button {
+.label_input:last-of-type > .input_button {
+  flex: 4;
   min-width: 100px;
 }
 
 .dropdown_wrapper {
-  background-color: inherit;
+  flex: 1;
   min-width: 60px;
   display: flex;
   align-items: center;

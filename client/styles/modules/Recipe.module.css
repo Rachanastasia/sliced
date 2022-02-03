@@ -19,14 +19,14 @@
   line-height: calc(var(--text-size-1) * 1.5);
   font-size: var(--text-size-1);
   list-style: none;
-  background-color: inherit;
 }
 
 .ingredient {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 3rem;
+  height: fit-content;
+  padding: var(--spacer-1) 0;
   width: 100%;
   border-bottom: 1px solid var(--colors-gray);
 }
@@ -37,9 +37,6 @@
   }
   .ingredients {
     margin-top: var(--spacer-4);
-  }
-  .ingredient {
-    height: 4rem;
   }
 }
 
@@ -58,6 +55,14 @@
   align-items: center;
   width: 100%;
   height: inherit;
+}
+
+.ingredient_content {
+  background-color: var(--color-step-1);
+  padding: var(--spacer-1);
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
 }
 
 .icon_wrapper {
