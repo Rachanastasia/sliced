@@ -1,18 +1,15 @@
 import { forwardRef } from 'react'
 import styles from '../../styles/modules/ect.module.css'
 
-export function Textarea({ input, onChange }) {
+export const Textarea = forwardRef(function Textarea({ input, onChange }, ref) {
   return (
     <fieldset>
-      {/* <label className={styles.slicer_input_label} htmlFor="ingredients">
-        Ingredients
-      </label> */}
       <textarea
+        ref={ref}
         name="ingredients"
         className={styles.slicer_input}
         onChange={onChange}
-        value={input}
       />
     </fieldset>
   )
-}
+})

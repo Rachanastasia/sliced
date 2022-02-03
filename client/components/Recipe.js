@@ -1,6 +1,6 @@
 import React, { useEffect, useReducer } from 'react'
 
-import { transformInputIntoIngredientData, sample, scaleRecipe } from '../utils'
+import { sample } from '../utils'
 import { Ingredients } from './Ingredients'
 import { Textarea } from './elements'
 import { recipeReducer } from '../utils'
@@ -33,6 +33,9 @@ export function Recipe() {
 
   return (
     <div className={styles.recipe} id="slicer">
+      <span className={styles.caption}>
+        Copy and paste your favorite recipe below.
+      </span>
       <Textarea input={state.input} />
       <Ingredients
         ingredients={state.ingredients}

@@ -64,3 +64,12 @@
   width: fit-content;
   padding: 0;
 }
+
+.caption {
+  align-self: start;
+}
+@media all and (min0width: 500px) {
+  .caption {
+    margin-bottom: var(-spacer-1);
+  }
+}

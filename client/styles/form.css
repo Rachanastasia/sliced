@@ -15,17 +15,12 @@ fieldset {
   outline: 0;
   border: 0;
   width: 100%;
-  /* width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-bottom: var(--spacer-2); */
 }
 
-label {
+/* label {
   padding-right: var(--spacer-sm);
   width: var(--button-width);
-}
+} */
 
 fieldset .hidden {
   display: none;
@@ -47,8 +42,16 @@ textarea {
 input {
   padding: var(--spacer-1) var(--spacer-2);
   height: var(--button-to-input-height);
+  background-color: var(--color-step-0);
 }
 
 textarea {
   height: 30vh;
+  padding: var(--spacer-1);
+}
+
+@media all and (min-width: 600px) {
+  textarea {
+    padding: var(--spacer-2);
+  }
 }

@@ -4,7 +4,11 @@
   --button-to-input-height: 40px;
   --button-to-input-border: 1px solid black;
 
-  --colors-accent: #ff8a65;
+  --color-step-1: hsla(14, 100%, 70%, 0.27);
+  --color-step-2: hsla(14, 100%, 40%, 0.856);
+  --color-step-3: hsl(14, 100%, 30%);
+
+  --colors-accent: hsla(14, 100%, 70%, 0.767);
   --colors-accent-bold: #f4511e;
   --colors-accent-light: #fbe9e7;
   --colors-accent-extra-light: #f7f6f5;

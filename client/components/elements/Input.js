@@ -8,6 +8,7 @@ export const Input = forwardRef(function Input({ text, onBlur }, ref) {
       onBlur={onBlur}
       onClick={onBlur}
       autoFocus
+      autoComplete="off"
     />
   )
 })

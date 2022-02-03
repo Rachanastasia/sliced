@@ -13,10 +13,6 @@ export function Header() {
           <span>iced</span>
         </h1>
       </Link>
-
-      {/* <Link href="/#about" passHref>
-        <span>about</span>
-      </Link> */}
     </header>
   )
 }

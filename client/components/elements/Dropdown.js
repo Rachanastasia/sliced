@@ -1,11 +1,13 @@
 import styles from '../../styles/modules/ButtonToInput.module.css'
 
-export function Dropdown({ unit }) {
-  const hasUnit = Boolean(unit?.name)
-
+export function Dropdown({ name, options, onChange }) {
   return (
-    <div className={styles.dropdown_wrapper}>
-      <p>{unit?.name ?? ''}</p>
-    </div>
+    <select name={name} className={styles.dropdown_wrapper} onChange={onChange}>
+      {options.map((option) => (
+        <option key={option} value={option}>
+          {option}
+        </option>
+      ))}
+    </select>
   )
 }

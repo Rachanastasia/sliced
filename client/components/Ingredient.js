@@ -69,7 +69,7 @@ export const Ingredient = forwardRef(function IngredientItem(
               onClick={handleActiveIngredientAmount}
               onBlur={handleChangeIngredientAmount}
             />
-            <Dropdown unit={ingredient.unit} />
+            <Dropdown options={[ingredient.unit.name]} />
             <ButtonToInput
               text={ingredient.ingredient}
               ref={ingredientRef}
