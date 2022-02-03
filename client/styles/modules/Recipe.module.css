@@ -40,9 +40,10 @@
   align-items: center;
   width: 100%;
   height: inherit;
+  padding: 0;
 }
 
-.close_wrapper {
+.icon_wrapper {
   width: fit-content;
   padding: 0;
 }

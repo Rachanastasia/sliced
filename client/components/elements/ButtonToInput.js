@@ -1,6 +1,7 @@
 import { forwardRef } from 'react'
 import { Input } from './Input'
 import { InputButton } from './InputButton'
+
 import styles from '../../styles/modules/ButtonToInput.module.css'
 
 export const ButtonToInput = forwardRef(function ButtonToInput(

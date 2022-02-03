@@ -32,7 +32,7 @@ export const Ingredient = forwardRef(function IngredientItem(
 
   return (
     <li className={styles.ingredient}>
-      <div className={styles.close_wrapper}>
+      <div className={styles.icon_wrapper}>
         <IconButton type="close" onClick={handleDeleteIngredient} />
       </div>
       <div className={styles.ingredient_content}>
@@ -50,6 +50,8 @@ export const Ingredient = forwardRef(function IngredientItem(
           onClick={handleActiveIngredient}
           onBlur={handleChangeIngredientName}
         />
+      </div>
+      <div className={styles.icon_wrapper}>
         <IconButton type="lock" disabled />
       </div>
     </li>
