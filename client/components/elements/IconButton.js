@@ -1,4 +1,3 @@
-import { Fragment } from 'react'
 import { IoIosClose, IoIosLock, IoIosUnlock } from 'react-icons/io'
 import { MdContentPaste, MdInfoOutline } from 'react-icons/md'
 import { GiKnifeFork } from 'react-icons/gi'

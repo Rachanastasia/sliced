@@ -77,6 +77,12 @@
   height: inherit;
 }
 
+.controls_wrapper {
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+}
+
 @media all and (min-width: 1000px) {
   .recipe {
     margin-top: var(--spacer-3);
