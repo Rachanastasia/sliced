@@ -1,4 +1,4 @@
-import { transformInputIntoIngredientData } from './transformInputIntoIngredientData'
+import { parse } from '../slicer'
 import { scaleRecipe } from './scaleIngredient'
 
 export function recipeReducer(state, action) {
@@ -12,11 +12,10 @@ export function recipeReducer(state, action) {
       }
     case 'setInput':
       // When input is set, it parses and sets ingredients
+
       return {
         input: action.payload.input,
-        ingredients: transformInputIntoIngredientData(
-          action.payload.input + ' '
-        ),
+        ingredients: parse(action.payload.input + ' '),
         constant: 1
       }
     case 'setIngredient':
@@ -33,14 +32,8 @@ export function recipeReducer(state, action) {
     case 'setIngredientActive':
       // Active can be 'none' | 'amount' | 'ingredient'
       const temp = state.ingredients.map((ingredient) =>
-        ingredient?.id === action.payload.id
-          ? {
-              ...ingredient,
-              active:
-                ingredient.active === action.payload.prop
-                  ? 'none'
-                  : action.payload.prop
-            }
+        ingredient.id === action.payload.id
+          ? ingredient.setActive(action.payload.active)
           : ingredient
       )
       return { input: state.input, constant: state.constant, ingredients: temp }

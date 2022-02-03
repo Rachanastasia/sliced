@@ -32,3 +32,6 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+# This will be connected differently
+slicer
