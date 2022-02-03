@@ -71,19 +71,13 @@ export function Recipe() {
   }, [])
 
   return (
-    <section className={styles.slicer_wrapper} id="slicer">
-      <form>
-        <div>
-          <Textarea />
-        </div>
-        <div>
-          <Ingredients
-            ingredients={state.ingredients}
-            handleActiveIngredient={handleActiveIngredient}
-            handleChangeIngredient={handleChangeIngredient}
-          />
-        </div>
-      </form>
-    </section>
+    <form className={styles.slicer_wrapper} id="slicer">
+      <Textarea />
+      <Ingredients
+        ingredients={state.ingredients}
+        handleActiveIngredient={handleActiveIngredient}
+        handleChangeIngredient={handleChangeIngredient}
+      />
+    </form>
   )
 }

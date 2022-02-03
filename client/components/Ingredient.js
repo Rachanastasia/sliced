@@ -1,9 +1,9 @@
 import { forwardRef } from 'react'
 
-import { LabelInput, Dropdown } from './elements'
+import { LabelInput, Dropdown, CloseButton } from './elements'
 import { convertFloatToFraction, scaleIngredient } from '../utils'
 
-import styles from '../styles/modules/Slicer.module.css'
+import styles from '../styles/modules/Recipe.module.css'
 
 export const Ingredient = forwardRef(function IngredientItem(
   { ingredient, constant, handleActiveIngredient, handleChangeIngredient },
@@ -15,8 +15,14 @@ export const Ingredient = forwardRef(function IngredientItem(
   )
   const formattedAmount = convertFloatToFraction(scaledIngredient.amount)
   return (
-    <li className={styles.preview_ingredient} onClick={handleActiveIngredient}>
-      <LabelInput text={formattedAmount} ref={ref} active={ingredient.active} />
+    <li className={styles.ingredient}>
+      <CloseButton />
+      <LabelInput
+        text={formattedAmount}
+        ref={ref}
+        active={ingredient.active}
+        onClick={handleActiveIngredient}
+      />
       <Dropdown unit={ingredient.unit} />
       <LabelInput text={ingredient.ingredient} />
     </li>

@@ -1,5 +1,6 @@
-import React, { useState, useEffect, createRef } from 'react'
-import styles from '../styles/modules/Slicer.module.css'
+import React, { useState, useEffect, Fragment } from 'react'
+import styles from '../styles/modules/Recipe.module.css'
+
 import { CONSTANT_OPTIONS } from '../config/constants'
 import { Ingredient } from './Ingredient'
 
@@ -16,9 +17,9 @@ export function Ingredients({
   }, [ingredients])
 
   return (
-    <div className={styles.scaled_indgredients_with_slider}>
+    <Fragment>
       {ingredients && (
-        <ul className={styles.preview_ingredients_wrapper}>
+        <ul className={styles.ingredients}>
           {ingredients.map((ingredient, index) => {
             return (
               <Ingredient
@@ -36,6 +37,6 @@ export function Ingredients({
           })}
         </ul>
       )}
-    </div>
+    </Fragment>
   )
 }

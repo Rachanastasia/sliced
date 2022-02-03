@@ -1,0 +1,25 @@
+.button {
+  border: 1px solid transparent;
+  background-color: inherit;
+  cursor: pointer;
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacer-1);
+  margin-left: var(--spacer-2);
+  background-color: violet;
+  border-radius: unset;
+}
+
+.button:hover,
+.button:active,
+.button:focus {
+  border: 1px solid black;
+}
+
+.button svg {
+  color: black;
+  height: 100%;
+}
