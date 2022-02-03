@@ -1,6 +1,7 @@
 import { ACTIONS } from '../config'
 import { parse } from '../slicer/types/parse'
-import { scaleRecipe } from './scaleIngredient'
+
+function scaleRecipe() {}
 
 export function recipeReducer(state, action) {
   switch (action.type) {
