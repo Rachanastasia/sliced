@@ -1,7 +1,6 @@
 import React, { useEffect, useReducer } from 'react'
 
-import { ACTIONS } from '../config'
-import { sample } from '../utils'
+import { ACTIONS, sample } from '../config'
 import { Ingredients } from './Ingredients'
 import { RecipeControls } from './RecipeControls'
 import { recipeReducer } from '../utils'
