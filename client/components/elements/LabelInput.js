@@ -1,17 +1,19 @@
 import { forwardRef } from 'react'
-import styles from '../../styles/modules/Recipe.module.css'
+import { Input } from './Input'
+import { InputButton } from './InputButton'
+import styles from '../../styles/modules/ButtonToInput.module.css'
 
 export const LabelInput = forwardRef(function LablelInput(
-  { active = false, text },
+  { active = false, text, onClick },
   ref
 ) {
   return (
     <div className={styles.label_input}>
-      {active ? <Input ref={ref} /> : <p class="label-input">{text}</p>}
+      {active ? (
+        <Input ref={ref} text={text} onBlur={onClick} />
+      ) : (
+        <InputButton text={text} onClick={onClick} />
+      )}
     </div>
   )
-})
-
-export const Input = forwardRef(function Input({ ref, text }) {
-  return <input ref={ref} placeholder={text} />
 })

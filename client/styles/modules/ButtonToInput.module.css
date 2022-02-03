@@ -1,0 +1,21 @@
+.input_button {
+  border: 0;
+  background-color: purple;
+  flex: 2;
+}
+
+.label_input {
+  width: 6.5rem;
+  text-align: center;
+}
+
+.label_input:first-of-type {
+  width: 3rem;
+}
+
+.dropdown_wrapper {
+  flex: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

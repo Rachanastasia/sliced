@@ -22,15 +22,19 @@ export const Ingredient = forwardRef(function IngredientItem(
   const formattedAmount = convertFloatToFraction(scaledIngredient.amount)
   return (
     <li className={styles.ingredient}>
-      <CloseButton onClick={handleDeleteIngredient} />
-      <LabelInput
-        text={formattedAmount}
-        ref={ref}
-        active={ingredient.active}
-        onClick={handleActiveIngredient}
-      />
-      <Dropdown unit={ingredient.unit} />
-      <LabelInput text={ingredient.ingredient} />
+      <div className={styles.close_wrapper}>
+        <CloseButton onClick={handleDeleteIngredient} />
+      </div>
+      <div className={styles.ingredient_content}>
+        <LabelInput
+          text={formattedAmount}
+          ref={ref}
+          active={ingredient.active}
+          onClick={handleActiveIngredient}
+        />
+        <Dropdown unit={ingredient.unit} />
+        <LabelInput text={ingredient.ingredient} />
+      </div>
     </li>
   )
 })
