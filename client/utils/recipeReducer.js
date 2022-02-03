@@ -35,10 +35,18 @@ export function recipeReducer(state, action) {
       // Active can be 'none' | 'amount' | 'name'
       const temp = state.ingredients.map((ingredient) =>
         ingredient?.id === action.payload.id
-          ? { ...ingredient, active: !ingredient.active }
+          ? {
+              ...ingredient,
+              active:
+                state.active !== action.payload.prop
+                  ? action.payload.prop
+                  : 'none'
+            }
           : ingredient
       )
+      console.log('THIS IS MY SET INGREDIENTS ACTIVE', action.payload.prop)
       return { input: state.input, constant: state.constant, ingredients: temp }
+
     case 'deleteIngredient':
       const newIngredients = state.ingredients.filter(
         (ingredient) => ingredient?.id !== action.payload.id
@@ -52,3 +60,10 @@ export function recipeReducer(state, action) {
       console.log('I AM RUNNING THE DEFAULT CASE IN REDUCER')
   }
 }
+
+/**
+ * 1. Get ingredient name editing correctly
+ * 2. Allow selection of either ingredient
+ * 3. Deal with textarea
+ * 4. Expand textbox
+ */

@@ -20,7 +20,7 @@ export function Ingredients({
                 key={index}
                 ingredient={ingredient}
                 constant={1} // FOR TESTING
-                handleActiveIngredient={(prop = 'amount') =>
+                handleActiveIngredient={(prop) =>
                   handleActiveIngredient({ id: ingredient.id, prop })
                 }
                 handleChangeIngredient={(prop, value) => {

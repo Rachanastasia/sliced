@@ -16,16 +16,24 @@ export const Ingredient = forwardRef(function IngredientItem(
   const amountRef = useRef('')
   const ingredientRef = useRef('')
 
+  function handleActiveIngredientName() {
+    handleActiveIngredient('name')
+  }
+
+  function handleActiveIngredientAmount() {
+    handleActiveIngredient('amount')
+  }
+
   function handleChangeIngredientAmount() {
     const newAmount = amountRef.current.value
-    if (Boolean(newAmount)) handleActiveIngredient()
+    if (Boolean(newAmount)) handleActiveIngredientAmount()
     // deactivate if empty string
     else handleChangeIngredient('amount', newAmount)
   }
 
   function handleChangeIngredientName() {
     const newName = ingredientRef.current.value
-    if (Boolean(newName)) handleActiveIngredient()
+    if (Boolean(newName)) handleActiveIngredientName()
     // deactivate if empty string
     else handleChangeIngredient('name', newName)
   }
@@ -39,15 +47,16 @@ export const Ingredient = forwardRef(function IngredientItem(
         <ButtonToInput
           text={ingredient?.amount}
           ref={amountRef}
-          onClick={handleActiveIngredient}
+          active={ingredient.active === 'amount'}
+          onClick={handleActiveIngredientAmount}
           onBlur={handleChangeIngredientAmount}
         />
         <Dropdown unit={ingredient.unit} />
         <ButtonToInput
           text={ingredient.ingredient}
           ref={ingredientRef}
-          active={ingredient.active}
-          onClick={handleActiveIngredient}
+          active={ingredient.active === 'name'}
+          onClick={handleActiveIngredientName}
           onBlur={handleChangeIngredientName}
         />
       </div>
