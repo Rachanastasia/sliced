@@ -7,14 +7,15 @@ import { Ingredient } from './Ingredient'
 export function Ingredients({
   ingredients,
   handleActiveIngredient,
-  handleChangeIngredient
+  handleChangeIngredient,
+  handleDeleteIngredient
 }) {
   const originalValues = CONSTANT_OPTIONS[5]
   const [constant, setConstant] = useState(originalValues)
 
-  useEffect(() => {
-    if (constant.index !== 5) setConstant(originalValues)
-  }, [ingredients])
+  // useEffect(() => {
+  //   if (constant.index !== 5) setConstant(originalValues)
+  // }, [ingredients])
 
   return (
     <Fragment>
@@ -31,6 +32,9 @@ export function Ingredients({
                 }
                 handleChangeIngredient={(amount) =>
                   handleChangeIngredient(ingredient.id, amount)
+                }
+                handleDeleteIngredient={() =>
+                  handleDeleteIngredient(ingredient.id)
                 }
               />
             )

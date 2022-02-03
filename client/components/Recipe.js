@@ -36,17 +36,22 @@ function recipeReducer(state, action) {
       )
       return { input: state.input, constant: state.constant, ingredients }
     case 'setIngredientActive':
-      // find ingredient
-      // set active to true
-      //
-      console.log('BEGINNING SET ACTINVE')
       const temp = state.ingredients.map((ingredient) =>
         ingredient?.id === action.payload.id
           ? { ...ingredient, active: !ingredient.active }
           : ingredient
       )
       return { input: state.input, constant: state.constant, ingredients: temp }
-
+    case 'deleteIngredient':
+      console.log('ATTEMPTING TO DELETE')
+      const newIngredients = state.ingredients.filter(
+        (ingredient) => ingredient?.id !== action.payload.id
+      )
+      return {
+        input: state.input,
+        constant: state.constant,
+        ingredients: newIngredients
+      }
     default:
       console.log('I AM RUNNING THE DEFAULT CASE IN REDUCER')
   }
@@ -65,6 +70,9 @@ export function Recipe() {
   const handleChangeIngredient = (id, amount) =>
     dispatch({ type: 'setIngredient', payload: { id, amount } })
 
+  const handleDeleteIngredient = (id) =>
+    dispatch({ type: 'deleteIngredient', payload: { id } })
+
   useEffect(() => {
     if (!state.input?.length)
       dispatch({ type: 'setInput', payload: { input: sample } })
@@ -77,6 +85,7 @@ export function Recipe() {
         ingredients={state.ingredients}
         handleActiveIngredient={handleActiveIngredient}
         handleChangeIngredient={handleChangeIngredient}
+        handleDeleteIngredient={handleDeleteIngredient}
       />
     </form>
   )

@@ -6,7 +6,13 @@ import { convertFloatToFraction, scaleIngredient } from '../utils'
 import styles from '../styles/modules/Recipe.module.css'
 
 export const Ingredient = forwardRef(function IngredientItem(
-  { ingredient, constant, handleActiveIngredient, handleChangeIngredient },
+  {
+    ingredient,
+    constant,
+    handleActiveIngredient,
+    handleChangeIngredient,
+    handleDeleteIngredient
+  },
   ref
 ) {
   const scaledIngredient = scaleIngredient(
@@ -16,7 +22,7 @@ export const Ingredient = forwardRef(function IngredientItem(
   const formattedAmount = convertFloatToFraction(scaledIngredient.amount)
   return (
     <li className={styles.ingredient}>
-      <CloseButton />
+      <CloseButton onClick={handleDeleteIngredient} />
       <LabelInput
         text={formattedAmount}
         ref={ref}
