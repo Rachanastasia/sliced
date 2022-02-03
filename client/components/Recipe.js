@@ -1,5 +1,6 @@
 import React, { useEffect, useReducer } from 'react'
 
+import { ACTIONS } from '../config'
 import { sample } from '../utils'
 import { Ingredients } from './Ingredients'
 import { Textarea } from './elements'
@@ -15,20 +16,20 @@ export function Recipe() {
   })
 
   const handleActiveIngredient = ({ id, prop }) =>
-    dispatch({ type: 'setIngredientActive', payload: { id, prop } })
+    dispatch({ type: ACTIONS.ACTIVE, payload: { id, prop } })
 
   const handleChangeIngredient = ({ id, prop, value }) =>
     dispatch({
-      type: 'setIngredient',
+      type: ACTIONS.INGREDIENT,
       payload: { id, prop, value }
     })
 
   const handleDeleteIngredient = ({ id }) =>
-    dispatch({ type: 'deleteIngredient', payload: { id } })
+    dispatch({ type: ACTIONS.DELETE, payload: { id } })
 
   useEffect(() => {
     if (state.input === '')
-      dispatch({ type: 'setInput', payload: { input: sample } })
+      dispatch({ type: ACTIONS.INPUT, payload: { input: sample } })
   }, [])
 
   return (
