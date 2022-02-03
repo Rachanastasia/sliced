@@ -20,7 +20,7 @@ export function recipeReducer(state, action) {
       }
     case ACTIONS.INGREDIENT:
       const ingredients = state.ingredients.map((ingredient) => {
-        if (ingredient?.id === action.payload.id) {
+        if (ingredient.id === action.payload.id) {
           // sets to "none"
           ingredient.setActive(ingredient.active)
           if (action.payload.prop === 'amount') {
@@ -34,11 +34,11 @@ export function recipeReducer(state, action) {
       return { input: state.input, constant: state.constant, ingredients }
     case ACTIONS.ACTIVE:
       // Active can be 'none' | 'amount' | 'ingredient'
-      const temp = state.ingredients.map((ingredient) =>
-        ingredient.id === action.payload.id
-          ? ingredient.setActive(action.payload.active)
-          : ingredient
-      )
+      const temp = state.ingredients.map((ingredient) => {
+        if (ingredient.id === action.payload.id)
+          ingredient.setActive(action.payload.prop)
+        return ingredient
+      })
       return { input: state.input, constant: state.constant, ingredients: temp }
     case ACTIONS.DELETE:
       const newIngredients = state.ingredients.filter(
