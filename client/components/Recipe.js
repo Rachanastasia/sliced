@@ -14,22 +14,16 @@ export function Recipe() {
     ingredients: []
   })
 
-  const handleActiveIngredient = (id) =>
-    dispatch({ type: 'setIngredientActive', payload: { id } })
+  const handleActiveIngredient = ({ id, prop }) =>
+    dispatch({ type: 'setIngredientActive', payload: { id, prop } })
 
-  const handleChangeIngredientAmount = (id, amount) =>
+  const handleChangeIngredient = ({ id, prop, value }) =>
     dispatch({
       type: 'setIngredient',
-      payload: { id, prop: 'amount', value: amount }
+      payload: { id, prop, value }
     })
 
-  const handleChangeIngredientName = (id, name) =>
-    dispatch({
-      type: 'setIngredient',
-      payload: { id, prop: 'name', value: name }
-    })
-
-  const handleDeleteIngredient = (id) =>
+  const handleDeleteIngredient = ({ id }) =>
     dispatch({ type: 'deleteIngredient', payload: { id } })
 
   useEffect(() => {
@@ -43,8 +37,7 @@ export function Recipe() {
       <Ingredients
         ingredients={state.ingredients}
         handleActiveIngredient={handleActiveIngredient}
-        handleChangeIngredientAmount={handleChangeIngredientAmount}
-        handleChangeIngredientName={handleChangeIngredientName}
+        handleChangeIngredient={handleChangeIngredient}
         handleDeleteIngredient={handleDeleteIngredient}
       />
     </div>

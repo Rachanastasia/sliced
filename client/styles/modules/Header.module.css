@@ -1,85 +1,53 @@
 .header_wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100vw;
-    height: var(--height-3);
-    text-align: center;
-    background-color: var(--colors-black);
-    padding: var(--spacer-2-flex) var(--spacer-2-flex-lg);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100vw;
+  height: var(--height-3);
+  color: var(--colors-black);
+  padding: var(--spacer-1);
+  margin-top: var(--spacer-1);
 }
 
-.knife_icon{
-    fill: white;
-    transform: scale(-1.3, -1.3) rotate(150deg);
-    margin-top: 2px;
-    padding: 0;
+.knife_icon {
+  fill: var(--colors-black);
+  transform: scale(-1.3, -1.3) rotate(150deg);
+  margin-top: 2px;
+  padding: 0;
+}
+
+.title {
+  font-size: var(--font-size-lg);
+  color: var(--colors-black);
+  display: flex;
+  flex-wrap: nowrap;
+  overflow: hidden;
+  align-items: center;
+  font-family: var(--font-title);
+  height: var(--font-size-lg);
+  font-weight: 400;
 }
 
 @media screen and (min-width: 600px) {
-    .knife_icon{
-        transform: scale(-2, -2) rotate(150deg);
-    }
+  .knife_icon {
+    transform: scale(-2, -2) rotate(150deg);
+  }
 }
 
 @media screen and (min-width: 850px) {
-    .knife_icon{
-        transform: scale(-2.2, -2.2) rotate(150deg);
-    }
+  .knife_icon {
+    transform: scale(-2.2, -2.2) rotate(150deg);
+  }
 }
 
-.menu_wrapper{
-    display: flex;
-    flex: 2;
+@media all and (max-width: 450px) {
+  .header_wrapper {
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    justify-content: flex-end;
-    list-style: none;
-}
+  }
 
-.menu_item{
-    padding-left: var(--spacer-2);
-    font-size: var(--text-size-1);
-    font-family: var(--font-body);
-    display: flex;
-    align-items: flex-end;
-    color: var(--colors-accent-extra-light);
-    cursor: pointer;
-    transition: color 0.08s;
-}
-
-.menu_item:hover {
-    color: var(--colors-accent-bold);
-}
-
-.action_button{
-    padding: var(--spacer-2);
-    background-color: var(--colors-accent-bold);
-    border: var(--border-width) solid var(--colors-accent-bright);
-}
-
-.title{
-    font-size: var(--font-size-lg);
-    color: var(--colors-white);
-    display: flex;
-    flex-wrap: nowrap;
-    overflow: hidden;
-    align-items: center;
-    font-family: var(--font-title);
-    height: var(--font-size-lg);
-    font-weight: 400;
-}
-
-
-@media all and (max-width: 450px){
-    .header_wrapper{
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .menu_wrapper{
-        padding-top: 0;
-    }
-
-    
+  .menu_wrapper {
+    padding-top: 0;
+  }
 }

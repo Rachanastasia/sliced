@@ -28,21 +28,8 @@ main {
   align-items: stretch;
   flex-direction: column;
   font-family: var(--font-body);
-  justify-content: space-between;
   line-height: var(--line-spacing);
 }
-
-/* .screen_content{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    flex: 1;
-    align-items: center;
-}
-
-.screen_content >* {
-    margin-bottom: var(--spacer-2-flex-lg);
-} */
 
 h2 {
   font-family: var(--font-title);
@@ -64,8 +51,7 @@ article span {
   font-size: var(--font-size-sm);
 }
 
-button,
-.button {
+button {
   cursor: pointer;
   outline: 0;
   font-size: var(--text-size-2);

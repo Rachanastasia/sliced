@@ -20,14 +20,14 @@ export function Ingredients({
                 key={index}
                 ingredient={ingredient}
                 constant={1} // FOR TESTING
-                handleActiveIngredient={() =>
-                  handleActiveIngredient(ingredient.id)
+                handleActiveIngredient={(prop = 'amount') =>
+                  handleActiveIngredient({ id: ingredient.id, prop })
                 }
-                handleChangeIngredient={(amount) =>
-                  handleChangeIngredient(ingredient.id, amount)
-                }
+                handleChangeIngredient={(prop, value) => {
+                  handleChangeIngredient({ id: ingredient.id, prop, value })
+                }}
                 handleDeleteIngredient={() =>
-                  handleDeleteIngredient(ingredient.id)
+                  handleDeleteIngredient({ id: ingredient.id })
                 }
               />
             )

@@ -1,6 +1,9 @@
 .input_button {
   border: 0;
-  background-color: purple;
+  background-color: inherit;
+  border: 1px solid black;
+  cursor: pointer;
+  color: black;
   flex: 2;
 }
 

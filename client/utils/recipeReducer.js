@@ -19,7 +19,8 @@ export function recipeReducer(state, action) {
         ),
         constant: 1
       }
-    case 'setIngredientProp':
+    case 'setIngredient':
+      console.log('THIS IS MY SET INGREDIENT PAYLOAD', action.payload)
       const ingredients = state.ingredients.map((ingredient) =>
         ingredient?.id === action.payload.id
           ? {
@@ -31,6 +32,7 @@ export function recipeReducer(state, action) {
       )
       return { input: state.input, constant: state.constant, ingredients }
     case 'setIngredientActive':
+      // Active can be 'none' | 'amount' | 'name'
       const temp = state.ingredients.map((ingredient) =>
         ingredient?.id === action.payload.id
           ? { ...ingredient, active: !ingredient.active }
