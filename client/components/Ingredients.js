@@ -15,10 +15,10 @@ export function Ingredients({
     <Fragment>
       {ingredients && (
         <ul className={styles.ingredients}>
-          {ingredients.map((ingredient, index) => {
+          {ingredients.map((ingredient) => {
             return (
               <Ingredient
-                key={index}
+                key={ingredient.id}
                 ingredient={ingredient}
                 constant={1} // FOR TESTING
                 handleActiveIngredient={(prop) =>

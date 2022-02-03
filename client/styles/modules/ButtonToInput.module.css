@@ -39,6 +39,7 @@
 
 .dropdown_wrapper {
   background-color: inherit;
+  min-width: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
