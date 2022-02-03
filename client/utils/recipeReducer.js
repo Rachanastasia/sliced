@@ -11,13 +11,16 @@ export function recipeReducer(state, action) {
         ingredients: scaleRecipe(action.payload.constant, state.ingredients),
         constant: action.payload.constant
       }
+
     case ACTIONS.INPUT:
+      console.log('RUNNING ACTIONS.INPUT')
       // Parses and sets state.ingredients: Ingredient[]
       return {
         input: action.payload.input,
         ingredients: parse(action.payload.input + ' '),
         constant: 1
       }
+
     case ACTIONS.INGREDIENT:
       const ingredients = state.ingredients.map((ingredient) => {
         if (ingredient.id === action.payload.id) {
@@ -32,6 +35,7 @@ export function recipeReducer(state, action) {
         return ingredient
       })
       return { input: state.input, constant: state.constant, ingredients }
+
     case ACTIONS.ACTIVE:
       // Active can be 'none' | 'amount' | 'ingredient'
       const temp = state.ingredients.map((ingredient) => {
@@ -40,6 +44,7 @@ export function recipeReducer(state, action) {
         return ingredient
       })
       return { input: state.input, constant: state.constant, ingredients: temp }
+
     case ACTIONS.DELETE:
       const newIngredients = state.ingredients.filter(
         (ingredient) => ingredient.id !== action.payload.id

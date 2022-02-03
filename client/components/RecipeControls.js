@@ -3,10 +3,10 @@ import { Controls } from './Controls'
 
 import styles from '../styles/modules/Recipe.module.css'
 
-export function RecipeControls({ input }) {
+export function RecipeControls({ input, handlePaste, handleSetExample }) {
   return (
     <div className={styles.recipe_controls}>
-      <Controls />
+      <Controls handlePaste={handlePaste} handleSetExample={handleSetExample} />
       <Textarea input={input} />
     </div>
   )

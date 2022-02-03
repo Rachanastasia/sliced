@@ -5,7 +5,7 @@ import styles from '../styles/modules/Recipe.module.css'
 export function Controls({
   error,
   handlePaste,
-  handleSetSample,
+  handleSetExample,
   handleShowInfo
 }) {
   // function to paste passed  here
@@ -14,7 +14,7 @@ export function Controls({
       <Error error={error} />
       <div className={styles.controls}>
         <IconButton onClick={handlePaste} type="paste" caption />
-        <IconButton onClick={handleSetSample} type="example" caption />
+        <IconButton onClick={handleSetExample} type="example" caption />
         <IconButton onClick={handleShowInfo} type="info" caption />
       </div>
     </div>

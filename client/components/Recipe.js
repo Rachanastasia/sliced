@@ -27,14 +27,22 @@ export function Recipe() {
   const handleDeleteIngredient = ({ id }) =>
     dispatch({ type: ACTIONS.DELETE, payload: { id } })
 
+  const handleSetExample = () =>
+    dispatch({ type: ACTIONS.INPUT, payload: { input: sample } })
+
+  const handlePaste = () => {}
+
   useEffect(() => {
-    if (state.input === '')
-      dispatch({ type: ACTIONS.INPUT, payload: { input: sample } })
+    if (state.input === '') handleSetExample()
   }, [])
 
   return (
     <div className={styles.recipe} id="slicer">
-      <RecipeControls input={state.input} />
+      <RecipeControls
+        input={state.input}
+        handlePaste={handlePaste}
+        handleSetExample={handleSetExample}
+      />
       <Ingredients
         ingredients={state.ingredients}
         handleActiveIngredient={handleActiveIngredient}

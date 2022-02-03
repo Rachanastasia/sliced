@@ -1,10 +1,14 @@
+import Head from 'next/head'
 import { Recipe, Header } from '../components'
 
 export default function Home() {
   return (
-    <main>
-      <Header />
-      <Recipe />
-    </main>
+    <Fragment>
+      <Head></Head>
+      <main>
+        <Header />
+        <Recipe />
+      </main>
+    </Fragment>
   )
 }

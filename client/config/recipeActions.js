@@ -3,5 +3,6 @@ export const ACTIONS = {
   INPUT: 'setInput',
   INGREDIENT: 'setIngredient',
   ACTIVE: 'setIngredientActive',
-  DELETE: 'deleteIngredient'
+  DELETE: 'deleteIngredient',
+  ERROR: 'setError'
 }
