@@ -1,4 +1,4 @@
-import { forwardRef, useRef } from 'react'
+import { forwardRef, useRef, Fragment } from 'react'
 
 import { ButtonToInput, Dropdown, IconButton } from './elements'
 
@@ -44,21 +44,41 @@ export const Ingredient = forwardRef(function IngredientItem(
         <IconButton type="close" onClick={handleDeleteIngredient} />
       </div>
       <div className={styles.ingredient_content}>
-        <ButtonToInput
-          text={ingredient?.amount}
-          ref={amountRef}
-          active={ingredient.active === 'amount'}
-          onClick={handleActiveIngredientAmount}
-          onBlur={handleChangeIngredientAmount}
-        />
-        <Dropdown unit={ingredient.unit} />
-        <ButtonToInput
-          text={ingredient.ingredient}
-          ref={ingredientRef}
-          active={ingredient.active === 'ingredient'}
-          onClick={handleActiveIngredientName}
-          onBlur={handleChangeIngredientName}
-        />
+        {ingredient.active === 'amount' ? (
+          <ButtonToInput
+            text={ingredient?.amount}
+            ref={amountRef}
+            active={ingredient.active === 'amount'}
+            onClick={handleActiveIngredientAmount}
+            onBlur={handleChangeIngredientAmount}
+          />
+        ) : ingredient.active === 'ingredient' ? (
+          <ButtonToInput
+            text={ingredient.ingredient}
+            ref={ingredientRef}
+            active={ingredient.active === 'ingredient'}
+            onClick={handleActiveIngredientName}
+            onBlur={handleChangeIngredientName}
+          />
+        ) : (
+          <Fragment>
+            <ButtonToInput
+              text={ingredient?.amount}
+              ref={amountRef}
+              active={ingredient.active === 'amount'}
+              onClick={handleActiveIngredientAmount}
+              onBlur={handleChangeIngredientAmount}
+            />
+            <Dropdown unit={ingredient.unit} />
+            <ButtonToInput
+              text={ingredient.ingredient}
+              ref={ingredientRef}
+              active={ingredient.active === 'ingredient'}
+              onClick={handleActiveIngredientName}
+              onBlur={handleChangeIngredientName}
+            />
+          </Fragment>
+        )}
       </div>
       <div className={styles.icon_wrapper}>
         <IconButton type="lock" disabled />

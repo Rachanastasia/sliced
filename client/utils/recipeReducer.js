@@ -58,8 +58,3 @@ export function recipeReducer(state, action) {
       console.log('I AM RUNNING THE DEFAULT CASE IN REDUCER')
   }
 }
-
-/**
- * 3. Deal with textarea
- * 4. Expand textbox
- */
