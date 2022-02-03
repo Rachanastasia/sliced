@@ -37,9 +37,9 @@ export function recipeReducer(state, action) {
           ? {
               ...ingredient,
               active:
-                state.active !== action.payload.prop
-                  ? action.payload.prop
-                  : 'none'
+                ingredient.active === action.payload.prop
+                  ? 'none'
+                  : action.payload.prop
             }
           : ingredient
       )
