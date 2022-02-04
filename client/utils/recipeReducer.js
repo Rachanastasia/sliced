@@ -38,10 +38,11 @@ export function recipeReducer(state, action) {
                 error = 'Maximum length 5 digits'
               } else if (isDigit(action.payload.value)) {
                 ingredient.setAmount(action.payload.value, true)
-                // if ingredient is locked, change constant
-                // if ingredient is unlocked, keep constant the same
-                // effect if constant changes for whole recipe to be scaled
-                constant = action.payload.value / ingredient.amount.amount
+                // if Ingredient is "locked" into the recipe,
+                //    state.constant is updated based on the ratio
+                if (ingredient.locked === true) {
+                  constant = action.payload.value / ingredient.amount.amount
+                }
               } else {
                 error = 'Please enter a number'
               }
@@ -53,10 +54,14 @@ export function recipeReducer(state, action) {
           ingredient.setActive(ingredient.active)
           return ingredient
         })
+        const scaledIngredients =
+          constant !== state.constant
+            ? scaleRecipe(constant, ingredients)
+            : ingredients
         return {
           input: state.input,
           constant,
-          ingredients: scaleRecipe(constant, ingredients),
+          ingredients: scaledIngredients,
           error
         }
 
