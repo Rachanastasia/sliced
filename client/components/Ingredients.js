@@ -8,7 +8,8 @@ export function Ingredients({
   ingredients,
   handleActiveIngredient,
   handleChangeIngredient,
-  handleDeleteIngredient
+  handleDeleteIngredient,
+  handleLockedIngredient
 }) {
   return (
     <Fragment>
@@ -28,6 +29,9 @@ export function Ingredients({
                 }}
                 handleDeleteIngredient={() =>
                   handleDeleteIngredient({ id: ingredient.id })
+                }
+                handleLockedIngredient={() =>
+                  handleLockedIngredient({ id: ingredient.id })
                 }
               />
             )

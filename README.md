@@ -4,7 +4,7 @@ This is the repository for [Sliced](https://sliced.vercel.app/), the app to scal
 
 With Sliced, users can scale up and down their favorite recipes. Sliced parses the ingredient text and allows the user to change the amount. The TypeScript algorithm used to parse and manipulate recipe data resides in [its own repo](https://github.com/rachelrly/slicer).
 
-For example, if Sally wants to make cookies. The recipe calls for 1/2 cup butter, but she only has 1/3 cup. Sally can copy and paste her recipe in Sliced, and the app will convert the text into a list of ingredients that can be scaled. To scale the recipe down, she can click on the amount of the butter ingredient list and enter the desired amount. This will scale the entire recipe to the new:original ratio.
+For example, Sally wants to make cookies. The recipe calls for 1/2 cup butter, but she only has 1/3 cup. Sally can copy and paste her recipe in Sliced, and the app will convert the text into a list of ingredients that can be scaled. To scale the recipe down, she can click on "1/2" on the butter ingredient and enter "1/3". This will scale the entire recipe to the new:original ratio. Before scaling, Sally knows she doesn't want to scale down the amount of chocolate chips, so she presses the lock icon on the right to `unlock` and preserve the current amount. After scaling, she wants to increase the amount of vanilla extract, so she unlocks the ingredient and changes the amount without effecting the ratio of rest of the recipe.
 
 ## Tech Stack
 
@@ -25,7 +25,7 @@ Contains components specifically made for the Sliced UI. All components are impo
 
 Contains all reusable UI elements that are not specifically tied to the Sliced UI
 
-##### 👀 ButtonToInput.js
+##### 👀 [ButtonToInput.js](/client/components/elements/ButtonToInput.js)
 
 A button component that turns into an input component onClick
 
@@ -33,7 +33,7 @@ A button component that turns into an input component onClick
 
 Contains the functionality of the Slicer, along with other utilities
 
-##### 👀 recipeReducer.js
+##### 👀 [recipeReducer.js](/client/utils/recipeReducer.js)
 
 The reducer used to interact with the Sliced UI and the Slicer algorithm
 

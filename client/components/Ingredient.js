@@ -11,7 +11,8 @@ export const Ingredient = forwardRef(function IngredientItem(
     ingredient,
     handleActiveIngredient,
     handleChangeIngredient,
-    handleDeleteIngredient
+    handleDeleteIngredient,
+    handleLockedIngredient
   },
   ref
 ) {
@@ -82,7 +83,10 @@ export const Ingredient = forwardRef(function IngredientItem(
           </Fragment>
         )}
       </div>
-      <IngredientLock />
+      <IngredientLock
+        locked={ingredient.locked}
+        onClick={handleLockedIngredient}
+      />
     </li>
   )
 })
