@@ -8,22 +8,10 @@ form {
   padding: var(--spacer-2);
 }
 
-@media all and (min-width: 800px) {
-}
-
 fieldset {
   outline: 0;
   border: 0;
   width: 100%;
-}
-
-/* label {
-  padding-right: var(--spacer-sm);
-  width: var(--button-width);
-} */
-
-fieldset .hidden {
-  display: none;
 }
 
 input,
@@ -33,8 +21,9 @@ textarea {
   outline: 0;
   font-family: var(--font-body);
   line-height: calc(1.5 * var(--text-size-1));
-  border: var(--button-to-input-border);
+  border: none;
   border-radius: var(--button-border-radius);
+  background-color: var(--color-step-1);
   color: var(--colors-black);
   transition: all 0.2s;
 }
@@ -42,13 +31,17 @@ textarea {
 input {
   padding: var(--spacer-1) var(--spacer-2);
   height: var(--button-to-input-height);
-  background-color: var(--color-step-0);
 }
 
 textarea {
   height: 30vh;
   padding: var(--spacer-1);
   flex: 2;
+}
+
+textarea:active,
+textarea:focus {
+  background-color: var(--color-step-2);
 }
 
 @media all and (min-width: 600px) {
