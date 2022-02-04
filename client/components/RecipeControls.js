@@ -5,23 +5,22 @@ import styles from '../styles/modules/Recipe.module.css'
 import { forwardRef } from 'react'
 
 export const RecipeControls = forwardRef(function RecipeControls(
-  { handlePaste, handleSetExample },
+  { handlePaste, handleSetExample, handleStateInput },
   ref
 ) {
   return (
     <div className={styles.recipe_controls}>
       <Controls handlePaste={handlePaste} handleSetExample={handleSetExample} />
-      <Textarea ref={ref} />
+      <Textarea ref={ref} onChange={handleStateInput} />
     </div>
   )
 })
 
 // This PR
 
-// 1. handle copy and pasting
 // 2. handle modal for instructions
 // 4. add different custom font in Next header
-// 6. add max length to texarea (and error)
+// 6. add error texarea
 // 8. handle errors and clear onBlur anywhere
 
 // Long Term

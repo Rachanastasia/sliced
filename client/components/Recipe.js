@@ -31,13 +31,23 @@ export function Recipe() {
   const handleSetExample = () =>
     dispatch({ type: ACTIONS.INPUT, payload: { input: sample } })
 
-  const handlePaste = () => {}
+  const handleStateInput = () => {
+    dispatch({
+      type: ACTIONS.INPUT,
+      payload: { input: inputRef.current.value }
+    })
+  }
+  const handlePaste = async () => {
+    const clipboard = await navigator.clipboard.readText()
+    dispatch({ type: ACTIONS.INPUT, payload: { input: clipboard } })
+  }
 
   useEffect(() => {
     if (state.input === '') handleSetExample()
   }, [])
 
   useEffect(() => {
+    // sets textarea with Recipe.input value
     if (inputRef?.current) inputRef.current.value = state.input
   }, [state.input])
 
@@ -48,6 +58,7 @@ export function Recipe() {
         input={state.input}
         handlePaste={handlePaste}
         handleSetExample={handleSetExample}
+        handleStateInput={handleStateInput}
       />
       <Ingredients
         ingredients={state.ingredients}

@@ -17,6 +17,7 @@ export function recipeReducer(state, action) {
     //   }
     case ACTIONS.INPUT:
       // Parses and sets state.ingredients: Ingredient[]
+      if (action.payload.input === state.input) return state
       return {
         input: action.payload.input,
         ingredients: parse(action.payload.input + ' '),
