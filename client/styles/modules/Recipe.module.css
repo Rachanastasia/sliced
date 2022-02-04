@@ -1,0 +1,109 @@
+.recipe {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--font-body);
+  padding: var(--spacer-2);
+  max-width: 1000px;
+}
+
+.ingredients {
+  width: 100%;
+  display: flex;
+  flex: 4;
+  flex-direction: column;
+  align-items: center;
+  font-family: var(--font-body);
+  line-height: calc(var(--text-size-1) * 1.5);
+  font-size: var(--text-size-1);
+  list-style: none;
+}
+
+.ingredient {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: fit-content;
+  padding: var(--spacer-1) 0;
+  width: 100%;
+}
+
+.ingredient:last-of-type {
+  border-bottom: 0;
+}
+
+.ingredient > * {
+  padding: 0 var(--spacer-2);
+}
+
+.ingredient_content,
+.inactive_wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: inherit;
+}
+
+.ingredient_content {
+  background-color: var(--color-step-1);
+  border-radius: var(--button-border-radius);
+  padding: var(--spacer-1);
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.recipe_controls {
+  width: calc(100% - var(--icon-button-offset));
+  padding: 0 var(--spacer-1);
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+}
+
+.controls {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacer-1);
+  width: 50%;
+  max-width: calc(2 * var(--icon-button-offset));
+  align-self: flex-end;
+  height: inherit;
+}
+
+.controls_wrapper {
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+}
+
+@media all and (min-width: 1000px) {
+  .recipe {
+    margin-top: var(--spacer-3);
+    padding: var(--spacer-2);
+  }
+  .ingredients {
+    margin-top: var(--spacer-1);
+  }
+}
+
+.icon_wrapper,
+.icon_lock_wrapper {
+  width: fit-content;
+  padding: 0;
+}
+
+.caption {
+  align-self: start;
+}
+
+@media all and (min0width: 500px) {
+  .caption {
+    margin-bottom: var(-spacer-1);
+  }
+}

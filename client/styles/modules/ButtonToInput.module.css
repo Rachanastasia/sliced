@@ -1,0 +1,61 @@
+.input_button {
+  border: 0;
+  background-color: inherit;
+  cursor: pointer;
+  color: var(--colors-black);
+  padding: 0;
+  font-size: var(--text-size-1);
+  height: var(--button-to-input-height);
+  background-color: var(--color-step-1);
+}
+
+/* @media all and (min-width: 800px) {
+  .input_button {
+    max-width: 300px;
+  }
+} */
+
+.label_input {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  height: inherit;
+  width: fit-content;
+  overflow: hidden;
+  flex: 2;
+  justify-content: space-between;
+}
+
+.label_input:first-of-type {
+  flex: 1;
+}
+
+.label_input:first-of-type > .input_button {
+  width: 100%;
+}
+
+.label_input:last-of-type > .input_button {
+  flex: 4;
+  min-width: 100px;
+}
+
+.dropdown_wrapper {
+  flex: 1;
+  min-width: 60px;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 var(--spacer-1);
+  padding: 0 var(--spacer-1);
+  color: var(--colors-black);
+  border-radius: var(--button-border-radius);
+  height: var(--button-to-input-height);
+  background-color: var(--color-step-1);
+  cursor: not-allowed;
+}
+
+.dropdown_wrapper:empty {
+  background-color: unset;
+}

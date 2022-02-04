@@ -1,17 +1,16 @@
-import Screen from '../components/layout'
-import About from '../components/About'
-import Slicer from '../components/Slicer/index'
+import { Fragment } from 'react'
 
+import Head from 'next/head'
+import { Recipe, Header } from '../components'
 
 export default function Home() {
-  return <Screen showBanner><Page /></Screen>
-}
-
-function Page(){
   return (
-      <div className='screen_content'>
-          <About />
-          <Slicer />
-      </div>
+    <Fragment>
+      <Head></Head>
+      <main>
+        <Header />
+        <Recipe />
+      </main>
+    </Fragment>
   )
 }
