@@ -3,12 +3,12 @@ import { forwardRef, useEffect } from 'react'
 export const Textarea = forwardRef(function Textarea({ onChange }, ref) {
   useEffect(() => {
     syncWithState()
-  }, [])
+  }, [document.activeElement])
 
   function syncWithState() {
     onChange()
     if (ref.current == document.activeElement) {
-      setTimeout(syncWithState, 3000)
+      setTimeout(syncWithState, 2000)
     }
   }
 

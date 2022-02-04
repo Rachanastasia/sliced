@@ -5,6 +5,12 @@
   align-items: flex-end;
 }
 .error {
-  color: var(--color-step-2);
+  color: var(--color-step-5);
   font-size: var(--font-size-caption);
+}
+
+@media all and (min-width: 800px) {
+  .error {
+    font-size: 0.8rem;
+  }
 }

@@ -13,7 +13,8 @@ export function Recipe() {
   const [state, dispatch] = useReducer(recipeReducer, {
     input: '',
     constant: 1,
-    ingredients: []
+    ingredients: [],
+    error: null
   })
 
   const handleActiveIngredient = ({ id, prop }) =>
@@ -25,9 +26,9 @@ export function Recipe() {
       payload: { id, prop, value }
     })
 
-  const handleDeleteIngredient = ({ id }) =>
+  const handleDeleteIngredient = ({ id }) => {
     dispatch({ type: ACTIONS.DELETE, payload: { id } })
-
+  }
   const handleSetExample = () =>
     dispatch({ type: ACTIONS.INPUT, payload: { input: sample } })
 
@@ -59,6 +60,7 @@ export function Recipe() {
         handlePaste={handlePaste}
         handleSetExample={handleSetExample}
         handleStateInput={handleStateInput}
+        error={state.error}
       />
       <Ingredients
         ingredients={state.ingredients}
