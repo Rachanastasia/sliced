@@ -15,7 +15,7 @@ export function Controls({
       <div className={styles.controls}>
         <IconButton onClick={handlePaste} type="paste" caption />
         <IconButton onClick={handleSetExample} type="example" caption />
-        <IconButton onClick={handleShowInfo} type="info" caption />
+        <IconButton onClick={handleShowInfo} type="info" disabled caption />
       </div>
     </div>
   )

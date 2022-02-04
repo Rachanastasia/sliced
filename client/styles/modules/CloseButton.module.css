@@ -51,8 +51,16 @@
   justify-content: center;
 }
 
+.icon_button_disabled {
+  cursor: not-allowed;
+}
+
 .icon_unlock svg,
 .icon_unlock:hover svg,
 .button:active svg {
   fill: var(--color-step-2);
+}
+
+.icon_button_disabled:hover svg {
+  fill: var(--colors-black);
 }

@@ -18,7 +18,6 @@ export function recipeReducer(state, action) {
       //   }
       case ACTIONS.INPUT:
         // Parses and sets state.ingredients: Ingredient[]
-        // if (action.payload.input.trim() == state.input) return state
         const ingredientArr = parse(action.payload.input + ' ')
         if (ingredientArr === state.ingredients) {
           return state
@@ -71,7 +70,8 @@ export function recipeReducer(state, action) {
         return {
           input: state.input,
           constant: state.constant,
-          ingredients: state.error
+          ingredients: active,
+          error: state.error
         }
 
       case ACTIONS.DELETE:

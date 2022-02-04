@@ -15,23 +15,7 @@ export const RecipeControls = forwardRef(function RecipeControls(
         handlePaste={handlePaste}
         handleSetExample={handleSetExample}
       />
-      <Textarea ref={ref} onChange={handleStateInput} />
+      <Textarea ref={ref} onBlur={handleStateInput} />
     </div>
   )
 })
-
-// This PR
-
-// 2. handle modal for instructions
-// 4. add different custom font in Next header
-// 6. add error texarea
-// 8. handle errors and clear onBlur anywhere
-
-// Long Term
-
-// add button to create empty ingredient
-// Fix UI
-// Add footer back
-// Add about section back
-// Add tooltips and mobile options
-// Make menu for Slicer controls

@@ -22,7 +22,7 @@ export function IconButton({
   const Icon = types[type]
   const className = `${styles.button} ${styles.icon_button} ${
     styles[`icon_${type}`]
-  }`
+  } ${disabled ? styles.icon_button_disabled : ''} `
   return (
     <div className={styles.icon_button_wrapper}>
       <button onClick={onClick} className={className} disabled={disabled}>
