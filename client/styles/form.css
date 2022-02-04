@@ -33,6 +33,10 @@ input {
   height: var(--button-to-input-height);
 }
 
+input::placeholder {
+  color: var(--color-step-5);
+}
+
 textarea {
   height: 30vh;
   padding: var(--spacer-1);
