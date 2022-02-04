@@ -25,7 +25,7 @@ Contains components specifically made for the Sliced UI. All components are impo
 
 Contains all reusable UI elements that are not specifically tied to the Sliced UI
 
-##### 👀 ButtonToInput.js
+##### 👀 [ButtonToInput.js](/client/components/elements/ButtonToInput.js)
 
 A button component that turns into an input component onClick
 
@@ -33,7 +33,7 @@ A button component that turns into an input component onClick
 
 Contains the functionality of the Slicer, along with other utilities
 
-##### 👀 recipeReducer.js
+##### 👀 [recipeReducer.js](/client/utils/recipeReducer.js)
 
 The reducer used to interact with the Sliced UI and the Slicer algorithm
 
