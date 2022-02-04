@@ -2,20 +2,14 @@ import { ACTIONS } from '../config'
 import { parse } from '../slicer/types/parse'
 import { isDigit } from './isDigit'
 
-function scaleRecipe(constant, _ingredients) {
+function scaleRecipe(constant, ingredients) {
   console.log('PRETENDING TO SCALE INGREDIENT WITH THIS CONSTANT: ', constant)
+  return ingredients
 }
 
 export function recipeReducer(state, action) {
   try {
     switch (action.type) {
-      // case ACTIONS.CONSTANT:
-      //   // When constant is set, it scales and sets ingredients
-      //   return {
-      //     input: state.input,
-      //     ingredients: scaleRecipe(action.payload.constant, state.ingredients),
-      //     constant: action.payload.constant
-      //   }
       case ACTIONS.INPUT:
         // Parses and sets state.ingredients: Ingredient[]
         const ingredientArr = parse(action.payload.input + ' ')
@@ -31,6 +25,8 @@ export function recipeReducer(state, action) {
 
       case ACTIONS.INGREDIENT:
         let error = null
+        let constant = state.constant
+
         if (action.payload.value.length > 100) {
           error = 'Maximum length exceeded'
           return { ...state, error }
@@ -40,9 +36,13 @@ export function recipeReducer(state, action) {
             if (action.payload.prop === 'amount') {
               if (action.payload.value.length > 5) {
                 error = 'Maximum length 5 digits'
-              } else if (isDigit(action.payload.value))
+              } else if (isDigit(action.payload.value)) {
                 ingredient.setAmount(action.payload.value, true)
-              else {
+                // if ingredient is locked, change constant
+                // if ingredient is unlocked, keep constant the same
+                // effect if constant changes for whole recipe to be scaled
+                constant = action.payload.value / ingredient.amount.amount
+              } else {
                 error = 'Please enter a number'
               }
             } else if (action.payload.prop === 'ingredient') {
@@ -55,8 +55,8 @@ export function recipeReducer(state, action) {
         })
         return {
           input: state.input,
-          constant: state.constant,
-          ingredients,
+          constant,
+          ingredients: scaleRecipe(constant, ingredients),
           error
         }
 
@@ -73,7 +73,17 @@ export function recipeReducer(state, action) {
           ingredients: active,
           error: state.error
         }
-
+      case ACTIONS.LOCK:
+        const lock = state.ingredients.map((ingredient) => {
+          if (ingredient.id === action.payload.id) ingredient.toggleLocked()
+          return ingredient
+        })
+        return {
+          input: state.input,
+          constant: state.constant,
+          ingredients: lock,
+          error: state.error
+        }
       case ACTIONS.DELETE:
         const newIngredients = state.ingredients.filter(
           (ingredient) => ingredient.id !== action.payload.id

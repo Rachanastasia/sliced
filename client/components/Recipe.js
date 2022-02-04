@@ -8,7 +8,7 @@ import { recipeReducer } from '../utils'
 import styles from '../styles/modules/Recipe.module.css'
 
 export function Recipe() {
-  const inputRef = useRef(null) // Misnomer, this is a textarea
+  const inputRef = useRef(null) // Misnomer, this is a textarea,
   // but it is called "input" in the JS data. See below.
   const [state, dispatch] = useReducer(recipeReducer, {
     input: '',
@@ -16,9 +16,13 @@ export function Recipe() {
     ingredients: [],
     error: null
   })
-
+  // Toggles active/not state for ingredient
   const handleActiveIngredient = ({ id, prop }) =>
     dispatch({ type: ACTIONS.ACTIVE, payload: { id, prop } })
+
+  // Toggles locked/unlocked state for ingredient
+  const handleLockedIngredient = ({ id }) =>
+    dispatch({ type: ACTIONS.LOCK, payload: { id } })
 
   const handleChangeIngredient = ({ id, prop, value }) =>
     dispatch({
@@ -44,11 +48,12 @@ export function Recipe() {
   }
 
   useEffect(() => {
+    // Sets example recipe by default
     if (state.input === '') handleSetExample()
   }, [])
 
   useEffect(() => {
-    // sets textarea with Recipe.input value
+    // Sets textarea with Recipe.input value
     if (inputRef?.current) inputRef.current.value = state.input
   }, [state.input])
 
@@ -67,6 +72,7 @@ export function Recipe() {
         handleActiveIngredient={handleActiveIngredient}
         handleChangeIngredient={handleChangeIngredient}
         handleDeleteIngredient={handleDeleteIngredient}
+        handleLockedIngredient={handleLockedIngredient}
       />
     </div>
   )

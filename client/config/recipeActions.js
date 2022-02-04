@@ -4,5 +4,6 @@ export const ACTIONS = {
   INGREDIENT: 'setIngredient',
   ACTIVE: 'setIngredientActive',
   DELETE: 'deleteIngredient',
-  ERROR: 'setError'
+  ERROR: 'setError',
+  LOCK: 'toggleLock'
 }
