@@ -23,10 +23,9 @@ export function recipeReducer(state, action) {
           error: null
         }
 
-      case ACTIONS.INGREDIENT:
+      case ACTIONS.INGREDIENT: // updates individual ingredient data
         let error = null
         let constant = state.constant
-
         if (action.payload.value.length > 100) {
           error = 'Maximum length exceeded'
           return { ...state, error }
@@ -37,12 +36,13 @@ export function recipeReducer(state, action) {
               if (action.payload.value.length > 5) {
                 error = 'Maximum length 5 digits'
               } else if (isDigit(action.payload.value)) {
-                ingredient.setAmount(action.payload.value, true)
                 // if Ingredient is "locked" into the recipe,
                 //    state.constant is updated based on the ratio
                 if (ingredient.locked === true) {
                   constant = action.payload.value / ingredient.amount.amount
                 }
+                // Must get constant ratio before setting new amount
+                ingredient.setAmount(action.payload.value, true)
               } else {
                 error = 'Please enter a number'
               }
@@ -54,17 +54,13 @@ export function recipeReducer(state, action) {
           ingredient.setActive(ingredient.active)
           return ingredient
         })
-        const scaledIngredients =
-          constant !== state.constant
-            ? scaleRecipe(constant, ingredients)
-            : ingredients
+        // If constant is unchanged, the algo should return the same ingredients without processing
         return {
           input: state.input,
           constant,
-          ingredients: scaledIngredients,
+          ingredients: scaleRecipe(constant, ingredients),
           error
         }
-
       case ACTIONS.ACTIVE:
         // Active can be 'none' | 'amount' | 'ingredient'
         const active = state.ingredients.map((ingredient) => {

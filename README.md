@@ -4,7 +4,7 @@ This is the repository for [Sliced](https://sliced.vercel.app/), the app to scal
 
 With Sliced, users can scale up and down their favorite recipes. Sliced parses the ingredient text and allows the user to change the amount. The TypeScript algorithm used to parse and manipulate recipe data resides in [its own repo](https://github.com/rachelrly/slicer).
 
-For example, if Sally wants to make cookies. The recipe calls for 1/2 cup butter, but she only has 1/3 cup. Sally can copy and paste her recipe in Sliced, and the app will convert the text into a list of ingredients that can be scaled. To scale the recipe down, she can click on the amount of the butter ingredient list and enter the desired amount. This will scale the entire recipe to the new:original ratio.
+For example, if Sally wants to make cookies. The recipe calls for 1/2 cup butter, but she only has 1/3 cup. Sally can copy and paste her recipe in Sliced, and the app will convert the text into a list of ingredients that can be scaled. To scale the recipe down, she can click on the amount of the butter ingredient list and enter the desired amount. This will scale the entire recipe to the new:original ratio. To exclude an ingredient from being scaled or edit the amount of just one ingredient, Sally can `unlock` the desired ingredients with the lock icon on the right.
 
 ## Tech Stack
 
