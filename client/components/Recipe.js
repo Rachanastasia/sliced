@@ -1,5 +1,5 @@
 import React, { useEffect, useReducer, useRef } from 'react'
-
+import { Recipe as SlicerRecipe } from '../slicer'
 import { ACTIONS, sample } from '../config'
 import { Ingredients } from './Ingredients'
 import { RecipeControls } from './RecipeControls'
@@ -9,11 +9,9 @@ import styles from '../styles/modules/Recipe.module.css'
 
 export function Recipe() {
   const inputRef = useRef(null) // Misnomer, this is a textarea,
-  // but it is called "input" in the JS data. See below.
+  // but it is called "recipe.input" in the JS data. See below.
   const [state, dispatch] = useReducer(recipeReducer, {
-    input: '',
-    constant: 1,
-    ingredients: [],
+    recipe: new SlicerRecipe(),
     error: null
   })
   // Toggles active/not state for ingredient
@@ -49,13 +47,13 @@ export function Recipe() {
 
   useEffect(() => {
     // Sets example recipe by default
-    if (state.input === '') handleSetExample()
+    if (!state.recipe.input) handleSetExample()
   }, [])
 
   useEffect(() => {
     // Sets textarea with Recipe.input value
-    if (inputRef?.current) inputRef.current.value = state.input
-  }, [state.input])
+    if (inputRef?.current) inputRef.current.value = state.recipe.input
+  }, [state.recipe.input])
 
   return (
     <div className={styles.recipe} id="slicer">
@@ -68,7 +66,7 @@ export function Recipe() {
         error={state.error}
       />
       <Ingredients
-        ingredients={state.ingredients}
+        ingredients={state.recipe.ingredients}
         handleActiveIngredient={handleActiveIngredient}
         handleChangeIngredient={handleChangeIngredient}
         handleDeleteIngredient={handleDeleteIngredient}
