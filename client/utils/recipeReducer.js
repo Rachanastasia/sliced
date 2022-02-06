@@ -12,7 +12,6 @@ export function recipeReducer(state, action) {
           recipe,
           error: null
         }
-
       case ACTIONS.INGREDIENT: // updates individual ingredient data
         let error = null
         let constant = state.recipe.constant
@@ -33,6 +32,8 @@ export function recipeReducer(state, action) {
                   constant =
                     action.payload.value / Number(ingredient.displayAmount())
                   state.recipe.scale(constant)
+                } else {
+                  ingredient.setNewAmount(action.payload.value)
                 }
               } else {
                 error = 'Please enter a number'
@@ -60,14 +61,12 @@ export function recipeReducer(state, action) {
           error: state.error
         }
       case ACTIONS.LOCK:
-        const lock = state.recipe.ingredients.map((ingredient) => {
+        state.recipe.ingredients.forEach((ingredient) => {
           if (ingredient.id === action.payload.id) ingredient.toggleLocked()
           return ingredient
         })
         return {
-          input: state.input,
-          constant: state.constant,
-          ingredients: lock,
+          recipe: state.recipe,
           error: state.error
         }
       case ACTIONS.DELETE:
