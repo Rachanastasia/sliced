@@ -1,3 +1,4 @@
+import { Recipe } from '../slicer'
 import { ACTIONS } from '../config'
 import { isDigit } from './isDigit'
 
@@ -5,10 +6,10 @@ export function recipeReducer(state, action) {
   try {
     switch (action.type) {
       case ACTIONS.INPUT:
-        // Parses and sets state.recipe to Slicer Recipe class
-        state.recipe.setInput(action.payload.input + ' ')
+        const recipe = new Recipe()
+        recipe.set(action.payload.input)
         return {
-          recipe: state.recipe,
+          recipe,
           error: null
         }
 
@@ -29,28 +30,20 @@ export function recipeReducer(state, action) {
                 // if Ingredient is "locked" into the recipe,
                 //    state.constant is updated based on the ratio
                 if (ingredient.locked === true) {
-                  constant = action.payload.value / ingredient.amount.amount
+                  constant =
+                    action.payload.value / Number(ingredient.displayAmount())
+                  state.recipe.scale(constant)
                 }
-                // Must get constant ratio before setting new amount
-                ingredient.setAmount(action.payload.value, true)
               } else {
                 error = 'Please enter a number'
               }
             } else if (action.payload.prop === 'ingredient') {
-              ingredient.setIngredientName(action.payload.value, true)
+              ingredient.setName(action.payload.value, false)
             }
           }
           // sets to "none"
           ingredient.setActive(ingredient.active)
         })
-
-        if (constant !== state.recipe.constant) {
-          console.log('BEFORE RECIPE CHANGES', state.recipe)
-
-          state.recipe.setConstant(constant)
-          console.log('AFTER RECIPE CHANGES', state.recipe)
-        }
-        // If constant is unchanged, the algo should return the same ingredients without processing
 
         return {
           recipe: state.recipe,
@@ -78,22 +71,13 @@ export function recipeReducer(state, action) {
           error: state.error
         }
       case ACTIONS.DELETE:
-        const newIngredients = state.recipe.ingredients.filter(
+        state.recipe.ingredients = state.recipe.ingredients.filter(
           (ingredient) => ingredient.id !== action.payload.id
         )
         return {
-          input: state.input,
-          constant: state.constant,
-          ingredients: newIngredients,
+          recipe: state.recipe,
           error: state.error
         }
-      // case ACTIONS.REPLACE:
-      //   const replace = action.payload.state
-      //   const classIngredients = replace.ingredients.map((ingredient) => {
-      //     // make ingredients as Ingredient class
-
-      //     return ingredient
-      //   })
       default:
         return { recipe: state.recipe, error: 'Error handling recipe :(' }
     }

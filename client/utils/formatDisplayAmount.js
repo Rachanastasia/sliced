@@ -2,7 +2,7 @@ import { DECIMALS_TO_FRACTIONS } from '../config/constants'
 
 export function formatDisplayAmount(number) {
   const regex = /\./g
-  const string = parseFloat(number.toFixed(2)).toString()
+  const string = `${number}`
   const isFloat = regex.exec(string)
   if (isFloat) {
     const beforeDecimal = string.slice(0, isFloat.index)

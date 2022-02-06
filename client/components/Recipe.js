@@ -14,6 +14,13 @@ export function Recipe() {
     recipe: new SlicerRecipe(),
     error: null
   })
+
+  useEffect(() => {
+    // Sets example recipe by default
+    if (!state.recipe?.input) handleSetExample()
+    // if (inputRef?.current ) inputRef.current.value = state.recipe.input
+  }, [])
+
   // Toggles active/not state for ingredient
   const handleActiveIngredient = ({ id, prop }) =>
     dispatch({ type: ACTIONS.ACTIVE, payload: { id, prop } })
@@ -45,16 +52,6 @@ export function Recipe() {
     dispatch({ type: ACTIONS.INPUT, payload: { input: clipboard } })
   }
 
-  useEffect(() => {
-    // Sets example recipe by default
-    if (!state.recipe.input) handleSetExample()
-  }, [])
-
-  useEffect(() => {
-    // Sets textarea with Recipe.input value
-    if (inputRef?.current) inputRef.current.value = state.recipe.input
-  }, [state.recipe.input])
-
   return (
     <div className={styles.recipe} id="slicer">
       <RecipeControls
@@ -66,7 +63,7 @@ export function Recipe() {
         error={state.error}
       />
       <Ingredients
-        ingredients={state.recipe.ingredients}
+        ingredients={state.recipe?.ingredients}
         handleActiveIngredient={handleActiveIngredient}
         handleChangeIngredient={handleChangeIngredient}
         handleDeleteIngredient={handleDeleteIngredient}

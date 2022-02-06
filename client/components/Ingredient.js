@@ -49,7 +49,7 @@ export const Ingredient = forwardRef(function IngredientItem(
       <div className={styles.ingredient_content}>
         {ingredient.active === 'amount' ? (
           <ButtonToInput
-            text={formatDisplayAmount(ingredient.amount.amount)}
+            text={formatDisplayAmount(ingredient.displayAmount())}
             ref={amountRef}
             active={ingredient.active === 'amount'}
             onClick={handleActiveIngredientAmount}
@@ -57,7 +57,7 @@ export const Ingredient = forwardRef(function IngredientItem(
           />
         ) : ingredient.active === 'ingredient' ? (
           <ButtonToInput
-            text={ingredient.ingredient.name}
+            text={ingredient.name}
             ref={ingredientRef}
             active={ingredient.active === 'ingredient'}
             onClick={handleActiveIngredientName}
@@ -66,15 +66,19 @@ export const Ingredient = forwardRef(function IngredientItem(
         ) : (
           <Fragment>
             <ButtonToInput
-              text={formatDisplayAmount(ingredient.amount.amount)}
+              text={formatDisplayAmount(ingredient.displayAmount())}
               ref={amountRef}
               active={false}
               onClick={handleActiveIngredientAmount}
               onBlur={handleChangeIngredientAmount}
             />
-            <Dropdown options={[ingredient?.unit?.name?.short]} />
+            <Dropdown
+              options={[
+                ingredient?.unit?.name?.short ?? ingredient?.unit?.name?.long
+              ]}
+            />
             <ButtonToInput
-              text={ingredient.ingredient.name}
+              text={ingredient.name}
               ref={ingredientRef}
               active={false}
               onClick={handleActiveIngredientName}
