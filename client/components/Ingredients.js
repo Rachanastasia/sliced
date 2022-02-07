@@ -15,8 +15,8 @@ export function Ingredients({
   const closeSingleton = useSingleton()
   return (
     <Fragment>
-      <Tippy singleton={lockSingleton[0]} placement="right" />
-      <Tippy singleton={closeSingleton[0]} placement="left" />
+      <Tippy singleton={lockSingleton[0]} offset={[0, 0]} placement="right" />
+      <Tippy singleton={closeSingleton[0]} offset={[0, 0]} placement="left" />
       {ingredients && (
         <ul className={styles.ingredients}>
           {ingredients.map((ingredient) => {

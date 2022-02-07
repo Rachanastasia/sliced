@@ -1,8 +1,7 @@
 import { useRef, Fragment } from 'react'
-import Tippy from '@tippyjs/react'
 
 import { IngredientLock } from './IngredientLock'
-import { ButtonToInput, Dropdown, IconButton } from './elements'
+import { ButtonToInput, Dropdown, IconButton, Tooltip } from './elements'
 import { formatDisplayAmount } from '../utils'
 
 import styles from '../styles/modules/Recipe.module.css'
@@ -44,13 +43,13 @@ export function Ingredient({
   return (
     <li className={styles.ingredient}>
       <div className={styles.icon_wrapper}>
-        <Tippy
+        <Tooltip
           singleton={closeSingleton}
-          content="Remove ingredient"
+          text="Remove ingredient"
           placement="left"
         >
           <IconButton type="close" onClick={handleDeleteIngredient} />
-        </Tippy>
+        </Tooltip>
       </div>
       <div className={styles.ingredient_content}>
         {ingredient.active === 'amount' ? (
@@ -93,16 +92,16 @@ export function Ingredient({
           </Fragment>
         )}
       </div>
-      <Tippy
+      <Tooltip
         singleton={lockSingleton}
-        content="Unlock from scaling"
+        text="Unlock from scaling"
         placement="right"
       >
         <IngredientLock
           locked={ingredient.locked}
           onClick={handleLockedIngredient}
         />
-      </Tippy>
+      </Tooltip>
     </li>
   )
 }

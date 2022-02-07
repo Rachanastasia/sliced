@@ -1,0 +1,22 @@
+.tooltip_wrapper {
+  background-color: var(--color-step-0);
+  padding: var(--spacer-1);
+  border-radius: var(--button-border-radius);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tooltip_text {
+  color: var(--colors-black);
+  font-size: var(--font-size-caption);
+  font-family: var(--font-body);
+  text-align: center;
+}
+
+@media all and (min-width: 800px) {
+  .tooltip_text {
+    font-size: var(--font-size-1);
+    padding: var(--spacer-1);
+  }
+}

@@ -1,6 +1,6 @@
-import { IconButton } from './elements'
+import { IconButton, Tooltip } from './elements'
 import { InstructionsOrError } from './InstructionsOrError'
-import Tippy from '@tippyjs/react'
+
 import styles from '../styles/modules/Recipe.module.css'
 
 export function Controls({
@@ -9,27 +9,18 @@ export function Controls({
   handleSetExample,
   handleShowInfo
 }) {
-  function renderContent() {
-    return (
-      <div>
-        <h1> YOYOYOYOYO</h1>
-      </div>
-    )
-  }
   return (
     <div className={styles.controls_wrapper}>
       <InstructionsOrError error={error} />
       <div className={styles.controls}>
         <IconButton onClick={handlePaste} type="paste" caption />
         <IconButton onClick={handleSetExample} type="example" caption />
-        <Tippy
-          content={renderContent()}
-          placement="right"
-          trigger="mouseover click"
-        >
+        <Tooltip placement="top" text={instructions}>
           <IconButton onClick={handleShowInfo} type="info" caption />
-        </Tippy>
+        </Tooltip>
       </div>
     </div>
   )
 }
+
+const instructions = `Edit the sample recipe or paste your own in the textbox. To scale, press one of the amounts below and enter a different number.`
