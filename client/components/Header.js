@@ -1,9 +1,11 @@
 import React from 'react'
+
 import KnifeIcon from './elements/KnifeIcon'
 import Link from 'next/link'
+
 import styles from '../styles/modules/Header.module.css'
 
-export function Header() {
+export function Header({ hideAbout }) {
   return (
     <header className={styles.header_wrapper}>
       <Link href="/" passHref>
@@ -13,6 +15,11 @@ export function Header() {
           <span>iced</span>
         </h1>
       </Link>
+      {!hideAbout && (
+        <Link href="/about" passHref>
+          <span>About</span>
+        </Link>
+      )}
     </header>
   )
 }

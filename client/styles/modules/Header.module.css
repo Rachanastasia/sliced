@@ -9,6 +9,11 @@
   margin: 0;
 }
 
+.header_wrapper > span,
+.header_wrapper > h1 {
+  cursor: pointer;
+}
+
 .knife_icon {
   fill: var(--colors-black);
   padding: 0;
@@ -43,6 +48,10 @@
 
 .title span:last-of-type {
   transform: translateX(-0.2rem);
+}
+
+.header_link {
+  cursor: pointer;
 }
 
 @media all and (min-width: 1400px) {
