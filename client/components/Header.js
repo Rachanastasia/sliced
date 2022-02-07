@@ -17,7 +17,7 @@ export function Header({ hideAbout }) {
       </Link>
       {!hideAbout && (
         <Link href="/about" passHref>
-          <span>About</span>
+          <span className={styles.header_link}>About</span>
         </Link>
       )}
     </header>

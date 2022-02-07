@@ -15,7 +15,7 @@ export function Controls({
       <div className={styles.controls}>
         <IconButton onClick={handlePaste} type="paste" caption />
         <IconButton onClick={handleSetExample} type="example" caption />
-        <Tooltip placement="top" text={instructions}>
+        <Tooltip placement="top-start" text={instructions}>
           <IconButton onClick={handleShowInfo} type="info" caption />
         </Tooltip>
       </div>

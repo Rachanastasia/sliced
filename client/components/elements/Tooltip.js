@@ -14,6 +14,9 @@ export function Tooltip({ text, placement, singleton, children, trigger }) {
       content={renderContent()}
       placement={placement}
       singleton={singleton}
+      flip
+      hideOnClick
+      offset={[2, 2]}
     >
       {children}
     </Tippy>

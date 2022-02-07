@@ -57,11 +57,10 @@
   --text-size-1-flex: var(--text-size-1);
 
   --font-size-caption: 0.6rem;
-  --font-size-sm: 1.2rem;
+  --font-size-xs: 0.8rem;
+  --font-size-sm: 1rem;
   --font-size-med: 1.6rem;
   --font-size-lg: 3rem;
-
-  --max-page-width: 80vw;
 
   --line-spacing: calc(var(--font-size-sm) * 1.4);
 
