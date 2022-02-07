@@ -6,7 +6,9 @@ import { Recipe, Header } from '../components'
 export default function Home() {
   return (
     <Fragment>
-      <Head></Head>
+      <Head>
+        <title>Sliced | An App to Scale and Manipulate Recipes</title>
+      </Head>
       <main>
         <Header />
         <Recipe />

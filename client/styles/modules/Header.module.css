@@ -53,6 +53,12 @@
   }
 }
 
+@media all and (min-width: 800px) {
+  .title {
+    margin-top: var(--spacer-3);
+  }
+}
+
 @media all and (max-width: 450px) {
   .header_wrapper {
     flex-direction: column;
