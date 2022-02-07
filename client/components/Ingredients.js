@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-
+import Tippy, { useSingleton } from '@tippyjs/react'
 import { Ingredient } from './Ingredient'
 
 import styles from '../styles/modules/Recipe.module.css'
@@ -11,13 +11,19 @@ export function Ingredients({
   handleDeleteIngredient,
   handleLockedIngredient
 }) {
+  const lockSingleton = useSingleton()
+  const closeSingleton = useSingleton()
   return (
     <Fragment>
+      <Tippy singleton={lockSingleton[0]} placement="right" />
+      <Tippy singleton={closeSingleton[0]} placement="left" />
       {ingredients && (
         <ul className={styles.ingredients}>
           {ingredients.map((ingredient) => {
             return (
               <Ingredient
+                lockSingleton={lockSingleton[1]}
+                closeSingleton={closeSingleton[1]}
                 key={ingredient.id}
                 ingredient={ingredient}
                 constant={1} // FOR TESTING

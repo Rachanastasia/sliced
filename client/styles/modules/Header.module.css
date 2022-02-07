@@ -55,16 +55,18 @@
 }
 
 @media all and (min-width: 1400px) {
+  /* .header_wrapper {
+    margin: var(--spacer-2) var(--spacer-3);
+  } */
   .title {
-    margin-left: var(--spacer-2);
     width: 100%;
     max-width: unset;
   }
 }
 
 @media all and (min-width: 800px) {
-  .title {
-    margin-top: var(--spacer-3);
+  .header_wrapper {
+    padding: var(--spacer-2);
   }
 }
 

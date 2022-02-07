@@ -1,4 +1,5 @@
-import { forwardRef, useRef, Fragment } from 'react'
+import { useRef, Fragment } from 'react'
+import Tippy from '@tippyjs/react'
 
 import { IngredientLock } from './IngredientLock'
 import { ButtonToInput, Dropdown, IconButton } from './elements'
@@ -6,16 +7,15 @@ import { formatDisplayAmount } from '../utils'
 
 import styles from '../styles/modules/Recipe.module.css'
 
-export const Ingredient = forwardRef(function IngredientItem(
-  {
-    ingredient,
-    handleActiveIngredient,
-    handleChangeIngredient,
-    handleDeleteIngredient,
-    handleLockedIngredient
-  },
-  ref
-) {
+export function Ingredient({
+  ingredient,
+  lockSingleton,
+  closeSingleton,
+  handleActiveIngredient,
+  handleChangeIngredient,
+  handleDeleteIngredient,
+  handleLockedIngredient
+}) {
   const amountRef = useRef('')
   const ingredientRef = useRef('')
 
@@ -44,7 +44,13 @@ export const Ingredient = forwardRef(function IngredientItem(
   return (
     <li className={styles.ingredient}>
       <div className={styles.icon_wrapper}>
-        <IconButton type="close" onClick={handleDeleteIngredient} />
+        <Tippy
+          singleton={closeSingleton}
+          content="Remove ingredient"
+          placement="left"
+        >
+          <IconButton type="close" onClick={handleDeleteIngredient} />
+        </Tippy>
       </div>
       <div className={styles.ingredient_content}>
         {ingredient.active === 'amount' ? (
@@ -87,10 +93,16 @@ export const Ingredient = forwardRef(function IngredientItem(
           </Fragment>
         )}
       </div>
-      <IngredientLock
-        locked={ingredient.locked}
-        onClick={handleLockedIngredient}
-      />
+      <Tippy
+        singleton={lockSingleton}
+        content="Unlock from scaling"
+        placement="right"
+      >
+        <IngredientLock
+          locked={ingredient.locked}
+          onClick={handleLockedIngredient}
+        />
+      </Tippy>
     </li>
   )
-})
+}

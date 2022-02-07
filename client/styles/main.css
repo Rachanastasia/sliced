@@ -24,10 +24,11 @@ body {
 
 main {
   width: inherit;
-  min-height: 100%;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   flex-direction: column;
+  justify-content: space-between;
   font-family: var(--font-body);
   line-height: var(--line-spacing);
 }
