@@ -1,37 +1,30 @@
 .about_wrapper {
+  flex: 2;
   display: flex;
   flex-direction: column;
   width: 100%;
-  background-color: var(--colors-accent-extra-light);
   max-width: var(--width-content-full);
+}
+
+.about_content {
+  background-color: var(--color-step-4);
+
+  width: inherit;
+  height: fit-content;
   padding: var(--spacer-2-flex-lg) var(--spacer-3-flex-lg);
 }
 
 .about_byline {
-  margin-top: var(--spacer-3);
+  padding-top: var(--spacer-3);
+  display: block;
+  color: var(--colors-black);
+  font-size: var(--text-size-1);
+  line-height: calc(1.5 * var(--text-size-1));
 }
 
 .about_p {
-  color: var(--colors-gray);
+  color: var(--colors-black);
   font-size: var(--text-size-1);
   line-height: calc(1.5 * var(--text-size-1));
   padding-top: var(--spacer-2);
-}
-
-.about_name {
-  padding-left: var(--spacer-2-flex-lg);
-}
-
-.about_name a {
-  color: var(--colors-gray);
-  text-decoration: underline;
-}
-
-.about_name a:hover,
-.about_name a:focus {
-  color: var(--colors-accent-bold);
-}
-
-.margin_bottom {
-  margin-bottom: var(--spacer-2);
 }
