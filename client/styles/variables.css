@@ -8,7 +8,7 @@
   --color-step-1: hsla(14, 100%, 39%, 0.28);
   --color-step-2: hsla(14, 100%, 49%, 0.28);
   --color-step-3: hsla(14, 100%, 59%, 0.8);
-  --color-step-4: hsla(14, 100%, 59%, 0.28);
+  --color-step-4: hsla(14, 100%, 79%, 0.28);
   --color-step-5: hsla(14, 59%, 29%, 0.8);
 
   --icon-button-width: 26px;
@@ -30,13 +30,6 @@
   --spacer-5: 3.2rem;
   --spacer-6: 3.4rem;
 
-  --spacer-1-flex: var(--spacer-1);
-  --spacer-2-flex: var(--spacer-2);
-  --spacer-3-flex: var(--spacer-3);
-
-  --spacer-2-flex-lg: var(--spacer-2);
-  --spacer-3-flex-lg: var(--spacer-3);
-
   --height-1: 1.8rem;
   --height-2: 3rem;
   --height-4: 8rem;
@@ -53,9 +46,6 @@
   --text-size-2: 1.2rem;
   --text-size-3: 1.8rem;
 
-  --text-size-3-flex: var(--text-size-3);
-  --text-size-1-flex: var(--text-size-1);
-
   --font-size-caption: 0.6rem;
   --font-size-xs: 0.8rem;
   --font-size-sm: 1rem;
@@ -63,8 +53,6 @@
   --font-size-lg: 3rem;
 
   --line-spacing: calc(var(--font-size-sm) * 1.4);
-
-  --border-width: 1.5px;
 
   --font: 'Noto Sans JP', sans-serif;
   --font-title: 'Noto Sans JP', sans-serif;
