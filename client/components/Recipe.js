@@ -1,5 +1,5 @@
 import React, { useEffect, useReducer, useRef } from 'react'
-
+import { Recipe as SlicerRecipe } from '../slicer'
 import { ACTIONS, sample } from '../config'
 import { Ingredients } from './Ingredients'
 import { RecipeControls } from './RecipeControls'
@@ -9,13 +9,21 @@ import styles from '../styles/modules/Recipe.module.css'
 
 export function Recipe() {
   const inputRef = useRef(null) // Misnomer, this is a textarea,
-  // but it is called "input" in the JS data. See below.
+  // but it is called "recipe.input" in the JS data. See below.
   const [state, dispatch] = useReducer(recipeReducer, {
-    input: '',
-    constant: 1,
-    ingredients: [],
+    recipe: new SlicerRecipe(),
     error: null
   })
+
+  useEffect(() => {
+    // Sets example recipe by default
+    if (!state.recipe?.input) handleSetExample()
+  }, [])
+
+  useEffect(() => {
+    if (inputRef?.current) inputRef.current.value = state.recipe.input
+  }, [state.recipe])
+
   // Toggles active/not state for ingredient
   const handleActiveIngredient = ({ id, prop }) =>
     dispatch({ type: ACTIONS.ACTIVE, payload: { id, prop } })
@@ -33,6 +41,7 @@ export function Recipe() {
   const handleDeleteIngredient = ({ id }) => {
     dispatch({ type: ACTIONS.DELETE, payload: { id } })
   }
+
   const handleSetExample = () =>
     dispatch({ type: ACTIONS.INPUT, payload: { input: sample } })
 
@@ -47,28 +56,18 @@ export function Recipe() {
     dispatch({ type: ACTIONS.INPUT, payload: { input: clipboard } })
   }
 
-  useEffect(() => {
-    // Sets example recipe by default
-    if (state.input === '') handleSetExample()
-  }, [])
-
-  useEffect(() => {
-    // Sets textarea with Recipe.input value
-    if (inputRef?.current) inputRef.current.value = state.input
-  }, [state.input])
-
   return (
     <div className={styles.recipe} id="slicer">
       <RecipeControls
         ref={inputRef}
-        input={state.input}
+        input={state.recipe.input}
         handlePaste={handlePaste}
         handleSetExample={handleSetExample}
         handleStateInput={handleStateInput}
         error={state.error}
       />
       <Ingredients
-        ingredients={state.ingredients}
+        ingredients={state.recipe?.ingredients}
         handleActiveIngredient={handleActiveIngredient}
         handleChangeIngredient={handleChangeIngredient}
         handleDeleteIngredient={handleDeleteIngredient}

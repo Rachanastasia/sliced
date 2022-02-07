@@ -1,2 +1,2 @@
-export * from './displayAsFraction'
+export * from './formatDisplayAmount'
 export * from './recipeReducer'

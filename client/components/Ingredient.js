@@ -2,7 +2,7 @@ import { forwardRef, useRef, Fragment } from 'react'
 
 import { IngredientLock } from './IngredientLock'
 import { ButtonToInput, Dropdown, IconButton } from './elements'
-import { displayAsFraction } from '../utils'
+import { formatDisplayAmount } from '../utils'
 
 import styles from '../styles/modules/Recipe.module.css'
 
@@ -49,7 +49,7 @@ export const Ingredient = forwardRef(function IngredientItem(
       <div className={styles.ingredient_content}>
         {ingredient.active === 'amount' ? (
           <ButtonToInput
-            text={displayAsFraction(ingredient.amount.amount)}
+            text={formatDisplayAmount(ingredient.displayAmount())}
             ref={amountRef}
             active={ingredient.active === 'amount'}
             onClick={handleActiveIngredientAmount}
@@ -57,7 +57,7 @@ export const Ingredient = forwardRef(function IngredientItem(
           />
         ) : ingredient.active === 'ingredient' ? (
           <ButtonToInput
-            text={ingredient.ingredient.name}
+            text={ingredient.name}
             ref={ingredientRef}
             active={ingredient.active === 'ingredient'}
             onClick={handleActiveIngredientName}
@@ -66,15 +66,19 @@ export const Ingredient = forwardRef(function IngredientItem(
         ) : (
           <Fragment>
             <ButtonToInput
-              text={displayAsFraction(ingredient.amount.amount)}
+              text={formatDisplayAmount(ingredient.displayAmount())}
               ref={amountRef}
               active={false}
               onClick={handleActiveIngredientAmount}
               onBlur={handleChangeIngredientAmount}
             />
-            <Dropdown options={[ingredient?.unit?.name?.short]} />
+            <Dropdown
+              options={[
+                ingredient?.unit?.name?.short ?? ingredient?.unit?.name?.long
+              ]}
+            />
             <ButtonToInput
-              text={ingredient.ingredient.name}
+              text={ingredient.name}
               ref={ingredientRef}
               active={false}
               onClick={handleActiveIngredientName}
