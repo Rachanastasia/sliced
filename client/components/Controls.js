@@ -1,4 +1,5 @@
-import { Error, IconButton } from './elements'
+import { IconButton } from './elements'
+import { InstructionsOrError } from './InstructionsOrError'
 
 import styles from '../styles/modules/Recipe.module.css'
 
@@ -8,10 +9,9 @@ export function Controls({
   handleSetExample,
   handleShowInfo
 }) {
-  // function to paste passed  here
   return (
     <div className={styles.controls_wrapper}>
-      <Error error={error} />
+      <InstructionsOrError error={error} />
       <div className={styles.controls}>
         <IconButton onClick={handlePaste} type="paste" caption />
         <IconButton onClick={handleSetExample} type="example" caption />

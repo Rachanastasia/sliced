@@ -1,0 +1,26 @@
+.controls_wrapper {
+  width: 100%;
+  flex: 3;
+  display: flex;
+  align-items: flex-end;
+}
+
+.controls {
+  font-size: var(--font-size-caption);
+}
+
+@media all and (min-width: 800px) {
+  .controls {
+    font-size: var(--font-size-1);
+  }
+}
+
+.error {
+  color: var(--color-step-5);
+}
+
+@media all and (min-width: 800px) {
+  .controls {
+    font-size: 0.8rem;
+  }
+}
