@@ -18,8 +18,11 @@ export function Recipe() {
   useEffect(() => {
     // Sets example recipe by default
     if (!state.recipe?.input) handleSetExample()
-    // if (inputRef?.current ) inputRef.current.value = state.recipe.input
   }, [])
+
+  useEffect(() => {
+    if (inputRef?.current) inputRef.current.value = state.recipe.input
+  }, [state.recipe])
 
   // Toggles active/not state for ingredient
   const handleActiveIngredient = ({ id, prop }) =>
@@ -38,6 +41,7 @@ export function Recipe() {
   const handleDeleteIngredient = ({ id }) => {
     dispatch({ type: ACTIONS.DELETE, payload: { id } })
   }
+
   const handleSetExample = () =>
     dispatch({ type: ACTIONS.INPUT, payload: { input: sample } })
 
@@ -56,7 +60,7 @@ export function Recipe() {
     <div className={styles.recipe} id="slicer">
       <RecipeControls
         ref={inputRef}
-        input={state.input}
+        input={state.recipe.input}
         handlePaste={handlePaste}
         handleSetExample={handleSetExample}
         handleStateInput={handleStateInput}

@@ -23,9 +23,7 @@ export function recipeReducer(state, action) {
           // Updates given ingredient
           if (ingredient.id === action.payload.id) {
             if (action.payload.prop === 'amount') {
-              if (action.payload.value.length > 5) {
-                error = 'Maximum length 5 digits'
-              } else if (isDigit(action.payload.value)) {
+              if (isDigit(action.payload.value)) {
                 // if Ingredient is "locked" into the recipe,
                 //    state.constant is updated based on the ratio
                 if (ingredient.locked === true) {
@@ -81,7 +79,7 @@ export function recipeReducer(state, action) {
         return { recipe: state.recipe, error: 'Error handling recipe :(' }
     }
   } catch (error) {
-    console.error('Error handling recipe input: ', error?.message ?? error)
-    return { recipe: state.recipe, error: 'Error handling recipe :(' }
+    console.error('Error handling recipe input: ', error)
+    return { recipe: state.recipe, error: error?.message }
   }
 }

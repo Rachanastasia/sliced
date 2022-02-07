@@ -1,20 +1,22 @@
 import { forwardRef, useEffect } from 'react'
 
 export const Textarea = forwardRef(function Textarea({ onBlur }, ref) {
-  useEffect(() => {
-    // TODO: Fix how this works. It doesn't re-run the effect when the document loads
-    // and needs a dep to base the effect off of
-    syncWithState()
-  }, [])
+  let loaded = null
 
-  function syncWithState() {
+  useEffect(() => {
+    // TODO: Fix how changes here are updated in the UI
+    if (loaded === null) loaded = document.activeElement
     onBlur()
-    if (document) {
-      if (ref.current == document.activeElement) {
-        setTimeout(syncWithState, 2000)
-      }
-    }
-  }
+  }, [loaded])
+
+  // function syncWithState() {
+  //   onBlur()
+  //   if (document) {
+  //     if (ref.current == document.activeElement) {
+  //       setTimeout(syncWithState, 2000)
+  //     }
+  //   }
+  // }
 
   return (
     <fieldset>
