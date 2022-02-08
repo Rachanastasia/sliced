@@ -40,7 +40,6 @@
   height: var(--font-size-lg);
   font-weight: 400;
   max-width: 1000px;
-  width: 100%;
 }
 
 .title span:first-of-type {

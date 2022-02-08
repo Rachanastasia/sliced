@@ -6,7 +6,9 @@
 }
 
 .controls {
+  margin-bottom: var(--spacer-1);
   font-size: var(--font-size-caption);
+  line-height: calc(var(--font-size-caption) * 1.2);
 }
 
 @media all and (min-width: 800px) {
