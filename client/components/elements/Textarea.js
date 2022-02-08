@@ -1,11 +1,11 @@
-import { forwardRef, useEffect } from 'react'
+import { forwardRef, useEffect, useRef } from 'react'
 
 export const Textarea = forwardRef(function Textarea({ onBlur }, ref) {
-  let loaded = null
+  let loaded = useRef()
 
   useEffect(() => {
     // TODO: Fix how changes here are updated in the UI
-    if (loaded === null) loaded = document.activeElement
+    if (loaded.current === null) loaded.current = document
     onBlur()
   }, [loaded])
 
