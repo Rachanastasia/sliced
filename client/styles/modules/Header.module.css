@@ -1,9 +1,10 @@
 .header_wrapper {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   width: 100%;
-  height: var(--height-3);
+  min-height: var(--height-3);
+  height: fit-content;
   color: var(--colors-black);
   padding: var(--spacer-1);
   margin: 0 0 var(--spacer-1);
@@ -52,7 +53,8 @@
 
 .header_link {
   cursor: pointer;
-  font-size: 1rem;
+  font-size: var(--font-size-sm);
+  display: block;
 }
 
 @media all and (min-width: 1400px) {
