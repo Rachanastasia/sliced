@@ -1,40 +1,26 @@
 import React from 'react'
-import Link from 'next/link'
+
 import styles from '../styles/modules/About.module.css'
 
-export default function About() {
+export function About() {
   return (
-    <div id="about" className={styles.about_wrapper}>
-      <h2 className={styles.about_subtitle}>About</h2>
-
-      <p className={styles.about_p}>
-        With Sliced, you can <em>half</em>, <em>quarter</em>, or{' '}
-        <em>two and a half</em> your recipes. Just copy one of your favorite
-        recipes and paste it in the textbox. Use the slider to scale the
-        ingredient amounts. It works by parsing your recipe&#39;s ingredients
-        and splitting the ingredient name, amount, and unit. To make measuring
-        easier, some units -- including teaspoons, tablespoons, and cups -- are
-        scaled up and down with the amount.
-      </p>
-      <p className={styles.about_p}>
-        I developed Sliced during the pandemic when I was always cooking for one
-        or two. I kept asking Siri to make calculations then having her convert
-        those to smaller units. I saw recipe sites that had tools to scale up
-        recipes, but I didn&#39;t see any tools to scale down recipes. I made
-        Sliced to help people scale their recipes all at once and have that
-        conversion at hand. I hope Sliced helps people adapt their recipes to
-        the amount of food they want to make.
-      </p>
-      <p className={`${styles.about_p} ${styles.about_name}`}>
-        {' '}
-        -{' '}
-        <Link passHref href="https://github.com/rachelrly">
-          Rachel Reilly
-        </Link>
-        , Software Engineer
-      </p>
+    <div className={styles.about_wrapper}>
+      <div className={styles.about_content}>
+        <h2 className={styles.about_subtitle}>About Sliced</h2>
+        <p className={styles.about_p}>
+          I first conceptualized Sliced at the beginning of the pandemic when I
+          was cooking for 2 and making do with what I had in the kitchen most
+          days. To convert recipes to the lowest common denominator of what I
+          had on-hand, I kept asking Siri{' '}
+          <em>whats half of 1/3 cups in tablespoons</em> . Since these
+          calculations are more quickly done by a computer, I created Sliced to
+          scale down amounts and units, and provide a visual reference of the
+          new ingredients.
+        </p>
+        <span className={styles.about_byline}>
+          - Rachel Reilly, creator of Sliced
+        </span>
+      </div>
     </div>
   )
 }
-
-//the app, the measurements, the creator
