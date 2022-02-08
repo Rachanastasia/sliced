@@ -11,6 +11,7 @@
   color: var(--colors-black);
   font-size: var(--font-size-xs);
   font-family: var(--font-body);
+  font-weight: 300;
   text-align: center;
 }
 

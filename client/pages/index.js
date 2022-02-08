@@ -8,6 +8,22 @@ export default function Home() {
     <Fragment>
       <Head>
         <title>Sliced | Scale and Edit your Recipes</title>
+        <link
+          rel="preconnect"
+          key="preconnect1"
+          href="https://fonts.googleapis.com"
+        />
+        <link
+          rel="preconnect"
+          key="preconnect2"
+          href="https://fonts.gstatic.com"
+          crossorigin
+        />
+        <link
+          key="font"
+          href={`https://fonts.googleapis.com/css2?family=Rubik:wght@300;400&display=swap`}
+          rel="stylesheet"
+        />
       </Head>
       <main>
         <Header />

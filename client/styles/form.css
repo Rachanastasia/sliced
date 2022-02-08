@@ -4,7 +4,6 @@ form {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-family: var(--font-body);
   padding: var(--spacer-2);
 }
 
@@ -17,10 +16,11 @@ fieldset {
 input,
 textarea {
   width: 100%;
-  font-size: var(--text-size-1);
+  font-size: var(--text-size-sm);
+  line-height: calc(var(--font-size-sm) * 1.4);
   outline: 0;
   font-family: var(--font-body);
-  line-height: calc(1.5 * var(--text-size-1));
+  line-height: calc(1.5 * var(--text-size-sm));
   border: none;
   border-radius: var(--button-border-radius);
   background-color: var(--color-step-1);
