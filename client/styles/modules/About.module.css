@@ -12,20 +12,21 @@
   width: inherit;
   height: fit-content;
   border-radius: var(--button-border-radius);
-  padding: var(--spacer-2-flex-lg) var(--spacer-3-flex-lg);
+  padding: var(--spacer-2);
+  box-sizing: border-box;
 }
 
 .about_byline {
   padding-top: var(--spacer-3);
   display: block;
   color: var(--colors-black);
-  font-size: var(--text-size-1);
-  line-height: calc(1.5 * var(--text-size-1));
+  font-size: var(--text-size-sm);
+  line-height: calc(1.5 * var(--text-size-sm));
 }
 
 .about_p {
   color: var(--colors-black);
-  font-size: var(--text-size-1);
-  line-height: calc(1.5 * var(--text-size-1));
+  font-size: var(--text-size-sm);
+  line-height: calc(1.5 * var(--text-size-sm));
   padding-top: var(--spacer-2);
 }

@@ -1,9 +1,9 @@
 {
-  "name": "sliced-client",
-  "version": "0.3.0",
+  "name": "sliced",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "next dev -- -p 19606",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",

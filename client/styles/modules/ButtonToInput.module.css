@@ -4,16 +4,12 @@
   cursor: pointer;
   color: var(--colors-black);
   padding: 0;
-  font-size: var(--text-size-1);
+  font-family: var(--font-body);
+  font-weight: 300;
+  line-height: calc(var(--font-size-sm) * 1.4);
   height: var(--button-to-input-height);
   background-color: var(--color-step-1);
 }
-
-/* @media all and (min-width: 800px) {
-  .input_button {
-    max-width: 300px;
-  }
-} */
 
 .label_input {
   text-align: center;

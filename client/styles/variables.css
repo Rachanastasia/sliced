@@ -2,7 +2,6 @@
 
 :root {
   --button-to-input-height: 40px;
-  --button-to-input-border: 1px solid black;
 
   --color-step-0: hsla(14, 100%, 29%, 0.28);
   --color-step-1: hsla(14, 100%, 39%, 0.28);
@@ -36,15 +35,10 @@
 
   --width-1: 1.8rem;
   --width-2: 8rem;
+
   --width-content-full: 1000px;
 
-  --button-width: 6.8rem;
-  --button-height: 2rem;
   --button-border-radius: 2px;
-
-  --text-size-1: 1rem;
-  --text-size-2: 1.2rem;
-  --text-size-3: 1.8rem;
 
   --font-size-caption: 0.6rem;
   --font-size-xs: 0.8rem;
@@ -55,46 +49,6 @@
   --line-spacing: calc(var(--font-size-sm) * 1.4);
 
   --font: 'Noto Sans JP', sans-serif;
-  --font-title: 'Noto Sans JP', sans-serif;
-  --font-body: 'Open Sans', sans-serif;
-}
-
-@media all and (min-width: 400px) {
-  :root {
-    --font-size-lg: 3.2rem;
-  }
-}
-
-@media all and (min-width: 550px) {
-  :root {
-    --spacer-1-flex: calc(1.2 * var(--spacer-1));
-    --spacer-2-flex: calc(1.2 * var(--spacer-2));
-    --spacer-3-flex: calc(1.2 * var(--spacer-3));
-
-    --spacer-2-flex-lg: calc(1.6 * var(--spacer-2));
-    --spacer-3-flex-lg: calc(1.6 * var(--spacer-3));
-
-    --text-size-3-flex: calc(1.2 * var(--text-size-3));
-  }
-}
-
-@media all and (min-width: 800px) {
-  :root {
-    --spacer-med: 1.8rem;
-    --spacer-lg: 2.4rem;
-
-    --spacer-1-flex: calc(1.5 * var(--spacer-1));
-    --spacer-2-flex: calc(1.5 * var(--spacer-2));
-    --spacer-3-flex: calc(1.5 * var(--spacer-3));
-
-    --spacer-2-flex-lg: calc(3.8 * var(--spacer-2));
-    --spacer-3-flex-lg: calc(3.8 * var(--spacer-3));
-
-    --text-size-1: 1.2rem;
-    --text-size-1-flex: 1.2rem;
-    --text-size-3-flex: calc(1.5 * var(--text-size-3));
-
-    --font-size-med: 2rem;
-    --font-size-lg: 3.8rem;
-  }
+  --font-title: 'Rubik', sans-serif;
+  --font-body: 'Rubik', sans-serif;
 }
