@@ -21,12 +21,17 @@
   display: block;
   color: var(--colors-black);
   font-size: var(--text-size-sm);
-  line-height: calc(1.5 * var(--text-size-sm));
+  line-height: calc(1.4 * var(--text-size-sm));
+}
+
+.about_byline_tag {
+  font-weight: 300;
 }
 
 .about_p {
   color: var(--colors-black);
-  font-size: var(--text-size-sm);
-  line-height: calc(1.5 * var(--text-size-sm));
+  font-family: var(--font-body);
+  font-weight: 300;
+  line-height: calc(var(--font-size-sm) * 1.4);
   padding-top: var(--spacer-2);
 }

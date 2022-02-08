@@ -17,7 +17,7 @@ export default function Home() {
           rel="preconnect"
           key="preconnect2"
           href="https://fonts.gstatic.com"
-          crossorigin
+          crossOrigin="true"
         />
         <link
           key="font"

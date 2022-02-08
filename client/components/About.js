@@ -18,7 +18,8 @@ export function About() {
           new ingredients.
         </p>
         <span className={styles.about_byline}>
-          - Rachel Reilly, creator of Sliced
+          - Rachel Reilly
+          <span className={styles.about_byline_tag}>, creator of Sliced</span>
         </span>
       </div>
     </div>

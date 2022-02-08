@@ -18,10 +18,11 @@ export function Recipe() {
   useEffect(() => {
     // Sets example recipe by default
     if (!state.recipe?.input) handleSetExample()
-  }, [])
+  }, [state.recipe?.input])
 
   useEffect(() => {
-    if (inputRef?.current) inputRef.current.value = state.recipe.input
+    if (inputRef?.current && inputRef.current.value !== state.recipe.input)
+      inputRef.current.value = state.recipe.input
   }, [state.recipe])
 
   // Toggles active/not state for ingredient
