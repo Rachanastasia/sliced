@@ -1,6 +1,7 @@
 import { Recipe } from '../slicer'
 import { ACTIONS } from '../config'
 import { isDigit } from './isDigit'
+import { getAmountInUnit } from '../slicer/utils/unit'
 
 export function recipeReducer(state, action) {
   try {
@@ -14,40 +15,39 @@ export function recipeReducer(state, action) {
         }
       case ACTIONS.INGREDIENT: // updates individual ingredient data
         let error = null
-        let constant = state.recipe.constant
-        if (action.payload.value.length > 100) {
+        if (action.payload.value.length > 20) {
           error = 'Maximum length exceeded'
           return { recipe: state.recipe, error }
         }
-        state.recipe.ingredients.forEach((ingredient) => {
-          try {
-            if (ingredient.id === action.payload.id) {
-              if (action.payload.prop === 'amount') {
-                if (isDigit(action.payload.value)) {
-                  // if Ingredient is "locked" into the recipe,
-                  //    state.constant is updated based on the ratio
-                  if (ingredient.locked === true) {
-                    constant =
-                      action.payload.value / Number(ingredient.displayAmount())
-                    state.recipe.scale(constant)
-                  } else {
-                    ingredient.setNewAmount(action.payload.value)
-                  }
-                } else {
-                  error = 'Please enter a number'
-                }
-              } else if (action.payload.prop === 'ingredient') {
-                ingredient.setName(action.payload.value, false)
-              }
-            }
-          } catch (error) {
-            console.error('Error updating ingredient', error)
-            error = 'Could not update ingredient'
-          } finally {
-            ingredient.setActive(ingredient.active)
-          }
-        })
+        let constant = state.recipe.constant
+        const ingredient = state.recipe.ingredients.find(
+          (i) => i.id === action.payload.id
+        )
+        if (action.payload.prop === 'amount') {
+          if (isDigit(action.payload.value)) {
+            // if Ingredient is "locked" into the recipe,
+            //    state.constant is updated based on the ratio
+            if (ingredient.locked === true) {
+              constant =
+                action.payload.value /
+                getAmountInUnit(ingredient.amount, ingredient.unit)
 
+              console.log('THIS IS MY CONSTANT', {
+                constant,
+                payload: action.payload.value,
+                amt: ingredient.amount
+              })
+              state.recipe.scale(constant)
+            } else {
+              ingredient.setNewAmount(action.payload.value)
+            }
+          } else {
+            error = 'Please enter a number'
+          }
+        } else if (action.payload.prop === 'ingredient') {
+          ingredient.setName(action.payload.value, false)
+        }
+        ingredient.setActive(ingredient.active)
         return {
           recipe: state.recipe,
           error
