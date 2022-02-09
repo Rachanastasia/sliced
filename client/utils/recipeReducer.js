@@ -24,21 +24,23 @@ export function recipeReducer(state, action) {
           const ingredient = state.recipe.ingredients.find(
             (i) => i.id === action.payload.id
           )
+          if (ingredient.locked === false) {
+          }
           if (action.payload.prop === 'amount') {
             if (isDigit(action.payload.value)) {
               // if Ingredient is "locked" into the recipe,
               //    state.constant is updated based on the ratio
+              if (ingredient.unit && ingredient.unit?.ml) {
+                constant =
+                  action.payload.value /
+                  getAmountInUnit(ingredient.amount, ingredient.unit)
+              } else {
+                constant = action.payload.value / ingredient.amount
+              }
               if (ingredient.locked === true) {
-                if (ingredient.unit && ingredient.unit?.ml) {
-                  constant =
-                    action.payload.value /
-                    getAmountInUnit(ingredient.amount, ingredient.unit)
-                } else {
-                  constant = action.payload.value / ingredient.amount
-                }
                 state.recipe.scale(constant)
               } else {
-                ingredient.setNewAmount(action.payload.value)
+                ingredient.setNewUnlockedAmount(action.payload.value)
               }
             } else {
               error = 'Please enter a number'
