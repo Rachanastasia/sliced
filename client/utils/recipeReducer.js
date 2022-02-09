@@ -20,28 +20,32 @@ export function recipeReducer(state, action) {
           return { recipe: state.recipe, error }
         }
         state.recipe.ingredients.forEach((ingredient) => {
-          // Updates given ingredient
-          if (ingredient.id === action.payload.id) {
-            if (action.payload.prop === 'amount') {
-              if (isDigit(action.payload.value)) {
-                // if Ingredient is "locked" into the recipe,
-                //    state.constant is updated based on the ratio
-                if (ingredient.locked === true) {
-                  constant =
-                    action.payload.value / Number(ingredient.displayAmount())
-                  state.recipe.scale(constant)
+          try {
+            if (ingredient.id === action.payload.id) {
+              if (action.payload.prop === 'amount') {
+                if (isDigit(action.payload.value)) {
+                  // if Ingredient is "locked" into the recipe,
+                  //    state.constant is updated based on the ratio
+                  if (ingredient.locked === true) {
+                    constant =
+                      action.payload.value / Number(ingredient.displayAmount())
+                    state.recipe.scale(constant)
+                  } else {
+                    ingredient.setNewAmount(action.payload.value)
+                  }
                 } else {
-                  ingredient.setNewAmount(action.payload.value)
+                  error = 'Please enter a number'
                 }
-              } else {
-                error = 'Please enter a number'
+              } else if (action.payload.prop === 'ingredient') {
+                ingredient.setName(action.payload.value, false)
               }
-            } else if (action.payload.prop === 'ingredient') {
-              ingredient.setName(action.payload.value, false)
             }
+          } catch (error) {
+            console.error('Error updating ingredient', error)
+            error = 'Could not update ingredient'
+          } finally {
+            ingredient.setActive(ingredient.active)
           }
-          // sets to "none"
-          ingredient.setActive(ingredient.active)
         })
 
         return {
