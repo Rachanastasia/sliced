@@ -2,7 +2,6 @@ import { useRef, Fragment } from 'react'
 
 import { IngredientLock } from './IngredientLock'
 import { ButtonToInput, Dropdown, IconButton, Tooltip } from './elements'
-import { formatDisplayAmount } from '../utils'
 
 import styles from '../styles/modules/Recipe.module.css'
 
@@ -15,6 +14,7 @@ export function Ingredient({
   handleDeleteIngredient,
   handleLockedIngredient
 }) {
+  const amount = ingredient?.displayAmount()
   const amountRef = useRef('')
   const ingredientRef = useRef('')
 
@@ -54,7 +54,7 @@ export function Ingredient({
       <div className={styles.ingredient_content}>
         {ingredient.active === 'amount' ? (
           <ButtonToInput
-            text={formatDisplayAmount(ingredient.displayAmount())}
+            text={amount}
             ref={amountRef}
             active={ingredient.active === 'amount'}
             onClick={handleActiveIngredientAmount}
@@ -71,7 +71,7 @@ export function Ingredient({
         ) : (
           <Fragment>
             <ButtonToInput
-              text={formatDisplayAmount(ingredient.displayAmount())}
+              text={amount}
               ref={amountRef}
               active={false}
               onClick={handleActiveIngredientAmount}

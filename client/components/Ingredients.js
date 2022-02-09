@@ -1,10 +1,10 @@
-import React, { Fragment } from 'react'
+import { Fragment, memo } from 'react'
 import Tippy, { useSingleton } from '@tippyjs/react'
 import { Ingredient } from './Ingredient'
 
 import styles from '../styles/modules/Recipe.module.css'
 
-export function Ingredients({
+function IngredientsList({
   ingredients,
   handleActiveIngredient,
   handleChangeIngredient,
@@ -47,3 +47,5 @@ export function Ingredients({
     </Fragment>
   )
 }
+
+export const Ingredients = memo(IngredientsList)
