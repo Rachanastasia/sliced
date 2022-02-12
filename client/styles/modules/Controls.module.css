@@ -18,7 +18,7 @@
 }
 
 .error {
-  color: var(--color-step-5);
+  color: var(--color-step-6);
 }
 
 @media all and (min-width: 800px) {
