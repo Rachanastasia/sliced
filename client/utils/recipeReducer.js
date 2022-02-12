@@ -5,12 +5,15 @@ import { getAmountInUnit } from '../slicer/utils/unit'
 export function recipeReducer(state, action) {
   try {
     switch (action.type) {
+      case ACTIONS.ROUND:
+        return { ...state, rounded: !state.rounded }
       case ACTIONS.INPUT:
         const recipe = new Recipe()
         recipe.set(action.payload.input)
         return {
           recipe,
-          error: null
+          error: null,
+          rounded: state.rounded
         }
       case ACTIONS.INGREDIENT: // updates individual ingredient data
         const rollback = state
@@ -45,6 +48,7 @@ export function recipeReducer(state, action) {
           }
           return {
             recipe: state.recipe,
+            rounded: state.rounded,
             error
           }
         } catch (error) {
@@ -62,6 +66,7 @@ export function recipeReducer(state, action) {
         })
         return {
           recipe: state.recipe,
+          rounded: state.rounded,
           error: state.error
         }
       case ACTIONS.LOCK:
@@ -71,6 +76,7 @@ export function recipeReducer(state, action) {
         })
         return {
           recipe: state.recipe,
+          rounded: state.rounded,
           error: state.error
         }
       case ACTIONS.DELETE:
@@ -79,13 +85,18 @@ export function recipeReducer(state, action) {
         )
         return {
           recipe: state.recipe,
+          rounded: state.rounded,
           error: state.error
         }
       default:
-        return { recipe: state.recipe, error: 'Error handling recipe :(' }
+        return {
+          recipe: state.recipe,
+          rounded: false,
+          error: 'Error handling recipe :('
+        }
     }
   } catch (error) {
     console.error('Error handling recipe input: ', error)
-    return { recipe: state.recipe, error: error?.message }
+    return { recipe: state.recipe, rounded: false, error: error?.message }
   }
 }

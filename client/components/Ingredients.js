@@ -6,6 +6,7 @@ import styles from '../styles/modules/Recipe.module.css'
 
 function IngredientsList({
   ingredients,
+  showFractions,
   handleActiveIngredient,
   handleChangeIngredient,
   handleDeleteIngredient,
@@ -26,7 +27,7 @@ function IngredientsList({
                 closeSingleton={closeSingleton[1]}
                 key={ingredient.id}
                 ingredient={ingredient}
-                constant={1} // FOR TESTING
+                showFractions={showFractions}
                 handleActiveIngredient={(prop) =>
                   handleActiveIngredient({ id: ingredient.id, prop })
                 }

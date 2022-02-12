@@ -5,14 +5,13 @@
   align-items: flex-end;
 }
 
-.controls {
-  margin-bottom: var(--spacer-1);
+.control_text {
   font-size: var(--font-size-caption);
   line-height: calc(var(--font-size-caption) * 1.2);
 }
 
 @media all and (min-width: 800px) {
-  .controls {
+  .control_text {
     font-size: var(--font-size-1);
   }
 }
@@ -21,8 +20,8 @@
   color: var(--color-step-6);
 }
 
-@media all and (min-width: 800px) {
-  .controls {
+@media all and (min-width: 600px) {
+  .control_text {
     font-size: 0.8rem;
   }
 }

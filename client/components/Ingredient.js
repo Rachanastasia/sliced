@@ -10,12 +10,13 @@ export function Ingredient({
   ingredient,
   lockSingleton,
   closeSingleton,
+  showFractions,
   handleActiveIngredient,
   handleChangeIngredient,
   handleDeleteIngredient,
   handleLockedIngredient
 }) {
-  const amount = ingredient?.displayAmount()
+  const amount = ingredient?.displayAmount(showFractions)
   const amountRef = useRef('')
   const ingredientRef = useRef('')
 
