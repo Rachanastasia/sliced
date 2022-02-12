@@ -14,6 +14,7 @@ export function recipeReducer(state, action) {
           error: null
         }
       case ACTIONS.INGREDIENT: // updates individual ingredient data
+        let rollback = state
         try {
           let error = null
           if (action.payload.value.length > 20) {
@@ -53,12 +54,12 @@ export function recipeReducer(state, action) {
             error
           }
         } catch (error) {
-          console.error('CATCHING INGREDIENT UPDATE', error)
+          console.error(error)
+          return { ...rollback, error: error?.message }
         } finally {
           // Close input no matter what
           ingredient.setActive(ingredient.active)
         }
-
       case ACTIONS.ACTIVE:
         // Active can be 'none' | 'amount' | 'ingredient'
         state.recipe.ingredients.forEach((ingredient) => {
