@@ -16,7 +16,12 @@ export const ButtonToInput = forwardRef(function ButtonToInput(
   return (
     <div className={styles.label_input}>
       {active ? (
-        <Input ref={ref} text={text} onBlur={onBlur} maxLength={maxLength} />
+        <Input
+          ref={ref}
+          text={text}
+          onBlur={onBlur}
+          maxLength={`${maxLength}`}
+        />
       ) : (
         <InputButton text={text} onClick={onClick} />
       )}

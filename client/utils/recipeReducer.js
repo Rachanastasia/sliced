@@ -1,4 +1,4 @@
-import { Recipe, isNumber, toNumber } from '../slicer'
+import { Recipe, isNumber, toNumber, MAX_WORD_LENGTH } from '../slicer'
 import { ACTIONS } from '../config'
 import { getAmountInUnit } from '../slicer/utils/unit'
 
@@ -16,7 +16,7 @@ export function recipeReducer(state, action) {
         const rollback = state
         try {
           let error = null
-          if (action.payload.value.length > 30) {
+          if (action.payload.value.length > MAX_WORD_LENGTH) {
             error = 'Maximum length exceeded'
             return { recipe: state.recipe, error }
           }
@@ -24,8 +24,6 @@ export function recipeReducer(state, action) {
           const ingredient = state.recipe.ingredients.find(
             (i) => i.id === action.payload.id
           )
-          if (ingredient.locked === false) {
-          }
           if (action.payload.prop === 'amount') {
             if (isNumber(action.payload.value)) {
               // toNumber from /slicer handles fracition conversion

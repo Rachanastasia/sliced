@@ -4,6 +4,7 @@ import { IngredientLock } from './IngredientLock'
 import { ButtonToInput, Dropdown, IconButton, Tooltip } from './elements'
 
 import styles from '../styles/modules/Recipe.module.css'
+import { MAX_WORD_LENGTH } from '../slicer/utils/constants'
 
 export function Ingredient({
   ingredient,
@@ -59,6 +60,7 @@ export function Ingredient({
             active={ingredient.active === 'amount'}
             onClick={handleActiveIngredientAmount}
             onBlur={handleChangeIngredientAmount}
+            maxLength={MAX_WORD_LENGTH}
           />
         ) : ingredient.active === 'ingredient' ? (
           <ButtonToInput
@@ -67,6 +69,7 @@ export function Ingredient({
             active={ingredient.active === 'ingredient'}
             onClick={handleActiveIngredientName}
             onBlur={handleChangeIngredientName}
+            maxLength={MAX_WORD_LENGTH}
           />
         ) : (
           <Fragment>
@@ -76,6 +79,7 @@ export function Ingredient({
               active={false}
               onClick={handleActiveIngredientAmount}
               onBlur={handleChangeIngredientAmount}
+              maxLength={MAX_WORD_LENGTH}
             />
             <Dropdown
               options={[
@@ -88,6 +92,7 @@ export function Ingredient({
               active={false}
               onClick={handleActiveIngredientName}
               onBlur={handleChangeIngredientName}
+              maxLength={MAX_WORD_LENGTH}
             />
           </Fragment>
         )}
