@@ -7,6 +7,7 @@ import { forwardRef } from 'react'
 export const RecipeControls = forwardRef(function RecipeControls(
   {
     error,
+    isRounded,
     handlePaste,
     handleSetExample,
     handleStateInput,
@@ -18,6 +19,7 @@ export const RecipeControls = forwardRef(function RecipeControls(
     <div className={styles.recipe_controls}>
       <Controls
         error={error}
+        isRounded={isRounded}
         handlePaste={handlePaste}
         handleSetExample={handleSetExample}
         handleToggleRounding={handleToggleRounding}

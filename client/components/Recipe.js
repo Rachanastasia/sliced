@@ -66,6 +66,7 @@ export function Recipe() {
     <div className={styles.recipe} id="slicer">
       <RecipeControls
         ref={inputRef}
+        isRounded={state.rounded}
         input={state.recipe.input}
         handlePaste={handlePaste}
         handleSetExample={handleSetExample}
