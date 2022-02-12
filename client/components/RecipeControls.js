@@ -5,7 +5,13 @@ import styles from '../styles/modules/Recipe.module.css'
 import { forwardRef } from 'react'
 
 export const RecipeControls = forwardRef(function RecipeControls(
-  { error, handlePaste, handleSetExample, handleStateInput },
+  {
+    error,
+    handlePaste,
+    handleSetExample,
+    handleStateInput,
+    handleToggleRounding
+  },
   ref
 ) {
   return (
@@ -14,6 +20,7 @@ export const RecipeControls = forwardRef(function RecipeControls(
         error={error}
         handlePaste={handlePaste}
         handleSetExample={handleSetExample}
+        handleToggleRounding={handleToggleRounding}
       />
       <Textarea ref={ref} onBlur={handleStateInput} />
     </div>

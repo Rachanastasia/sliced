@@ -7,7 +7,8 @@ export function Controls({
   error,
   handlePaste,
   handleSetExample,
-  handleShowInfo
+  handleShowInfo,
+  handleToggleRounding
 }) {
   return (
     <div className={styles.controls_wrapper}>
@@ -19,6 +20,7 @@ export function Controls({
           <IconButton onClick={handleShowInfo} type="info" caption />
         </Tooltip>
       </div>
+      <IconButton onClick={handleToggleRounding} type="example" caption />
     </div>
   )
 }

@@ -12,7 +12,8 @@ export function Recipe() {
   // but it is called "recipe.input" in the JS data. See below.
   const [state, dispatch] = useReducer(recipeReducer, {
     recipe: new SlicerRecipe(),
-    error: null
+    error: null,
+    rounded: true
   })
 
   useEffect(() => {
@@ -24,6 +25,10 @@ export function Recipe() {
     if (inputRef?.current && inputRef.current.value !== state.recipe.input)
       inputRef.current.value = state.recipe.input
   }, [state.recipe])
+
+  const handleToggleRounding = () => {
+    dispatch({ type: ACTIONS.ROUND })
+  }
 
   // Toggles active/not state for ingredient
   const handleActiveIngredient = ({ id, prop }) =>
@@ -65,10 +70,12 @@ export function Recipe() {
         handlePaste={handlePaste}
         handleSetExample={handleSetExample}
         handleStateInput={handleStateInput}
+        handleToggleRounding={handleToggleRounding}
         error={state.error}
       />
       <Ingredients
         ingredients={state.recipe?.ingredients}
+        showFractions={state.rounded}
         handleActiveIngredient={handleActiveIngredient}
         handleChangeIngredient={handleChangeIngredient}
         handleDeleteIngredient={handleDeleteIngredient}
