@@ -1,6 +1,5 @@
-import { Recipe } from '../slicer'
+import { Recipe, isNumber, toNumber } from '../slicer'
 import { ACTIONS } from '../config'
-import { isDigit } from './isDigit'
 import { getAmountInUnit } from '../slicer/utils/unit'
 
 export function recipeReducer(state, action) {
@@ -28,15 +27,16 @@ export function recipeReducer(state, action) {
           if (ingredient.locked === false) {
           }
           if (action.payload.prop === 'amount') {
-            if (isDigit(action.payload.value)) {
+            if (isNumber(action.payload.value)) {
+              // toNumber from /slicer handles fracition conversion
+              const value = toNumber(action.payload.value)
               // if Ingredient is "locked" into the recipe,
               //    state.constant is updated based on the ratio
               if (ingredient.unit && ingredient.unit?.ml) {
                 constant =
-                  action.payload.value /
-                  getAmountInUnit(ingredient.amount, ingredient.unit)
+                  value / getAmountInUnit(ingredient.amount, ingredient.unit)
               } else {
-                constant = action.payload.value / ingredient.amount
+                constant = value / ingredient.amount
               }
               if (ingredient.locked === true) {
                 state.recipe.scale(constant)
