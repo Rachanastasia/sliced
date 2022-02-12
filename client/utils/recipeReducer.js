@@ -16,7 +16,7 @@ export function recipeReducer(state, action) {
         const rollback = state
         try {
           let error = null
-          if (action.payload.value.length > 20) {
+          if (action.payload.value.length > 30) {
             error = 'Maximum length exceeded'
             return { recipe: state.recipe, error }
           }
