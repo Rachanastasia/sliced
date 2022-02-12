@@ -13,7 +13,7 @@ export function recipeReducer(state, action) {
           error: null
         }
       case ACTIONS.INGREDIENT: // updates individual ingredient data
-        let rollback = state
+        const rollback = state
         try {
           let error = null
           if (action.payload.value.length > 20) {
@@ -47,7 +47,7 @@ export function recipeReducer(state, action) {
               error = 'Please enter a number'
             }
           } else if (action.payload.prop === 'ingredient') {
-            ingredient.setName(action.payload.value, false)
+            ingredient.setNewName(action.payload.value, false)
           }
           return {
             recipe: state.recipe,
@@ -57,8 +57,8 @@ export function recipeReducer(state, action) {
           console.error(error)
           return { ...rollback, error: error?.message }
         } finally {
-          // Close input no matter what
-          ingredient.setActive(ingredient.active)
+          // Close input unless ingredient is undefined
+          if (ingredient) ingredient.setActive(ingredient.active)
         }
       case ACTIONS.ACTIVE:
         // Active can be 'none' | 'amount' | 'ingredient'

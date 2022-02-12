@@ -10,7 +10,7 @@ import styles from '../../styles/modules/ButtonToInput.module.css'
  */
 
 export const ButtonToInput = forwardRef(function ButtonToInput(
-  { active = false, text, onClick, onBlur, maxLength = 100 },
+  { active = false, text, onClick, onBlur, maxLength = '30' },
   ref
 ) {
   return (
