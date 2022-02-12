@@ -9,6 +9,7 @@
   --color-step-3: hsla(14, 100%, 59%, 0.8);
   --color-step-4: hsla(14, 100%, 79%, 0.28);
   --color-step-5: hsla(14, 59%, 29%, 0.8);
+  --color-step-6: hsla(14, 100%, 49%, 1);
 
   --icon-button-width: 26px;
   --icon-button-offset: calc(2 * var(--icon-button-width));

@@ -1,6 +1,5 @@
-import { Recipe } from '../slicer'
+import { Recipe, isNumber, toNumber } from '../slicer'
 import { ACTIONS } from '../config'
-import { isDigit } from './isDigit'
 import { getAmountInUnit } from '../slicer/utils/unit'
 
 export function recipeReducer(state, action) {
@@ -14,28 +13,24 @@ export function recipeReducer(state, action) {
           error: null
         }
       case ACTIONS.INGREDIENT: // updates individual ingredient data
+        const rollback = state
         try {
           let error = null
-          if (action.payload.value.length > 20) {
-            error = 'Maximum length exceeded'
-            return { recipe: state.recipe, error }
-          }
           let constant = state.recipe.constant
           const ingredient = state.recipe.ingredients.find(
             (i) => i.id === action.payload.id
           )
-          if (ingredient.locked === false) {
-          }
           if (action.payload.prop === 'amount') {
-            if (isDigit(action.payload.value)) {
+            if (isNumber(action.payload.value)) {
+              // toNumber from /slicer handles fracition conversion
+              const value = toNumber(action.payload.value)
               // if Ingredient is "locked" into the recipe,
               //    state.constant is updated based on the ratio
               if (ingredient.unit && ingredient.unit?.ml) {
                 constant =
-                  action.payload.value /
-                  getAmountInUnit(ingredient.amount, ingredient.unit)
+                  value / getAmountInUnit(ingredient.amount, ingredient.unit)
               } else {
-                constant = action.payload.value / ingredient.amount
+                constant = value / ingredient.amount
               }
               if (ingredient.locked === true) {
                 state.recipe.scale(constant)
@@ -46,19 +41,19 @@ export function recipeReducer(state, action) {
               error = 'Please enter a number'
             }
           } else if (action.payload.prop === 'ingredient') {
-            ingredient.setName(action.payload.value, false)
+            ingredient.setNewName(action.payload.value, false)
           }
           return {
             recipe: state.recipe,
             error
           }
         } catch (error) {
-          console.error('CATCHING INGREDIENT UPDATE', error)
+          console.error(error)
+          return { ...rollback, error: error?.message }
         } finally {
-          // Close input no matter what
-          ingredient.setActive(ingredient.active)
+          // Close input unless ingredient is undefined
+          if (ingredient) ingredient.setActive(ingredient.active)
         }
-
       case ACTIONS.ACTIVE:
         // Active can be 'none' | 'amount' | 'ingredient'
         state.recipe.ingredients.forEach((ingredient) => {
