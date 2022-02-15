@@ -1,10 +1,10 @@
 import { useRef, Fragment } from 'react'
+import { MAX_WORD_LENGTH } from 'recipe-slicer'
 
 import { IngredientLock } from './IngredientLock'
 import { ButtonToInput, Dropdown, IconButton, Tooltip } from './elements'
 
 import styles from '../styles/modules/Recipe.module.css'
-import { MAX_WORD_LENGTH } from '../slicer/utils/constants'
 
 export function Ingredient({
   ingredient,
