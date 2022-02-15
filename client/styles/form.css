@@ -39,7 +39,7 @@ input::placeholder {
 
 input:active,
 input:focus {
-  background-color: var(--color-step-2);
+  background-color: var(--color-step-7);
 }
 
 textarea {

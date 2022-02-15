@@ -13,7 +13,8 @@ body {
   min-width: 300px;
   width: 100vw;
   overflow-x: hidden;
-  background-color: var(--color-step-4);
+  background-image: url(pepper.svg);
+  background-position-x: 75px;
 }
 
 #App {

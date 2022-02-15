@@ -12,7 +12,7 @@
 }
 
 .button:hover svg {
-  fill: var(--color-step-3);
+  fill: var(--color-step-6);
 }
 
 .button svg {
