@@ -4,12 +4,13 @@
   --button-to-input-height: 40px;
 
   --color-step-0: hsla(14, 100%, 29%, 0.28);
-  --color-step-1: hsla(14, 100%, 39%, 0.28);
-  --color-step-2: hsla(14, 100%, 49%, 0.28);
+  --color-step-1: hsla(37, 100%, 59%, 0.59);
+  --color-step-2: hsla(37, 100%, 49%, 0.68);
   --color-step-3: hsla(14, 100%, 59%, 0.8);
   --color-step-4: hsla(14, 100%, 79%, 0.28);
   --color-step-5: hsla(14, 59%, 29%, 0.8);
-  --color-step-6: hsla(14, 100%, 49%, 1);
+  --color-step-6: #e65100;
+  --color-step-7: #ffa726;
 
   --icon-button-width: 26px;
   --icon-button-offset: calc(2 * var(--icon-button-width));

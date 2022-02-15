@@ -24,6 +24,7 @@ export default function Home() {
           href={`https://fonts.googleapis.com/css2?family=Rubik:wght@300;400&display=swap`}
           rel="stylesheet"
         />
+        <link rel="shortcut icon" href="/static/favicon.svg" />
       </Head>
       <main>
         <Header />
