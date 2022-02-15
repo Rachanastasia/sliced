@@ -16,13 +16,12 @@
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-icons": "^4.2.0",
+    "recipe-slicer": "latest",
     "uuidv4": "^6.2.12"
   },
   "devDependencies": {
-    "@types/react": "17.0.21",
     "eslint": "7.32.0",
     "eslint-config-next": "11.1.2",
-    "jest": "^27.0.6",
-    "typescript": "4.4.3"
+    "jest": "^27.0.6"
   }
 }
