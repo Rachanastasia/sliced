@@ -1,6 +1,5 @@
-import { Recipe, isNumber, toNumber } from '../slicer'
+import { Recipe, isNumber, toNumber, getAmountInUnit } from 'recipe-slicer'
 import { ACTIONS } from '../config'
-import { getAmountInUnit } from '../slicer/utils/unit'
 
 export function recipeReducer(state, action) {
   try {

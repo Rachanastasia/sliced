@@ -1,5 +1,5 @@
 import React, { useEffect, useReducer, useRef } from 'react'
-import { Recipe as SlicerRecipe } from '../slicer'
+import { Recipe as SlicerRecipe } from 'recipe-slicer'
 import { ACTIONS, sample } from '../config'
 import { Ingredients } from './Ingredients'
 import { RecipeControls } from './RecipeControls'

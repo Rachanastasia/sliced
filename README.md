@@ -2,7 +2,7 @@
 
 Welcome to Sliced, an app to parse and manipulate recipes.
 
-This repo contains the Sliced web app. The TypeScript algorithm used to parse and manipulate recipe data resides in [its own repo](https://github.com/rachelrly/slicer).
+This repo contains the Sliced web app. The TypeScript algorithm used for the parsing and scaling functionality data resides in [its own repo](https://github.com/rachelrly/slicer) and can be installed independedntly from the npm registry with `npm i recipe-slicer`.
 
 ## User Story
 
@@ -14,7 +14,6 @@ This repo contains the Sliced web app. The TypeScript algorithm used to parse an
 
 - React
 - Next.js
-- Jest
 - CSS3 Modules
 
 ## Codebase
