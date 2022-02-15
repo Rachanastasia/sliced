@@ -14,6 +14,7 @@ body {
   width: 100vw;
   overflow-x: hidden;
   background-image: url(pepper.svg);
+  background-position-x: 75px;
 }
 
 #App {
