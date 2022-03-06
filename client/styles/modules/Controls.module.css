@@ -17,7 +17,7 @@
 }
 
 .error {
-  color: var(--color-step-6);
+  color: var(--color-text-error);
 }
 
 @media all and (min-width: 600px) {

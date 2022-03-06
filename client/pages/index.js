@@ -7,6 +7,17 @@ export default function Home() {
   return (
     <Fragment>
       <Head>
+        <meta
+          name="image"
+          property="og:image"
+          content="https://www.flickr.com/photos/194941749@N07/51922591540/in/dateposted-public/"
+          key="ogimage"
+        />
+        <meta
+          property="og:description"
+          content="Sliced is an app that parses and scales recipes, allowing users to scale a recipe by changing the amounts of certain ingredients."
+          key="ogdesc"
+        />
         <title>Sliced | Scale and Edit your Recipes</title>
         <link
           rel="preconnect"
