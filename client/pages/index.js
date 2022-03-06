@@ -10,7 +10,7 @@ export default function Home() {
         <meta
           name="image"
           property="og:image"
-          content="../styles/pepper.svg"
+          content="https://www.flickr.com/photos/194941749@N07/51922591540/in/dateposted-public/"
           key="ogimage"
         />
         <meta
